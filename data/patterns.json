@@ -1,0 +1,1187 @@
+[
+  {
+    "id": "pat-1",
+    "level": 1,
+    "category": "algebra",
+    "title": "Algebrski sistem dveh enačb",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["A + B = 60", "A - B = 40", "A / B = ?"]
+    },
+    "answer": "5",
+    "answers": ["5", "pet"],
+    "hints": [
+      "Začni s seštevanjem obeh enačb: (A + B) + (A – B) = 60 + 40, s čimer dobiš 2A = 100.",
+      "Iz 2A = 100 sledi A = 50. Iz prve enačbe 50 + B = 60 nato določi B = 10.",
+      "Izračunaj količnik A / B, torej 50 / 10."
+    ],
+    "explanation": "Z združitvijo enačb dobimo 2A = 100 → A = 50. Ker je A + B = 60, je B = 10. Količnik A / B je 50 / 10 = 5."
+  },
+  {
+    "id": "pat-2",
+    "level": 2,
+    "category": "triangles",
+    "title": "Trikotne relacije oglišč",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 5,
+          "right": 10,
+          "bottom": 2
+        },
+        {
+          "left": 4,
+          "right": 32,
+          "bottom": 8
+        },
+        {
+          "left": 4,
+          "right": 20,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "5",
+    "answers": ["5", "pet"],
+    "hints": [
+      "Opazuj odnos med levim in spodnjim številom napram desnemu številu.",
+      "V prvem trikotniku velja: 5 × 2 = 10. V drugem: 4 × 8 = 32.",
+      "Za tretji trikotnik izračunaj neznano število: 4 × ? = 20."
+    ],
+    "explanation": "Pravilo v vsakem trikotniku je: Levo število × Spodnje število = Desno število. V tretjem trikotniku: 4 × 5 = 20, zato je neznano število 5."
+  },
+  {
+    "id": "pat-3",
+    "level": 3,
+    "category": "fruit",
+    "title": "Sadna aritmetična enačba",
+    "type": "fruit_algebra",
+    "data": {
+      "lines": ["🍎 + 🍎 = 10", "🍎 × 🍌 = 15", "🍌 - 🍇 = 1", "🍇 + 🍎 × 🍌 = ?"]
+    },
+    "answer": "17",
+    "answers": ["17", "sedemnajst"],
+    "hints": [
+      "Iz prve vrstice izračunaj vrednost jabolka: 2 🍎 = 10 → 🍎 = 5.",
+      "Vstavi jabolko v drugo vrstico: 5 × 🍌 = 15 → 🍌 = 3. Iz tretje vrstice: 3 – 🍇 = 1 → 🍇 = 2.",
+      "Izračunaj končni izraz: 🍇 + 🍎 × 🍌 = 2 + 5 × 3 (pazi na prednost množenja)."
+    ],
+    "explanation": "🍎 = 5, 🍌 = 3, 🍇 = 2. Upoštevamo prednost množenja: 2 + (5 × 3) = 2 + 15 = 17."
+  },
+  {
+    "id": "pat-4",
+    "level": 4,
+    "category": "counting",
+    "title": "Prostorsko štetje kvadratov 2 × 2",
+    "type": "spatial_counting",
+    "data": {
+      "gridSize": 2,
+      "prompt": "Koliko kvadratov vseh velikosti vsebuje ta mreža?"
+    },
+    "answer": "5",
+    "answers": ["5", "pet"],
+    "hints": [
+      "Najprej preštej vse posamezne male kvadrate velikosti 1 × 1.",
+      "Mreža vsebuje 4 male kvadrate (1 × 1) ter 1 velik zunanji kvadrat (2 × 2).",
+      "Seštej vse male in velike kvadrate skupaj."
+    ],
+    "explanation": "V mreži 2 × 2 imamo 4 posamezne kvadrate velikosti 1 × 1 ter 1 celoten zunanji kvadrat velikosti 2 × 2. Skupaj je 4 + 1 = 5 kvadratov."
+  },
+  {
+    "id": "pat-5",
+    "level": 5,
+    "category": "wheel",
+    "title": "Številčno kolo z nasprotnimi krakoma",
+    "type": "wheel_spokes",
+    "data": {
+      "pairs": [
+        {
+          "top": 24,
+          "bottom": 9
+        },
+        {
+          "top": 18,
+          "bottom": 15
+        },
+        {
+          "top": 20,
+          "bottom": 13
+        },
+        {
+          "top": "?",
+          "bottom": 28
+        }
+      ]
+    },
+    "answer": "5",
+    "answers": ["5", "pet"],
+    "hints": [
+      "Primerjaj vsoto števil na nasprotnih straneh kolesa.",
+      "V prvem paru je vsota: 24 + 9 = 33. V drugem paru: 18 + 15 = 33. V tretjem: 20 + 13 = 33.",
+      "Poišči neznano število v zadnjem paru, da bo vsota enaka 33: ? + 28 = 33."
+    ],
+    "explanation": "Vsota števil na nasprotnih krakih kolesa je vedno 33. Za zadnji par velja: ? + 28 = 33 → ? = 5."
+  },
+  {
+    "id": "pat-6",
+    "level": 6,
+    "category": "operators",
+    "title": "Vzorčni operator Kvadratna razlika",
+    "type": "operator_rule",
+    "data": {
+      "lines": ["4 ⊗ 2 = 14", "5 ⊗ 3 = 22", "6 ⊗ 4 = ?"]
+    },
+    "answer": "32",
+    "answers": ["32", "dvaintrideset"],
+    "hints": [
+      "Prvo število najprej kvadriraj (pomnoži samo s seboj).",
+      "Pri 4 ⊗ 2: 4² = 16, nato odštej 2: 16 – 2 = 14. Pri 5 ⊗ 3: 5² = 25, 25 – 3 = 22.",
+      "Izračunaj vrednost po istem pravilu za 6 ⊗ 4: 6² – 4."
+    ],
+    "explanation": "Pravilo operatorja ⊗ je X ⊗ Y = X² – Y. Za 6 ⊗ 4 izračunamo 6² – 4 = 36 – 4 = 32."
+  },
+  {
+    "id": "pat-7",
+    "level": 7,
+    "category": "pyramid",
+    "title": "Piramida opeke (3 nivoji)",
+    "type": "pyramid_bricks",
+    "data": {
+      "bottom": [3, 4, 5],
+      "prompt": "Dopolni številsko piramido. Katero število je na vrhu?",
+      "middle": [7, null]
+    },
+    "answer": "16",
+    "answers": ["16", "šestnajst"],
+    "hints": [
+      "Opazi, da je leva sredinska opeka 7 že izpolnjena – kako je dobljena iz 3 in 4?",
+      "Druga sredinska opeka je vsota 4 + 5 = 9.",
+      "Vrh piramide je vsota obeh sredinskih opek: 7 + 9."
+    ],
+    "explanation": "Sredinski nivo: 3+4=7 (že prikazano) in 4+5=9. Vrh = 7+9=16. Skrito pravilo je seštevanje dveh sosednjih opek."
+  },
+  {
+    "id": "pat-8",
+    "level": 8,
+    "category": "domino",
+    "title": "Zaporedje domino ploščic",
+    "type": "domino_tiles",
+    "data": {
+      "tiles": [
+        {
+          "top": 2,
+          "bottom": 4
+        },
+        {
+          "top": 3,
+          "bottom": 5
+        },
+        {
+          "top": 4,
+          "bottom": 6
+        },
+        {
+          "top": 5,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "7",
+    "answers": ["7", "sedem"],
+    "hints": [
+      "Opazuj razliko ali vsoto pik med zgornjim in spodnjim delom ploščice.",
+      "V vsaki ploščici je spodnje število za 2 večje od zgornjega (4-2=2, 5-3=2, 6-4=2).",
+      "Za zadnjo ploščico s število 5 zgoraj izračunaj: 5 + 2."
+    ],
+    "explanation": "Spodnje število domino ploščice je vedno za 2 večje od zgornjega. Za 5 zgoraj dobimo 5 + 2 = 7."
+  },
+  {
+    "id": "pat-9",
+    "level": 9,
+    "category": "algebra",
+    "title": "Sistem treh simbolnih enačb",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["X + X + X = 30", "X + Y + Y = 20", "Y + Z + Z = 9", "X + Y × Z = ?"]
+    },
+    "answer": "20",
+    "answers": ["20", "dvajset"],
+    "hints": [
+      "Iz prve enačbe (3X = 30) izračunaj vrednost X = 10.",
+      "Vstavi X v drugo enačbo: 10 + 2Y = 20 → Y = 5. Nato iz tretje: 5 + 2Z = 9 → Z = 2.",
+      "Izračunaj končni izraz X + Y × Z (pazi na prednost množenja): 10 + 5 × 2."
+    ],
+    "explanation": "X = 10, Y = 5, Z = 2. Upoštevamo prednost operacije množenja: X + Y × Z = 10 + (5 × 2) = 10 + 10 = 20."
+  },
+  {
+    "id": "pat-10",
+    "level": 10,
+    "category": "triangles",
+    "title": "Pitagorejski trikotni vzorec",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 3,
+          "right": 4,
+          "bottom": 25
+        },
+        {
+          "left": 5,
+          "right": 12,
+          "bottom": 169
+        },
+        {
+          "left": 6,
+          "right": 8,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "100",
+    "answers": ["100", "sto"],
+    "hints": [
+      "Kvadriraj levo in desno število ter ju seštej.",
+      "V 1. trikotniku: 3² + 4² = 9 + 16 = 25. V 2. trikotniku: 5² + 12² = 25 + 144 = 169.",
+      "Za 3. trikotnik izračunaj: 6² + 8²."
+    ],
+    "explanation": "Spodnje število je vsota kvadratov obeh zgornjih števil: 6² + 8² = 36 + 64 = 100."
+  },
+  {
+    "id": "pat-11",
+    "level": 11,
+    "category": "clocks",
+    "title": "Časovno zaporedje ure",
+    "type": "clock_faces",
+    "data": {
+      "clocks": [1, 3, 5, "?"]
+    },
+    "answer": "7",
+    "answers": ["7", "sedem"],
+    "hints": [
+      "Opazuj premik stenskih ur v zaporedju.",
+      "Vsaka ura se premakne za natanko 2 uri naprej: 1:00 → 3:00 → 5:00.",
+      "Dodaj 2 uri h 5:00 za določitev četrt ure."
+    ],
+    "explanation": "Zaporedje ur narašča za +2 uri: 1:00, 3:00, 5:00, 7:00. Odgovor je 7."
+  },
+  {
+    "id": "pat-12",
+    "level": 12,
+    "category": "pie",
+    "title": "Krožni izseki potenc",
+    "type": "pie_sectors",
+    "data": {
+      "sectors": [
+        {
+          "left": 4,
+          "right": 16
+        },
+        {
+          "left": 5,
+          "right": 25
+        },
+        {
+          "left": 6,
+          "right": "?"
+        }
+      ]
+    },
+    "answer": "36",
+    "answers": ["36", "šestintrideset"],
+    "hints": [
+      "Primerjaj desni izsek z levim izsekom kroga.",
+      "Desni izsek je kvadrat levega izseka: 4² = 16 in 5² = 25.",
+      "Za tretji krog z vrednostjo 6 izračunaj: 6²."
+    ],
+    "explanation": "Desni del krožnega izseka je kvadrat levega dela: 6² = 36."
+  },
+  {
+    "id": "pat-13",
+    "level": 13,
+    "category": "counting",
+    "title": "Prostorsko štetje kvadratov 3 × 3",
+    "type": "spatial_counting",
+    "data": {
+      "gridSize": 3,
+      "prompt": "Koliko kvadratov vseh velikosti vsebuje ta mreža?"
+    },
+    "answer": "14",
+    "answers": ["14", "štirinajst"],
+    "hints": [
+      "Preštej kvadrate po velikostih: 1 × 1, 2 × 2 in 3 × 3.",
+      "Kvadratov 1 × 1 je 9, kvadratov 2 × 2 je 4, zunanji kvadrat 3 × 3 pa je 1.",
+      "Seštej vse tri skupine kvadratov: 9 + 4 + 1."
+    ],
+    "explanation": "Število kvadratov v mreži 3 × 3 izračunamo kot vsoto kvadratov dimenzij: 3² + 2² + 1² = 9 + 4 + 1 = 14 kvadratov."
+  },
+  {
+    "id": "pat-14",
+    "level": 14,
+    "category": "matrix",
+    "title": "Matrika – potence",
+    "type": "matrix_grid",
+    "data": {
+      "rows": [
+        [2, 4, 8],
+        [3, 9, 27],
+        [4, 16, "?"]
+      ]
+    },
+    "answer": "64",
+    "answers": ["64", "štiriinšestdeset"],
+    "hints": [
+      "Opazuj napredovanje števil v posamezni vrstici.",
+      "Prva vrstica: 2¹=2, 2²=4, 2³=8. Druga vrstica: 3¹=3, 3²=9, 3³=27.",
+      "Tretja vrstica sledi vzorcu potenc števila 4: 4¹=4, 4²=16, 4³=?"
+    ],
+    "explanation": "Stolpci predstavljajo 1., 2. in 3. potenco začetnega števila vrstice. Za 4 je tretja potenca 4³ = 64."
+  },
+  {
+    "id": "pat-15",
+    "level": 15,
+    "category": "operators",
+    "title": "Operator z množenjem in seštevanjem",
+    "type": "operator_rule",
+    "data": {
+      "lines": ["3 ⊕ 5 = 20", "4 ⊕ 6 = 30", "5 ⊕ 7 = ?"]
+    },
+    "answer": "42",
+    "answers": ["42", "dveinštirideset"],
+    "hints": [
+      "Zmnožku obeh števil prištej drugo število.",
+      "Pri 3 ⊕ 5: (3 × 5) + 5 = 15 + 5 = 20. Pri 4 ⊕ 6: (4 × 6) + 6 = 24 + 6 = 30.",
+      "Izračunaj vrednost po istem pravilu za 5 ⊕ 7: (5 × 7) + 7."
+    ],
+    "explanation": "Pravilo operatorja je A ⊕ B = A × B + B. Za 5 ⊕ 7 dobimo: (5 × 7) + 7 = 35 + 7 = 42."
+  },
+  {
+    "id": "pat-16",
+    "level": 16,
+    "category": "star",
+    "title": "Središčni vozel 6-krake zvezde",
+    "type": "hexagon_star",
+    "data": {
+      "nodes": [5, 10, 15, 20, 25, 30],
+      "prompt": "Središčni vozel zvezde je vsota vseh 6 zunanjih vozlov. Koliko znaša središčni vozel?"
+    },
+    "answer": "105",
+    "answers": ["105", "sto pet"],
+    "hints": [
+      "Seštej vsa zunanja števila na krakih zvezde: 5, 10, 15, 20, 25, 30.",
+      "Združi v pare: (5 + 30) + (10 + 25) + (15 + 20) = 35 + 35 + 35.",
+      "Izračunaj skupno vsoto: 35 × 3."
+    ],
+    "explanation": "Vsota vseh 6 zunanjih števil na zvezdi je 5 + 10 + 15 + 20 + 25 + 30 = 105."
+  },
+  {
+    "id": "pat-17",
+    "level": 17,
+    "category": "algebra",
+    "title": "Sistem zmnožkov treh neznank",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["A × B = 24", "B × C = 18", "A × C = 12", "A + B + C = ?"]
+    },
+    "answer": "13",
+    "answers": ["13", "trinajst"],
+    "hints": [
+      "Poišči celoštevilske faktorje za A, B in C.",
+      "Ker je A × C = 12 in A × B = 24, je B dvakrat večji od C. Preveri vrednosti A=4, B=6, C=3.",
+      "Preveri ustrezen zmnožek: 4 × 6=24, 6 × 3=18, 4 × 3=12. Seštej A + B + C."
+    ],
+    "explanation": "Iz faktorjev dobimo A = 4, B = 6 in C = 3. Vsota neznank je A + B + C = 4 + 6 + 3 = 13."
+  },
+  {
+    "id": "pat-18",
+    "level": 18,
+    "category": "triangles",
+    "title": "Trikotna delitvena relacija",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 12,
+          "right": 4,
+          "bottom": 3
+        },
+        {
+          "left": 35,
+          "right": 7,
+          "bottom": 5
+        },
+        {
+          "left": 54,
+          "right": 6,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "9",
+    "answers": ["9", "devet"],
+    "hints": [
+      "Leve število deli z desnim številom.",
+      "Prvi trikotnik: 12 / 4 = 3. Drugi trikotnik: 35 / 7 = 5.",
+      "Za tretji trikotnik deli: 54 / 6."
+    ],
+    "explanation": "Spodnje število dobimo tako, da levo število delimo z desnim številom: 54 / 6 = 9."
+  },
+  {
+    "id": "pat-19",
+    "level": 19,
+    "category": "fruit",
+    "title": "Hrana in pijača – simbolni sistem",
+    "type": "fruit_algebra",
+    "data": {
+      "lines": ["🍕 + 🍕 + 🍕 = 30", "🍕 + 🍔 + 🍔 = 20", "🍔 + 🥤 + 🥤 = 9", "🍔 + 🍕 × 🥤 = ?"]
+    },
+    "answer": "25",
+    "answers": ["25", "petindvajset"],
+    "hints": [
+      "Iz prve vrstice: 3 🍕 = 30 → 🍕 = 10.",
+      "Iz druge vrstice: 10 + 2 🍔 = 20 → 🍔 = 5. Iz tretje vrstice: 5 + 2 🥤 = 9 → 🥤 = 2.",
+      "Izračunaj: 🍔 + 🍕 × 🥤 = 5 + 10 × 2."
+    ],
+    "explanation": "🍕 = 10, 🍔 = 5, 🥤 = 2. Upoštevamo prednost množenja: 5 + (10 × 2) = 5 + 20 = 25."
+  },
+  {
+    "id": "pat-20",
+    "level": 20,
+    "category": "pyramid",
+    "title": "Piramida opeke (4 nivoji)",
+    "type": "pyramid_bricks",
+    "data": {
+      "bottom": [2, 5, 3, 4],
+      "middle": [7, 8, 7],
+      "prompt": "Vsaka zgornja opeka je vsota spodnjih opek. Izračunaj sam vrh piramide."
+    },
+    "answer": "30",
+    "answers": ["30", "trideset"],
+    "hints": [
+      "2. nivo nad osnovnico: 2+5=7, 5+3=8, 3+4=7. Dobimo [7, 8, 7].",
+      "3. nivo nad osnovnico: 7+8=15, 8+7=15. Dobimo [15, 15].",
+      "Vrh piramide je vsota dveh opek iz 3. nivoja: 15 + 15."
+    ],
+    "explanation": "Nivo 2: [7, 8, 7]. Nivo 3: [15, 15]. Vrh piramide: 15 + 15 = 30."
+  },
+  {
+    "id": "pat-21",
+    "level": 21,
+    "category": "wheel",
+    "title": "Številčno kolo z enakim zmnožkom",
+    "type": "wheel_spokes",
+    "data": {
+      "pairs": [
+        {
+          "top": 2,
+          "bottom": 18
+        },
+        {
+          "top": 3,
+          "bottom": 12
+        },
+        {
+          "top": 4,
+          "bottom": 9
+        },
+        {
+          "top": "?",
+          "bottom": 6
+        }
+      ]
+    },
+    "answer": "6",
+    "answers": ["6", "šest"],
+    "hints": [
+      "Zmnoži števili na nasprotnih krakih kolesa.",
+      "Prvi par: 2 × 18 = 36. Drugi par: 3 × 12 = 36. Tretji par: 4 × 9 = 36.",
+      "Izračunaj neznano število v zadnjem paru: ? × 6 = 36."
+    ],
+    "explanation": "Zmnožek nasprotnih števil na kolesu znaša vedno 36. Za neznani krak velja: ? × 6 = 36 → ? = 6."
+  },
+  {
+    "id": "pat-22",
+    "level": 22,
+    "category": "counting",
+    "title": "Štetje razdeljenih trikotnikov",
+    "type": "spatial_counting",
+    "data": {
+      "gridSize": 0,
+      "prompt": "Koliko trikotnikov vseh velikosti vsebuje velika struktura, ki je razdeljena z 2 navpičnima črtama iz vrha na osnovnico?"
+    },
+    "answer": "6",
+    "answers": ["6", "šest"],
+    "hints": [
+      "Razdeljen trikotnik z 2 notranjima navpičnima razdelitvama tvori 3 male trikotnike.",
+      "Poleg 3 malih enojnih trikotnikov obstajata 2 srednje velika sestavljena trikotnika (iz dveh delov) ter 1 celoten zunanji trikotnik.",
+      "Seštej vse trikotnike: 3 + 2 + 1."
+    ],
+    "explanation": "Število trikotnikov v liku z n razdelki dobimo z vsoto 1 + 2 + 3 = 6 trikotnikov."
+  },
+  {
+    "id": "pat-23",
+    "level": 23,
+    "category": "matrix",
+    "title": "Matrika – vsote vrstic",
+    "type": "matrix_grid",
+    "data": {
+      "rows": [
+        [3, 5, 8],
+        [4, 7, 11],
+        [6, 9, "?"]
+      ]
+    },
+    "answer": "15",
+    "answers": ["15", "petnajst"],
+    "hints": [
+      "Seštej prvi dve števili v vsaki vrstici.",
+      "Vrstica 1: 3 + 5 = 8. Vrstica 2: 4 + 7 = 11.",
+      "Za tretjo vrstico seštej: 6 + 9."
+    ],
+    "explanation": "Tretje število v vsaki vrstici je vsota prvih dveh števil: 6 + 9 = 15."
+  },
+  {
+    "id": "pat-24",
+    "level": 24,
+    "category": "operators",
+    "title": "Operator vsote kvadratov",
+    "type": "operator_rule",
+    "data": {
+      "lines": ["2 ⚡ 3 = 13", "3 ⚡ 4 = 25", "4 ⚡ 5 = ?"]
+    },
+    "answer": "41",
+    "answers": ["41", "enaindvorideset"],
+    "hints": [
+      "Kvadriraj obe števili in ju seštej.",
+      "Pri 2 ⚡ 3: 2² + 3² = 4 + 9 = 13. Pri 3 ⚡ 4: 3² + 4² = 9 + 16 = 25.",
+      "Za 4 ⚡ 5 izračunaj: 4² + 5²."
+    ],
+    "explanation": "Pravilo operatorja ⚡ je X ⚡ Y = X² + Y². Za 4 ⚡ 5 dobimo: 4² + 5² = 16 + 25 = 41."
+  },
+  {
+    "id": "pat-25",
+    "level": 25,
+    "category": "domino",
+    "title": "Podvojeno zaporedje domina",
+    "type": "domino_tiles",
+    "data": {
+      "tiles": [
+        {
+          "top": 1,
+          "bottom": 2
+        },
+        {
+          "top": 2,
+          "bottom": 4
+        },
+        {
+          "top": 3,
+          "bottom": 6
+        },
+        {
+          "top": 4,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "8",
+    "answers": ["8", "osem"],
+    "hints": [
+      "Spodnje število je dvakratnik zgornjega števila v vsaki ploščici.",
+      "Ploščica 1: 1 × 2 = 2. Ploščica 2: 2 × 2 = 4. Ploščica 3: 3 × 2 = 6.",
+      "Za ploščico 4 izračunaj: 4 × 2."
+    ],
+    "explanation": "Spodnji del domino ploščice predstavlja dvakratnik zgornjega dela. Za 4 na zgornjem delu velja 4 × 2 = 8."
+  },
+  {
+    "id": "pat-26",
+    "level": 26,
+    "category": "algebra",
+    "title": "Verižni algebrski sistem",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["A + A = 10", "A × B + B = 18", "B × C - C = 10", "A + B × C = ?"]
+    },
+    "answer": "20",
+    "answers": ["20", "dvajset"],
+    "hints": [
+      "Iz prve enačbe: 2A = 10 → A = 5.",
+      "Z vstavljanjem v drugo: 5B + B = 18 → 6B = 18 → B = 3. V tretji: 3C – C = 10 → 2C = 10 → C = 5.",
+      "Izračunaj končno vrednost A + B × C (pazi na prednost množenja): 5 + 3 × 5."
+    ],
+    "explanation": "A = 5, B = 3, C = 5. Končni izračun: 5 + (3 × 5) = 5 + 15 = 20."
+  },
+  {
+    "id": "pat-27",
+    "level": 27,
+    "category": "triangles",
+    "title": "Trikotnik z dvojno vsoto",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 7,
+          "right": 3,
+          "bottom": 20
+        },
+        {
+          "left": 9,
+          "right": 5,
+          "bottom": 28
+        },
+        {
+          "left": 11,
+          "right": 4,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "30",
+    "answers": ["30", "trideset"],
+    "hints": [
+      "Seštej obe zgornji števili in rezultat pomnoži z 2.",
+      "V 1. trikotniku: (7 + 3) × 2 = 20. V 2. trikotniku: (9 + 5) × 2 = 28.",
+      "Za 3. trikotnik izračunaj: (11 + 4) × 2."
+    ],
+    "explanation": "Spodnje število je dvakratnik vsote obeh zgornjih števil: (11 + 4) × 2 = 15 × 2 = 30."
+  },
+  {
+    "id": "pat-28",
+    "level": 28,
+    "category": "counting",
+    "title": "Prostorsko štetje kvadratov 4 × 4",
+    "type": "spatial_counting",
+    "data": {
+      "gridSize": 4,
+      "prompt": "Koliko kvadratov vseh velikosti vsebuje mreža 4 × 4?"
+    },
+    "answer": "30",
+    "answers": ["30", "trideset"],
+    "hints": [
+      "Seštej kvadrate po velikostih: 1 × 1 (16), 2 × 2 (9), 3 × 3 (4) in 4 × 4 (1).",
+      "Uporabi pravilo vsote kvadratov: 4² + 3² + 2² + 1².",
+      "Seštej: 16 + 9 + 4 + 1."
+    ],
+    "explanation": "Vsota vseh kvadratov v mreži 4 × 4 znaša 16 + 9 + 4 + 1 = 30 kvadratov."
+  },
+  {
+    "id": "pat-29",
+    "level": 29,
+    "category": "matrix",
+    "title": "Matrika – vsota kvadratov",
+    "type": "matrix_grid",
+    "data": {
+      "rows": [
+        [2, 3, 13],
+        [4, 1, 17],
+        [5, 2, "?"]
+      ]
+    },
+    "answer": "29",
+    "answers": ["29", "devetindvajset"],
+    "hints": [
+      "Kvadriraj prvi dve števili v vrstici in ju seštej.",
+      "Vrstica 1: 2² + 3² = 4 + 9 = 13. Vrstica 2: 4² + 1² = 16 + 1 = 17.",
+      "Za tretjo vrstico izračunaj: 5² + 2²."
+    ],
+    "explanation": "Tretji stolpec predstavla vsoto kvadratov prvih dveh števil: 5² + 2² = 25 + 4 = 29."
+  },
+  {
+    "id": "pat-30",
+    "level": 30,
+    "category": "fruit",
+    "title": "Vozila in prometna sredstva",
+    "type": "fruit_algebra",
+    "data": {
+      "lines": ["🚗 + 🚗 + 🚗 = 24", "🚗 + 🚲 + 🚲 = 18", "🚲 - 🛴 = 2", "🛴 + 🚗 × 🚲 = ?"]
+    },
+    "answer": "43",
+    "answers": ["43", "trinštirideset"],
+    "hints": [
+      "Iz prve vrstice: 3 🚗 = 24 → 🚗 = 8.",
+      "Iz druge vrstice: 8 + 2 🚲 = 18 → 🚲 = 5. Iz tretje: 5 – 🛴 = 2 → 🛴 = 3.",
+      "Izračunaj: 🛴 + 🚗 × 🚲 = 3 + 8 × 5."
+    ],
+    "explanation": "🚗 = 8, 🚲 = 5, 🛴 = 3. Upoštevamo prednost množenja: 3 + (8 × 5) = 3 + 40 = 43."
+  },
+  {
+    "id": "pat-31",
+    "level": 31,
+    "category": "algebra",
+    "title": "Sistem korenjenih neznank",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["X² = 49", "Y² = 81", "Z² = 16", "(X + Y) / Z = ?"]
+    },
+    "answer": "4",
+    "answers": ["4", "štiri"],
+    "hints": [
+      "Izračunaj pozitivne kvadratne korene: X = √49, Y = √81, Z = √16.",
+      "Dobimo X = 7, Y = 9 in Z = 4.",
+      "Vstavi v izraz: (7 + 9) / 4."
+    ],
+    "explanation": "Pozitivne vrednosti neznank so X = 7, Y = 9, Z = 4. Vrednost izraza je (7 + 9) / 4 = 16 / 4 = 4."
+  },
+  {
+    "id": "pat-32",
+    "level": 32,
+    "category": "wheel",
+    "title": "Kolo naraščajočih razlik",
+    "type": "wheel_spokes",
+    "data": {
+      "pairs": [
+        {
+          "top": 2,
+          "bottom": 5
+        },
+        {
+          "top": 10,
+          "bottom": 17
+        },
+        {
+          "top": 26,
+          "bottom": 37
+        },
+        {
+          "top": 50,
+          "bottom": 65
+        }
+      ]
+    },
+    "answer": "65",
+    "answers": ["65", "petinšestdeset"],
+    "hints": [
+      "Sledi zaporedju v smeri urnega kazalca: 2, 5, 10, 17, 26, 37, 50, ?.",
+      "Razlike med zaporednimi členi so liha števila: +3, +5, +7, +9, +11, +13.",
+      "Za naslednji člen prištej naslednje liho število (+15): 50 + 15."
+    ],
+    "explanation": "Zaporedje narašča z naraščajočimi lihimi razlikami (+3, +5, +7, +9, +11, +13, +15). Naslednje število po 50 je 50 + 15 = 65."
+  },
+  {
+    "id": "pat-33",
+    "level": 33,
+    "category": "operators",
+    "title": "Operator razlike kvadratov",
+    "type": "operator_rule",
+    "data": {
+      "lines": ["5 🔷 2 = 21", "6 🔷 3 = 27", "7 🔷 4 = ?"]
+    },
+    "answer": "33",
+    "answers": ["33", "triintrideset"],
+    "hints": [
+      "Od kvadrata prvega števila odštej kvadrat drugega števila.",
+      "Pri 5 🔷 2: 5² – 2² = 25 – 4 = 21. Pri 6 🔷 3: 6² – 3² = 36 – 9 = 27.",
+      "Za 7 🔷 4 izračunaj: 7² – 4²."
+    ],
+    "explanation": "Pravilo operatorja 🔷 je A 🔷 B = A² – B². Za 7 🔷 4 izračunamo: 7² – 4² = 49 – 16 = 33."
+  },
+  {
+    "id": "pat-34",
+    "level": 34,
+    "category": "pyramid",
+    "title": "Piramida opeke (zaporedna osnova)",
+    "type": "pyramid_bricks",
+    "data": {
+      "bottom": [1, 2, 3, 4],
+      "middle": [3, 5, 7],
+      "prompt": "Vsaka zgornja opeka je vsota spodnjih opek. Določi vrh piramide."
+    },
+    "answer": "20",
+    "answers": ["20", "dvajset"],
+    "hints": [
+      "2. nivo: [1+2=3, 2+3=5, 3+4=7].",
+      "3. nivo: [3+5=8, 5+7=12].",
+      "Vrh piramide je vsota 8 + 12."
+    ],
+    "explanation": "Nivo 2: [3, 5, 7]. Nivo 3: [8, 12]. Vrh piramide: 8 + 12 = 20."
+  },
+  {
+    "id": "pat-35",
+    "level": 35,
+    "category": "pie",
+    "title": "6-izsečni krožni vzorec razlik",
+    "type": "pie_sectors",
+    "data": {
+      "sectors": [
+        {
+          "left": 15,
+          "right": 5
+        },
+        {
+          "left": 22,
+          "right": 12
+        },
+        {
+          "left": 18,
+          "right": "?"
+        }
+      ]
+    },
+    "answer": "8",
+    "answers": ["8", "osem"],
+    "hints": [
+      "Opazuj razliko med levim in desnim delom izseka.",
+      "Izsek 1: 15 – 5 = 10. Izsek 2: 22 – 12 = 10.",
+      "Razlika mora znašati 10: 18 – ? = 10."
+    ],
+    "explanation": "Razlika med levim in desnim delom izseka znaša natanko 10: 18 – 8 = 10."
+  },
+  {
+    "id": "pat-36",
+    "level": 36,
+    "category": "triangles",
+    "title": "Trikotnik razpolovljenega zmnožka",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 8,
+          "right": 4,
+          "bottom": 16
+        },
+        {
+          "left": 10,
+          "right": 6,
+          "bottom": 30
+        },
+        {
+          "left": 14,
+          "right": 4,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "28",
+    "answers": ["28", "osemindvajset"],
+    "hints": [
+      "Pomnoži levo in desno število ter rezultat deli z 2.",
+      "V 1. trikotniku: (8 × 4) / 2 = 16. V 2. trikotniku: (10 × 6) / 2 = 30.",
+      "Za 3. trikotnik izračunaj: (14 × 4) / 2."
+    ],
+    "explanation": "Spodnje število dobimo kot polovični zmnožek dvez zgornjih števil: (14 × 4) / 2 = 56 / 2 = 28."
+  },
+  {
+    "id": "pat-37",
+    "level": 37,
+    "category": "algebra",
+    "title": "Praštevilska razčlenitev enačb",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["A + B + C = 15", "A × B × C = 105", "A < B < C", "C - A = ?"]
+    },
+    "answer": "4",
+    "answers": ["4", "štiri"],
+    "hints": [
+      "Razčleni 105 na praštevilske faktorje.",
+      "Faktorji števila 105 so 3, 5 in 7 (saj je 3 × 5 × 7 = 105 ter 3 + 5 + 7 = 15).",
+      "Določi A=3, B=5, C=7 in izračunaj razliko C – A (7 – 3)."
+    ],
+    "explanation": "Edina trojica celih števil z vsoto 15 in zmnožkom 105 je (3, 5, 7). Ker je A < B < C, je A = 3 in C = 7. Razlika C – A = 7 – 3 = 4."
+  },
+  {
+    "id": "pat-38",
+    "level": 38,
+    "category": "clocks",
+    "title": "Stenska ura – 3-urni korak",
+    "type": "clock_faces",
+    "data": {
+      "clocks": [12, 3, 6, "?"]
+    },
+    "answer": "9",
+    "answers": ["9", "devet"],
+    "hints": [
+      "Ura se v vsakem koraku premakne za +3 ure naprej.",
+      "12:00 → 3:00 → 6:00.",
+      "Kateri čas sledi po 6:00 z zamikom +3 ure?"
+    ],
+    "explanation": "Zaporedje na uri napreduje po 3 ure: 12:00, 3:00, 6:00, 9:00. Odgovor je 9."
+  },
+  {
+    "id": "pat-39",
+    "level": 39,
+    "category": "domino",
+    "title": "Domino konstantne razlike",
+    "type": "domino_tiles",
+    "data": {
+      "tiles": [
+        {
+          "top": 5,
+          "bottom": 1
+        },
+        {
+          "top": 7,
+          "bottom": 3
+        },
+        {
+          "top": 9,
+          "bottom": 5
+        },
+        {
+          "top": 11,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "7",
+    "answers": ["7", "sedem"],
+    "hints": [
+      "Razlika med zgornjim in spodnjim številom je vedno 4.",
+      "Ploščica 1: 5 – 1 = 4. Ploščica 2: 7 – 3 = 4. Ploščica 3: 9 – 5 = 4.",
+      "Za ploščico 4 izračunaj: 11 – 4."
+    ],
+    "explanation": "Spodnji del domino ploščice je za 4 manjši od zgornjega: 11 – 4 = 7."
+  },
+  {
+    "id": "pat-40",
+    "level": 40,
+    "category": "star",
+    "title": "Šestkotni vozel s fiksno vsoto",
+    "type": "hexagon_star",
+    "data": {
+      "nodes": [2, 4, 6, 8, 10, "?"],
+      "prompt": "Vsota nasprotnih vozlov v šestkotniku je vedno 12. Določi manjkajoče število nasproti 6."
+    },
+    "answer": "6",
+    "answers": ["6", "šest"],
+    "hints": [
+      "Nasprotna para 2 in 10 ter 4 in 8 imata vsoto 12 (2+10=12, 4+8=12).",
+      "Katero število mora stati nasproti 6, da bo vsota enaka 12?",
+      "Izračunaj: 12 – 6."
+    ],
+    "explanation": "Za nasprotni par velja: 6 + ? = 12 → ? = 6."
+  },
+  {
+    "id": "pat-41",
+    "level": 41,
+    "category": "fruit",
+    "title": "Dragulji in krone – simbolni sistem",
+    "type": "fruit_algebra",
+    "data": {
+      "lines": ["💎 + 💎 = 14", "💎 × 👑 = 35", "👑 + 💰 = 15", "💰 + 💎 × 👑 = ?"]
+    },
+    "answer": "45",
+    "answers": ["45", "petinštirideset"],
+    "hints": [
+      "Iz 1. vrstice: 2 💎 = 14 → 💎 = 7.",
+      "Iz 2. vrstice: 7 × 👑 = 35 → 👑 = 5. Iz 3. vrstice: 5 + 💰 = 15 → 💰 = 10.",
+      "Izračunaj: 💰 + 💎 × 👑 = 10 + 7 × 5."
+    ],
+    "explanation": "💎 = 7, 👑 = 5, 💰 = 10. Upoštevamo prednost množenja: 10 + (7 × 5) = 10 + 35 = 45."
+  },
+  {
+    "id": "pat-42",
+    "level": 42,
+    "category": "pyramid",
+    "title": "Piramida opeke (množenje)",
+    "type": "pyramid_bricks",
+    "data": {
+      "bottom": [2, 3, 4],
+      "middle": [6, 12],
+      "prompt": "Vsaka zgornja opeka je zmnožek dveh spodnjih opek. Izračunaj vrh piramide."
+    },
+    "answer": "72",
+    "answers": ["72", "dveinsemenštirideset"],
+    "hints": [
+      "Sredinski nivo sestavljata: 2 × 3 = 6 ter 3 × 4 = 12.",
+      "Sredinska nivoja sta [6, 12].",
+      "Vrh piramide je zmnožek 6 × 12."
+    ],
+    "explanation": "Sredinski nivo: 2 × 3=6 in 3 × 4=12. Vrh piramide: 6 × 12 = 72."
+  },
+  {
+    "id": "pat-43",
+    "level": 43,
+    "category": "matrix",
+    "title": "Matrika – poštevanka",
+    "type": "matrix_grid",
+    "data": {
+      "rows": [
+        [1, 2, 3],
+        [2, 4, 6],
+        [3, 6, "?"]
+      ]
+    },
+    "answer": "9",
+    "answers": ["9", "devet"],
+    "hints": [
+      "Matrika predstavlja kvadrat poštevanke (stolpec × vrstica).",
+      "Vrstica 1: 1 × 1, 1 × 2, 1 × 3. Vrstica 2: 2 × 1, 2 × 2, 2 × 3.",
+      "Za tretji stolpec v tretji vrstici izračunaj: 3 × 3."
+    ],
+    "explanation": "Matrika poštevanke na poziciji (3,3) ima vrednost 3 × 3 = 9."
+  },
+  {
+    "id": "pat-44",
+    "level": 44,
+    "category": "operators",
+    "title": "Operator Pitagorejskih dvojic",
+    "type": "operator_rule",
+    "data": {
+      "lines": ["3 🌀 4 = 25", "5 🌀 12 = 169", "8 🌀 15 = ?"]
+    },
+    "answer": "289",
+    "answers": ["289", "dvesto devetinosemdeset"],
+    "hints": [
+      "Kvadriraj obe števili in seštej rezultata (A² + B²).",
+      "Pri 3 🌀 4: 3² + 4² = 9 + 16 = 25. Pri 5 🌀 12: 5² + 12² = 25 + 144 = 169.",
+      "Za 8 🌀 15 izračunaj: 8² + 15² = 64 + 225."
+    ],
+    "explanation": "Pravilo operatorja 🌀 je A 🌀 B = A² + B². Za 8 🌀 15 dobimo: 8² + 15² = 64 + 225 = 289."
+  },
+  {
+    "id": "pat-45",
+    "level": 45,
+    "category": "wheel",
+    "title": "Številčno kolo s količnikom 5",
+    "type": "wheel_spokes",
+    "data": {
+      "pairs": [
+        {
+          "top": 40,
+          "bottom": 8
+        },
+        {
+          "top": 35,
+          "bottom": 7
+        },
+        {
+          "top": 25,
+          "bottom": 5
+        },
+        {
+          "top": 30,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "6",
+    "answers": ["6", "šest"],
+    "hints": [
+      "Količnik zgornjega in spodnjega števila na vsakem kraku je vedno 5.",
+      "Par 1: 40 / 8 = 5. Par 2: 35 / 7 = 5. Par 3: 25 / 5 = 5.",
+      "Za zadnji par izračunaj neznani spodnji krak: 30 / ? = 5."
+    ],
+    "explanation": "Količnik med zunanjim in notranjim delom kraka je vedno 5. Za 30 velja: 30 / 6 = 5."
+  },
+  {
+    "id": "pat-46",
+    "level": 46,
+    "category": "counting",
+    "title": "Štetje presečišč premic",
+    "type": "spatial_counting",
+    "data": {
+      "gridSize": 0,
+      "prompt": "Koliko presečišč nastane ob sekanju 4 vzporednih vodoravnih premic s 3 vzporednimi navpičnimi premicami?"
+    },
+    "answer": "12",
+    "answers": ["12", "dvanajst"],
+    "hints": [
+      "Vsaka vodoravna premica preseka vse navpične premice.",
+      "Mreža presečišč ima dimenzijo 4 vrstice × 3 stolpci.",
+      "Pomnoži število vodoravnih in navpičnih premic: 4 × 3."
+    ],
+    "explanation": "Število presečišč pri sekanju n vodoravnih in m navpičnih premic izračunamo kot n × m = 4 × 3 = 12."
+  },
+  {
+    "id": "pat-47",
+    "level": 47,
+    "category": "algebra",
+    "title": "Kvadratna razlika dveh števil",
+    "type": "system_algebra",
+    "data": {
+      "lines": ["A + B = 10", "A × B = 21", "A > B", "A² - B² = ?"]
+    },
+    "answer": "40",
+    "answers": ["40", "štirideset"],
+    "hints": [
+      "Poišči dve števili, ki imata vsoto 10 in zmnožek 21. Števili sta 7 in 3.",
+      "Ker je A > B, je A = 7 in B = 3.",
+      "Izračunaj razliko kvadratov A² – B² = 7² – 3² = 49 – 9."
+    ],
+    "explanation": "Števili sta A = 7 in B = 3. Razlika kvadratov je A² – B² = 49 – 9 = 40."
+  },
+  {
+    "id": "pat-48",
+    "level": 48,
+    "category": "triangles",
+    "title": "Trikotna vsota oglišč",
+    "type": "triangle_nodes",
+    "data": {
+      "triangles": [
+        {
+          "left": 4,
+          "right": 3,
+          "bottom": 7
+        },
+        {
+          "left": 12,
+          "right": 5,
+          "bottom": 17
+        },
+        {
+          "left": 23,
+          "right": 19,
+          "bottom": "?"
+        }
+      ]
+    },
+    "answer": "42",
+    "answers": ["42", "dveinštirideset"],
+    "hints": [
+      "Seštej levo in desno število v trikotniku.",
+      "Trikotnik 1: 4 + 3 = 7. Trikotnik 2: 12 + 5 = 17.",
+      "Za tretji trikotnik seštej: 23 + 19."
+    ],
+    "explanation": "Spodnje število je enostavna vsota obeh zgornjih števil: 23 + 19 = 42."
+  },
+  {
+    "id": "pat-49",
+    "level": 49,
+    "category": "pie",
+    "title": "Podvojeni krožni sektorji",
+    "type": "pie_sectors",
+    "data": {
+      "sectors": [
+        {
+          "left": 3,
+          "right": 6
+        },
+        {
+          "left": 6,
+          "right": 12
+        },
+        {
+          "left": 12,
+          "right": "?"
+        }
+      ]
+    },
+    "answer": "24",
+    "answers": ["24", "štiriindvajset"],
+    "hints": [
+      "Vsak naslednji desni izsek je dvakratnik levega dela.",
+      "Sektor 1: 3 × 2 = 6. Sektor 2: 6 × 2 = 12.",
+      "Za tretji sektor pomnoži z 2: 12 × 2."
+    ],
+    "explanation": "Desni del krožnega izseka je dvakratnik levega dela: 12 × 2 = 24."
+  },
+  {
+    "id": "pat-50",
+    "level": 50,
+    "category": "fruit",
+    "title": "Zvezde in rakete – zakljucni izziv",
+    "type": "fruit_algebra",
+    "data": {
+      "lines": ["🌟 + 🌟 + 🌟 = 18", "🌟 × 🚀 = 42", "🚀 - 🛸 = 3", "🛸 + 🌟 × 🚀 = ?"]
+    },
+    "answer": "46",
+    "answers": ["46", "šestinštirideset"],
+    "hints": [
+      "Iz 1. vrstice: 3 🌟 = 18 → 🌟 = 6.",
+      "Iz 2. vrstice: 6 × 🚀 = 42 → 🚀 = 7. Iz 3. vrstice: 7 – 🛸 = 3 → 🛸 = 4.",
+      "Izračunaj končni izraz: 🛸 + 🌟 × 🚀 = 4 + 6 × 7."
+    ],
+    "explanation": "🌟 = 6, 🚀 = 7, 🛸 = 4. Upoštevamo prednost množenja: 4 + (6 × 7) = 4 + 42 = 46."
+  }
+]

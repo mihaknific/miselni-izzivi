@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Test outputs & reports
+test-results/
+playwright-report/
+blob-report/
+
+# Local personal notes & AI logs
+navodila.txt
+ai-logs/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

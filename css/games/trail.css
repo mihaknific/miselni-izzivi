@@ -1,0 +1,141 @@
+/* css/games/trail.css — Barvni Labirint (Trail Making) */
+.trail-stage-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.trail-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.trail-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trail-ring {
+  flex-shrink: 0;
+}
+.trail-next-hint {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.trail-next-hint strong {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+}
+
+.trail-timer {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  min-width: 70px;
+  text-align: right;
+}
+
+.trail-board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  max-height: 420px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.trail-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.trail-nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.trail-node {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.trail-node:hover:not(:disabled) {
+  transform: scale(1.06);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
+}
+
+.trail-node.done {
+  background: var(--color-primary);
+  color: var(--custom-primary-text, #fff);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+  transform: scale(0.96);
+}
+
+.trail-node.shake {
+  animation: shake 0.35s ease;
+  border-color: #ef4444 !important;
+}
+
+.trail-feedback {
+  min-height: 1.4em;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.trail-feedback.success {
+  color: var(--color-success);
+}
+.trail-feedback.error {
+  color: var(--color-error);
+}
+
+@media (max-width: 480px) {
+  .trail-node {
+    width: 48px;
+    height: 48px;
+    font-size: 0.95rem;
+  }
+  .trail-board {
+    aspect-ratio: 1 / 1;
+  }
+}

@@ -1,0 +1,708 @@
+[
+  {
+    "id": "puz-1-1-1",
+    "category": "logika",
+    "subtype": "1.1",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Deduktivne in mrežne uganke",
+    "title": "Tekma in mesta na stopničkah",
+    "prompt": "Na teku sodelujejo 4 tekmovalci: Alen, Blaž, Bine in David.\n\nZnana so 3 dejstva:\n1. Alen ni bil prvi in ni bil zadnji (4.).\n2. Blaž je ciljno črto prečkal takoj za Binetom.\n3. David ni bil zadnji (4.).\n\nKdo je zmagal na tekmi (1. mesto)?",
+    "type": "multiple_choice",
+    "options": ["David", "Bine", "Alen", "Blaž"],
+    "answer": "David",
+    "hints": [
+      "Blaž je prispel takoj za Binetom – tvori par (Bine → Blaž).",
+      "Alen ni 1. in ni 4., torej je lahko LE 2. ALI 3.",
+      "Če sta Bine in Blaž na 3. in 4. mestu, je Alen 2. in David 1."
+    ],
+    "explanation": "Blaž za Bineim pomeni par (Bine, Blaž) na mestih (3,4), (2,3) ali (1,2). Alen ni 1. niti 4. → Alen je 2. ali 3. David ni 4. → David je 1., 2. ali 3. Edina konsistentna kombinacija: 1. David, 2. Alen, 3. Bine, 4. Blaž."
+  },
+  {
+    "id": "puz-1-1-2",
+    "category": "logika",
+    "subtype": "1.1",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Deduktivne in mrežne uganke",
+    "title": "Dedukcija hiš in poklicev",
+    "prompt": "Trije prijatelji (Ana, Boris in Cveto) živijo v treh hišah različnih barv (rdeča, modra, zelena) in imajo tri različne poklice (inženir, zdravnik, arhitekt).\n\nZnana so 4 dejstva:\n1. Arhitekt ne živi v rdeči hiši.\n2. Boris živi v rdeči hiši.\n3. Zdravnik živi v modri hiši.\n4. Ana je arhitektka.\n\nKatero hišo in kateri poklic ima Cveto?",
+    "type": "multiple_choice",
+    "options": [
+      "Modra hiša in zdravnik",
+      "Zelena hiša in inženir",
+      "Rdeča hiša in zdravnik",
+      "Modra hiša in inženir"
+    ],
+    "answer": "Modra hiša in zdravnik",
+    "hints": [
+      "Ana je arhitektka (dejstvo 4). Ker arhitekt ne živi v rdeči hiši (dejstvo 1) in ker zdravnik živi v modri hiši (dejstvo 3), Ana živi v zeleni hiši.",
+      "Boris živi v rdeči hiši (dejstvo 2) in je po poklicu inženir.",
+      "Za Cveta ostane modra hiša in poklic zdravnika (saj zdravnik živi v modri hiši)."
+    ],
+    "explanation": "Ana je arhitektka v zeleni hiši (ker arhitekt ne živi v rdeči in ne v modri hiši). Boris živi v rdeči hiši in je inženir. Cveto torej živi v modri hiši in ima poklic zdravnika."
+  },
+  {
+    "id": "puz-1-1-3",
+    "category": "logika",
+    "subtype": "1.1",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Deduktivne in mrežne uganke",
+    "title": "Otok resničarjev in lažnivcev",
+    "prompt": "Na otoku živita dve vrsti ljudi: resničarji (ki VEDNO govorijo resnico) in lažnivci (ki VEDNO lažejo).\nSrečaš dva otočana, A in B.\nOtočan A izjavi: »Vsaj eden od naju dveh je lažnivec.«\n\nKaj sta A in B?",
+    "type": "multiple_choice",
+    "options": [
+      "A je resničar, B pa je lažnivec",
+      "Oba sta resničarja",
+      "Oba sta lažnivca",
+      "A je lažnivec, B pa resničar"
+    ],
+    "answer": "A je resničar, B pa je lažnivec",
+    "hints": [
+      "Predpostavi, da je A lažnivec. Kaj sledi?",
+      "Izjava A ('vsaj eden je lažnivec') bi bila v tem primeru RESNIČNA. Ali to lahko drži?",
+      "Torej A MORA biti resničar. In njegova izjava drži."
+    ],
+    "explanation": "Predpostavimo: A = lažnivec. Nato je njegova izjava ('vsaj eden je lažnivec') resnična (ker je A lažnivec). Toda lažnivec ne more povedati resnico → protislovje. Torej A NI lažnivec, je resničar. Ker A govori resnico, drži trditev 'vsaj eden je lažnivec'. Ker A ni lažnivec, MORA biti B lažnivec."
+  },
+  {
+    "id": "puz-1-1-4",
+    "category": "logika",
+    "subtype": "1.1",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Deduktivne in mrežne uganke",
+    "title": "Tri kapuce na glavi",
+    "prompt": "Trije modreci sedijo v vrsti. Modrec A vidi modreca B in C. Modrec B vidi le C. Modrec C ne vidi nikogar. Iz vreče s 3 belimi in 2 črnima kapucama jim na glavo posadijo po eno kapuco.\nNa vprašanje, ali ve, katero barvo kapuce ima na glavi, modrec A reče: »Ne vem.«\nNato modrec B reče: »Tudi jaz ne vem.«\nKo sliši njuna odgovora, modrec C reče: »Jaz pa zanesljivo vem, katero barvo kapuce imam!«\n\nKatero barvo kapuce ima modrec C?",
+    "type": "multiple_choice",
+    "options": [
+      "bela kapuca",
+      "črna kapuca",
+      "Možno je oboje",
+      "Z danimi podatki ni mogoče ugotoviti"
+    ],
+    "answer": "bela kapuca",
+    "hints": [
+      "A vidi B in C. Če bi imela OBA črno kapuco, bi A takoj vedel, da ima belo (v vreči so le 2 črni). A ne ve → B in C NISTA OBA črna.",
+      "B vidi C. B VE, da (B,C) nista oba črna. Če bi C imel črno, bi B vedel, da mora imeti BELO. B pravi 'Ne vem' → C NІMA črne.",
+      "Torej C = bela."
+    ],
+    "explanation": "A ne ve → B in C nista oba črna. B ve to in vidi C. Če bi C imel črno, bi B takoj vedel, da ima sam belo. Ker B ne ve → C nima črne. C deducira: imam belo kapuco."
+  },
+  {
+    "id": "puz-1-2-1",
+    "category": "logika",
+    "subtype": "1.2",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Prostorska logika",
+    "title": "Igralna kocka in nasprotne ploskve",
+    "prompt": "Na standardni igralni kocki je vsota pik na nasprotnih ploskvah vedno 7.\n\nNa treh trenutno vidnih ploskvah kocke so številke 2, 4 in 6. Kolikšna je vsota številk na treh skritih (nasprotnih) ploskvah?",
+    "type": "text_input",
+    "answers": ["9", "devet"],
+    "hints": [
+      "Nasprotna ploskev številke 2 je 7 – 2 = 5.",
+      "Nasprotni ploskvi 4 in 6 sta 3 in 1.",
+      "Seštej skrita števila: 5 + 3 + 1 = 9."
+    ],
+    "explanation": "Nasprotne ploskve so: do 2 je 5, do 4 je 3, do 6 pa 1. Vsota skritih ploskev je 5 + 3 + 1 = 9."
+  },
+  {
+    "id": "puz-1-2-2",
+    "category": "logika",
+    "subtype": "1.2",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Prostorska logika",
+    "title": "Rezanje večdimenzionalne kocke",
+    "prompt": "Veliko leseno kocko 4 × 4×4 na vseh zunanjih ploskvah pobarvamo z rdečo barvo. Kocko nato razžagamo na 64 enakih manjših kockic (1 × 1×1).\n\nKoliko od teh 64 kockic ima natanko DVE ploskvi pobarvani z rdečo barvo?",
+    "type": "text_input",
+    "answers": ["24", "štiriindvajset", "24 kockic"],
+    "hints": [
+      "Kockice z 2 pobarvanima ploskvama se nahajajo na robovih kocke (brez vogalov).",
+      "Kocka ima 12 robov.",
+      "Na vsakem robu dolžine 4 sta natanko 2 sredinski kockici z 2 pobarvanima ploskvama: 12 × 2 = ?"
+    ],
+    "explanation": "Kockice z dvo-ploskovno barvo ležijo na robovih kocke, stran od 8 vogalov. Kocka ima 12 robov, na vsakem robu 4-2=2 kockici. Skupaj: 12 × 2 = 24 kockic."
+  },
+  {
+    "id": "puz-1-2-3",
+    "category": "logika",
+    "subtype": "1.2",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Prostorska logika",
+    "title": "Nepobarvano jedro kocke 5 × 5x5",
+    "prompt": "Kocko velikosti 5 × 5×5 zunaj v celoti pobarvamo z modro barvo ter nato razrežemo na 125 manjših kockic 1 × 1×1.\n\nKoliko od teh 125 kockic nima NITI ENE ploskve pobarvane z modro barvo?",
+    "type": "text_input",
+    "answers": ["27", "sedemindvajset"],
+    "hints": [
+      "Nepobarvane kocke tvorijo notranje tridimenzionalno jedro.",
+      "Od vsake dimenzije (5) odštejemo 2 zunanji obarvani plasti: 5 – 2 = 3.",
+      "Prostornina notranjega neobarvanega jedra je 3 × 3 × 3 = ?"
+    ],
+    "explanation": "Neobarvane kockice ležijo v samem jedru kocke. Dimenzija jedra je (5-2)×(5-2)×(5-2) = 3 × 3×3 = 27 kockic."
+  },
+  {
+    "id": "puz-1-3-1",
+    "category": "logika",
+    "subtype": "1.3",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Sistemske in pravilniške uganke",
+    "title": "Digitalni koren zaporedja",
+    "prompt": "Opazuj transformacije števil:\n18 → 9\n49 → 4\n88 → 7\n96 → 6\n\nKatero število po ISTEM pravilu dobimo iz števila 99?",
+    "type": "text_input",
+    "answers": ["9", "devet"],
+    "hints": [
+      "Poskusi sešteti števke števila.",
+      "Pri 88: 8 + 8 = 16 → ponovno seštej 1 + 6 = 7.",
+      "Pri 99: 9 + 9 = 18 → ponovno seštej 1 + 8 = ?"
+    ],
+    "explanation": "Pravilo je iterativno seštevanje števk (digitalni koren): 99 → 9 + 9 = 18 → 1 + 8 = 9."
+  },
+  {
+    "id": "puz-1-3-2",
+    "category": "logika",
+    "subtype": "1.3",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Sistemske in pravilniške uganke",
+    "title": "Tehtanje med 9 kroglami",
+    "prompt": "Imamo 9 na videz popolnoma enakih kroglic, vendar je ena izmed njih nekoliko TEŽJA od preostalih 8.\nNa voljo imamo dvokrakovano tehtnico brez uteži.\n\nKoliko je NAJMANJŠE število tehtanj, s katerimi z 100 % gotovostjo ugotovimo, katera kroglica je težja?",
+    "type": "text_input",
+    "answers": ["2", "dve", "2 tehtanji"],
+    "hints": [
+      "Kroglice razdeli na 3 enake skupine po 3 kroglice (3, 3, 3).",
+      "V 1. tehtanju na tehtnico postaviš dve skupini po 3 kroglice. Če sta v ravnovesju, je težja v tretji skupini.",
+      "Iz izbrane skupine 3 kroglic v 2. tehtanju primerjaš 2 kroglici. Če sta v ravnovesju, je težja preostala tretja!"
+    ],
+    "explanation": "Z razdelitvijo na skupine 3+3+3 v prvem tehtanju izločimo 6 kroglic in ugotovimo skupino s težjo kroglico. V drugem tehtanju med preostalimi 3 kroglicami z enim tehtanjem določimo težjo. Potrebujemo natanko 2 tehtanji."
+  },
+  {
+    "id": "puz-1-3-3",
+    "category": "logika",
+    "subtype": "1.3",
+    "categoryTitle": "Logične in analitične uganke",
+    "subtypeTitle": "Sistemske in pravilniške uganke",
+    "title": "Stikala in žarnice v kleti",
+    "prompt": "V pritličju so 3 stikala (1, 2, 3), v kleti pa 3 klasične žarnice z nitko. Vsako stikalo upravlja natanko eno žarnico. Iz pritličja se lahko v klet spustiš le ENKRAT.\n\nKako po vrsti uporabiš stikala v pritličju, da po le enem obisku kleti z 100 % gotovostjo določiš, katero stikalo pripada kateri žarnici?",
+    "type": "multiple_choice",
+    "options": [
+      "1. stikalo vklopiš za 10 minut in izklopiš, 2. vklopiš, nato greš v klet",
+      "Vklopiš vsa 3 stikala hkrati in greš v klet",
+      "1. in 2. stikalo vklopiš hkrati, 2. izklopiš po 5 minutah",
+      "Z enim obiskom kleti tega ni mogoče ugotoviti"
+    ],
+    "answer": "1. stikalo vklopiš za 10 minut in izklopiš, 2. vklopiš, nato greš v klet",
+    "hints": [
+      "Klasične žarnice poleg svetlobe oddajajo tudi toploto.",
+      "Prižgano 1. stikalo pustiš delovati nekaj minut, da se žarnica segreje, nato ga izklopiš.",
+      "V kleti bo prižgana žarnica 2, vroča ugasnjena žarnica 1, ter hladna ugasnjena žarnica 3!"
+    ],
+    "explanation": "Vklopiš 1. stikalo za 10 minut da se žarnica močno segreje, nato ga izklopiš in vklopiš 2. stikalo. V kleti: svetleča žarnica pripada stikalu 2, ugasnjena ampak vroča žarnica pripada stikalu 1, hladna ugasnjena žarnica pa stikalu 3."
+  },
+  {
+    "id": "puz-2-1-1",
+    "category": "sistemi",
+    "subtype": "2.1",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Fizikalne uganke",
+    "title": "Ravnovesje na navoru vzvoda",
+    "prompt": "Na levi strani dvokrakega vzvoda je na razdalji 4 metre od vrtišča obešena masa 15 kg.\n\nNa katero razdaljo (v metrih) od vrtišča moramo na desni strani obesiti maso 20 kg, da bo vzvod v popolnem ravnovesju?",
+    "type": "text_input",
+    "answers": ["3", "3m", "3 m", "tri"],
+    "hints": [
+      "Fizikalno pravilo navora: Navor_Leva = Navor_Desna.",
+      "Leva stran: 15 kg × 4 m = 60 kg·m.",
+      "Desna stran: 20 kg × ? m = 60 kg·m → 60 / 20 = 3."
+    ],
+    "explanation": "Navor na levi je 15 kg × 4 m = 60 kg·m. Na desni strani mora veljati 20 kg × X = 60 kg·m, torej je razdalja 3 metre."
+  },
+  {
+    "id": "puz-2-1-2",
+    "category": "sistemi",
+    "subtype": "2.1",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Fizikalne uganke",
+    "title": "Ladja v zapornici in potopljen kamen",
+    "prompt": "Čoln plava v majhnem zaprtem bazenu (zapornici). V čolnu je velik težek kamnit blok.\n\nČe kamen vržemo iz čolna neposredno v vodo na dno bazena, kaj se zgodi z nivojem vode v bazenu?",
+    "type": "multiple_choice",
+    "options": [
+      "Nivo vode v bazenu se zniža",
+      "Nivo vode v bazenu se zviša",
+      "Nivo vode ostane popolnoma nespremenjen",
+      "Odvisno od gostote vode"
+    ],
+    "answer": "Nivo vode v bazenu se zniža",
+    "hints": [
+      "Archimedes: Plavajoč predmet izrine maso vode enako svoji MASI.",
+      "Ko je kamen V čolnu, čoln potisne vodo za maso kamna.",
+      "Ko je kamen NA DNU, potisne vodo za svojo PROSTORNINO. Gostota kamna > vode → prostornina kamna < prostornina enake mase vode."
+    ],
+    "explanation": "V čolnu: kamen prisili čoln, da potisne vodo za maso kamna. Na dnu: kamen potisne le svojo lastno prostornino. Ker je kamen gostejši od vode, je njegova prostornina manjša od prostornine vode enake mase. Skriveni vzorec: voda padne."
+  },
+  {
+    "id": "puz-2-1-3",
+    "category": "sistemi",
+    "subtype": "2.1",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Fizikalne uganke",
+    "title": "Topenje kocke ledu v kozarcu",
+    "prompt": "Kozarček je do samega zgornjega roba napolnjen z vodo. V vodi plava kocka ledu, ki delno štrli nad rob kozarca.\n\nKaj se zgodi z vodo, ko se kocka ledu popolnoma raztopi?",
+    "type": "multiple_choice",
+    "options": [
+      "Voda ostane natanko do roba (ne prelije se)",
+      "Voda se prelije preko roba kozarca",
+      "Nivo vode v kozarcu opazno pade",
+      "Odvisno od temperature prostora"
+    ],
+    "answer": "Voda ostane natanko do roba (ne prelije se)",
+    "hints": [
+      "Arhimed: Plavajoč led izrine maso vode enako svoji MASI.",
+      "Potopljeni del ledu izrine toliko vode, kolikor tehta celoten kos ledu.",
+      "Ko se led stali, njegova masa postane tekoča voda z NATENAKTO ENI PROSTORNINO, kot jo je izrival potopljeni del."
+    ],
+    "explanation": "Plavajoči led izrine maso vode enako svoji masi. Ko se stali, nastala voda zavzame natanko to prostornino, ki jo je izrival potopljeni del ledu. Nivo se NE spremeni."
+  },
+  {
+    "id": "puz-2-2-1",
+    "category": "sistemi",
+    "subtype": "2.2",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Zaporedne mehanične uganke",
+    "title": "Prenos vrtenja 3 zobnikov",
+    "prompt": "Trije zaporedno povezani zobniki (A, B, C) ležijo v vrsti. Zobnik A se vrti v smeri URNEGA KAZALCA.\n\nV katero smer se vrti zobnik C?",
+    "type": "multiple_choice",
+    "options": [
+      "V smeri urnega kazalca",
+      "V nasprotni smeri urnega kazalca",
+      "Zobnik C se ne vrti",
+      "Odvisno od velikosti zobnika B"
+    ],
+    "answer": "V smeri urnega kazalca",
+    "hints": [
+      "Dva stikajoča se zobnika se vedno vrtita v nasprotnih smereh.",
+      "A (urno) → B (nasprotno urnemu).",
+      "B (nasprotno urnemu) → C (urno)."
+    ],
+    "explanation": "Zobnik A vrti zobnik B v nasprotni smeri urnega kazalca, zobnik B pa vrti zobnik C ponovno v smeri urnega kazalca."
+  },
+  {
+    "id": "puz-2-2-2",
+    "category": "sistemi",
+    "subtype": "2.2",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Zaporedne mehanične uganke",
+    "title": "Mehanizem s 4 stikali in odvisnostmi",
+    "prompt": "Sef ima 4 stikala (A, B, C, D), ki so na začetku vsa v stanju 0 (IZKLOPLJENO). – Pritisk na A spremeni stanje A in B. – Pritisk na B spremeni stanje B in C. – Pritisk na C spremeni stanje C in D. – Pritisk na D spremeni le stanje D.\n\nKatera je NAJKRAJŠA sekvenca pritiskov, da dobimo stanje (1, 1, 1, 1)?",
+    "type": "multiple_choice",
+    "options": [
+      "Pritisk A, nato pritisk C",
+      "Pritisk A, nato B, nato C",
+      "Pritisk B, nato pritisk D",
+      "Pritisk A, nato pritisk D"
+    ],
+    "answer": "Pritisk A, nato pritisk C",
+    "hints": [
+      "Začetek: (0, 0, 0, 0).",
+      "Pritisk na A spremeni A in B → (1, 1, 0, 0).",
+      "Pritisk na C spremeni C in D → (1, 1, 1, 1)!"
+    ],
+    "explanation": "Pritisk na A spremeni prvi dve stikali na (1, 1, 0, 0). Pritisk na C nato spremeni zadnji dve stikali na (1, 1, 1, 1). Zadostujeta le 2 pritiska: A, nato C."
+  },
+  {
+    "id": "puz-2-3-1",
+    "category": "sistemi",
+    "subtype": "2.3",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Časovne uganke",
+    "title": "Merjenje časa s peščenima urama (7 in 4 min)",
+    "prompt": "Na voljo imaš dve peščeni uri: ena meri 7 minut, druga pa 4 minute.\n\nKako izmeriš natanko 9 minut za precizni kemijski eksperiment?",
+    "type": "multiple_choice",
+    "options": [
+      "Zaženeš obe hkrati: ob 4. min obrneš 4-minutno, ob 7. min pa JOŠENKART obrneš 4-minutno (ostane 1 min peska)",
+      "7-minutno uro obrneš dvakrat in odšteješ 4-minutno uro",
+      "4-minutno uro obrneš dvakrat in dodaš pol 7-minutne ure",
+      "Izmeriti 9 minut z danima urama ni mogoče"
+    ],
+    "answer": "Zaženeš obe hkrati: ob 4. min obrneš 4-minutno, ob 7. min pa nato obrneš 4-minutno (ostane 1 min peska)",
+    "hints": [
+      "Start hkrati. 4-min konča prva (4. min) → obrni jo takoj.",
+      "7-min konča (7. min). V 4-min (ki teče že 2. krat) ostane še 1 min peska.",
+      "Ko ta 1 min izteče (8. min), obrni 4-min NAPREJ → meri zadnjo minuto (8→9)."
+    ],
+    "explanation": "Hkrati start. 4. min: 4-min konča → obrn (2. krog). 7. min: 7-min konča, v 4-min ostane 1 min → ta 1 min = 8. min. Obrni 4-min 3. krat → meri 8→9 min."
+  },
+  {
+    "id": "puz-2-3-2",
+    "category": "sistemi",
+    "subtype": "2.3",
+    "categoryTitle": "Vzrok in posledica",
+    "subtypeTitle": "Časovne uganke",
+    "title": "Nelinearno zgorevanje dveh vrvi",
+    "prompt": "Imamo dve vrvi, od katerih vsaka neenakomerno zgori v natanko 60 minutah.\n\nKako s prižiganjem vrvi izmeriš natanko 45 minut?",
+    "type": "multiple_choice",
+    "options": [
+      "1. vrv prižgeš na obeh koncih, 2. na enem. Ob izgoritvi 1. vrvi prižgeš še drugi konec 2. vrvi",
+      "Prvo vrv prerežeš na tri četrtine dolžine in jo prižgeš",
+      "Prižgeš obe vrvi na obeh koncih hkrati",
+      "Prvo vrv prižgeš na enem koncu, drugo pa čez 15 minut"
+    ],
+    "answer": "1. vrv prižgeš na obeh koncih, 2. na enem. Ob izgoritvi 1. vrvi prižgeš še drugi konec 2. vrvi",
+    "hints": [
+      "Vrv, prižgana na obeh koncih, izgori v 30 minutah.",
+      "Hkrati 2. vrv gori na enem koncu (ostane ji še 30 min gorenja).",
+      "Ob izgoritvi 1. vrvi prižgeš še drugi konec 2. vrvi, ki preostanek izgori v 15 minutah."
+    ],
+    "explanation": "1. vrv na obeh koncih zgori v 30 minutah. V tem času 2. vrv zgori polovično. Če takoj prižgeš še drugi konec 2. vrvi, bo preostanek zgorel v 15 min. 30 + 15 = 45 minut."
+  },
+  {
+    "id": "puz-3-1-1",
+    "category": "izraznost",
+    "subtype": "3.1",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Klasična enigmatika in besedne uganke",
+    "title": "Besedni paradoks lastnine",
+    "prompt": "Sem nekaj, kar pripada tebi, vendar to drugi ljudje uporabljajo veliko pogosteje kot ti sam/a.\n\nKaj sem?",
+    "type": "text_input",
+    "answers": ["ime", "tvoje ime", "moje ime"],
+    "hints": [
+      "Dobiš ga ob rojstvu.",
+      "Drugi ga izgovorijo, ko te nagovarjajo ali se pogovarjajo o tebi.",
+      "Beseda se začne na črko I."
+    ],
+    "explanation": "Tvoje ime je tvoja last, vendar ga drugi izgovarjajo bistveno pogosteje kot ti sam."
+  },
+  {
+    "id": "puz-3-1-2",
+    "category": "izraznost",
+    "subtype": "3.1",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Klasična enigmatika in besedne uganke",
+    "title": "Skrivnost naravnega vodotoka",
+    "prompt": "Kaj je tisto, kar ima srce, ki ne bije, in usta, ki ne govorijo, a teče brez nog ter ima posteljo, v kateri nikoli ne spi?",
+    "type": "text_input",
+    "answers": ["reka", "vodotok", "rečna struga"],
+    "hints": [
+      "Najdemo jo v naravi.",
+      "Ima izvir, strugo in izliv v morje.",
+      "Izraz 'struga' se v slovenščini imenuje tudi rečna postelja."
+    ],
+    "explanation": "Reka teče v svoji strugi (postelji), ima izvir (srce/glavo) ter izliv (usta/ustje), vendar ne govori in ne spi."
+  },
+  {
+    "id": "puz-3-2-1",
+    "category": "izraznost",
+    "subtype": "3.2",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Lateralno razmišljanje",
+    "title": "Mokro oblačilo in suhi lasje",
+    "prompt": "Moški hodi po močnem dežju brez dežnika, kape ali kakršnegakoli pokrivala. Oblačila ima popolnoma mokra, a se mu niti en sam las ne zmoči.\n\nKako je to mogoče?",
+    "type": "multiple_choice",
+    "options": [
+      "Moški je popolnoma plešast",
+      "Hodil je pod gostimi drevesi",
+      "Dež je bil izjemno droben",
+      "Uporabljal je vodoodporni sprej"
+    ],
+    "answer": "Moški je popolnoma plešast",
+    "hints": [
+      "Pomisli na človekovo pričesko.",
+      "Kaj če moški sploh nima las?",
+      "Če nima las, se mu noben las ne more zmočiti."
+    ],
+    "explanation": "Moški je plešast in nima nobenega lasu, ki bi se lahko zmočil."
+  },
+  {
+    "id": "puz-3-2-2",
+    "category": "izraznost",
+    "subtype": "3.2",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Lateralno razmišljanje",
+    "title": "Potnik v dvigalu z dežnikom",
+    "prompt": "Moški živi v 20. nadstropju stavbe. Vsak dan se z dvigalom odpelje v pritličje. Ob vrnitvi domov se ob deževnih dneh pelje z dvigalom vse do 20. nadstropja. Ob sončnih dneh pa se odpelje le do 10. nadstropja, od tam pa gre preostalih 10 nadstropij peš po stopnicah.\n\nZakaj?",
+    "type": "multiple_choice",
+    "options": [
+      "Moški je zelo majhen in do gumba za 20. nadstropje doseže LE z dežnikom",
+      "Ob sončnih dneh želi telovaditi",
+      "Dvigalo nad 10. nadstropjem ob soncu ne deluje",
+      "V 10. nadstropju živi njegov prijatelj"
+    ],
+    "answer": "Moški je zelo majhen in do gumba za 20. nadstropje doseže LE z dežnikom",
+    "hints": [
+      "Razmisli o višini človeka in gumbih v dvigalu.",
+      "Zakaj bi deževen dan spremenil dosegljivost gumba 20?",
+      "Dežnik = prodalja roke. S nim doseže višji gumb."
+    ],
+    "explanation": "Moški je majhne rasti. Z roko doseže le gumb 10. Ob dežu ima dežnik, ki deluje kot prodalja roke in doseže gumb 20."
+  },
+  {
+    "id": "puz-3-3-1",
+    "category": "izraznost",
+    "subtype": "3.3",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Optične in perspektivne uganke",
+    "title": "Dve senci 3D objekta",
+    "prompt": "En sam trden tridimenzionalni predmet (valj, katerega višina je enaka premeru osnove) meče dve različni senci: – Ob osvetlitvi z vrha meče senco v obliki KROGA. – Ob osvetlitvi s strani meče senco v obliki KVADRATA.\n\nKakšne oblike je ta predmet?",
+    "type": "text_input",
+    "answers": ["valj", "valjasto", "valjasta oblika"],
+    "hints": [
+      "Pomisli na pločevinko ali kos sveče.",
+      "Z vrha je profil okrogel, s strani pa pravokoten oz. kvadraten.",
+      "Telo se imenuje valj."
+    ],
+    "explanation": "Valj z višino enako premeru osnove (npr. pločevinka) ima na vrhu krožno ploskev (okrogla senca) in s strani kvadraten profil (kvadratna senca). Pogoj višina = premer je nujen, sicer je stranska senca pravokotnik."
+  },
+  {
+    "id": "puz-3-3-2",
+    "category": "izraznost",
+    "subtype": "3.3",
+    "categoryTitle": "Izraznost in perspektiva",
+    "subtypeTitle": "Optične in perspektivne uganke",
+    "title": "Projekcija kocke vzdolž diagonale",
+    "prompt": "Kakšne oblike je senca trdne kocke, ko svetloba sveti natanko vzdolž njene glavne prostorske diagonale (skozi oglišče) na pravokotno ravnino?",
+    "type": "multiple_choice",
+    "options": [
+      "pravilni 6-kotnik (šestkotnik)",
+      "enakostranični trikotnik",
+      "kvadrat",
+      "pravilni 8-kotnik"
+    ],
+    "answer": "pravilni 6-kotnik (šestkotnik)",
+    "hints": [
+      "Pogled vzdolž diagonale skozi oglišče razkrije simetrijo 6 zunanjih robov.",
+      "Zunanji robovi kocke se na ravnino projicirajo kot pravilen mnogokotnik s 6 stranicami."
+    ],
+    "explanation": "Ob usmeritvi svetlobe vzdolž glavne prostorske diagonale kocke se 6 zunanjih robov projicira v pravilen 6-kotnik (šestkotnik)."
+  },
+  {
+    "id": "puz-4-1-1",
+    "category": "raziskovanje",
+    "subtype": "4.1",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Detektivske in preiskovalne uganke",
+    "title": "Nedeljski alibi knjižnice",
+    "prompt": "Iz pisarne je v nedeljo popoldne izginila slika. Osumljeni Marko trdi: »Cel popoldan sem bil v mestni knjižnici in študiral za izpit.«\n\nNa vratih knjižnice je objavljen urnik: »Ponedeljek–Petek: 8–19, Sobota: 9–13, Nedelja: ZAPRTO.«\n\nZakaj detektiv ve, da Marko laže?",
+    "type": "multiple_choice",
+    "options": [
+      "Ker je knjižnica ob nedeljah zaprta (po urniku na vratih)",
+      "Ker ob nedeljah študij ni dovoljen",
+      "Ker je bila knjižnica preurejena v muzej",
+      "Ker je detektiv že prej poznal Marka"
+    ],
+    "answer": "Ker je knjižnica ob nedeljah zaprta (po urniku na vratih)",
+    "hints": [
+      "Preberi urnik, ki je objavljen na vratih knjižnice.",
+      "Mestna knjižnica po uriku ne deluje ob nedeljah."
+    ],
+    "explanation": "Na vratih knjižnice je objavljen urik: Nedelja – ZAPRTO. Marko torej ni mogel biti v njej v nedeljo popoldne."
+  },
+  {
+    "id": "puz-4-1-2",
+    "category": "raziskovanje",
+    "subtype": "4.1",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Detektivske in preiskovalne uganke",
+    "title": "Vlom skozi zaledenelo okno",
+    "prompt": "Pozimi se je zgodil vlom. Vlomilec trdi: »Skozi zaledenelo okno sem z zunanje strani opazil svetilko v hiši.«\n\nZakaj detektiv ve, da izjava ne drži?",
+    "type": "multiple_choice",
+    "options": [
+      "Ker se led/ina od kondenzacije zunaj nabere na NOTRANJI strani okna",
+      "Ker led popolnoma vpija svetlobo",
+      "Ker se pozimi okna ne rosijo",
+      "Ker je bila zunaj megla"
+    ],
+    "answer": "Ker se led/ina od kondenzacije zunaj nabere na NOTRANJI strani okna",
+    "hints": [
+      "Notri je toplo in vlažno. Zunaj je hladno.",
+      "Vlažnost iz notranjega zraka kondenzira na HLADNEM steklu in zamrzne.",
+      "Iz ZUNAJ ne vidiš skozi led, ki je na NOTRANJI strani."
+    ],
+    "explanation": "V ogrevani hiši se vlažnost iz zraka kondenzira na notranji strani hladnega stekla in tam zamrzne v ledu/ini. Pogled od zunaj skozi tak zaledenelo steklo ni mogoč."
+  },
+  {
+    "id": "puz-4-1-3",
+    "category": "raziskovanje",
+    "subtype": "4.1",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Detektivske in preiskovalne uganke",
+    "title": "Detektiv in zamrznjene kocke ledu",
+    "prompt": "Na zabavi sta dva moška pila enako pijačo z ledom. Prvi moški je popil 5 pijač zelo hitro v 5 minutah in ostal živ. Drugi moški je počasi pil le eno pijačo 30 minut in kmalu zatem umrl zaradi strupa v pijači.\n\nKako je prvi moški preživel, če je bil strup v pijači?",
+    "type": "multiple_choice",
+    "options": [
+      "Strup je bil zamrznjen v kockah ledu, ki se v 5 minutah NISO raztopile",
+      "Prvi moški je imel vnaprej vzet protistrup",
+      "Drugi moški je imel močno alergijo na pijačo",
+      "Strup se je aktiviral le ob daljšem stiku z zrakom"
+    ],
+    "answer": "Strup je bil zamrznjen v kockah ledu, ki se v 5 minutah NISO raztopile",
+    "hints": [
+      "Razlika: 5 minut vs. 30 minut pitja.",
+      "Kaj se v pijači sčasoma raztopi?",
+      "Strup v ledu: 5 min = ne raztopi se. 30 min = popolnoma raztopi se."
+    ],
+    "explanation": "Strup je bil v kockah ledu. Prvi moški popil prehitro (5 min) – led se ni raztopil. Drugi moški (30 min) – led se raztopil, strup se sprostil v pijačo."
+  },
+  {
+    "id": "puz-4-2-1",
+    "category": "raziskovanje",
+    "subtype": "4.2",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Kriptografske uganke",
+    "title": "Cezarjev šifrirni zamik",
+    "prompt": "Sporočilo je šifrirano s Cezarjevo šifro (zamikanje za 3 mesta naprej v abecedi: A→D, B→E ...).\n\nŠifrirano sporočilo: NUXKD\n\nDešifriraj izvorno besedo (zamik za 3 mesta nazaj).",
+    "type": "text_input",
+    "answers": ["kruha", "KRUHA"],
+    "hints": ["N – 3 = K", "U – 3 = R", "NUXKD → KRUHA."],
+    "explanation": "Z odštevanjem 3 mest v abecedi (N→K, U→R, X→U, K→H, D→A) dobimo izvorno besedo KRUHA."
+  },
+  {
+    "id": "puz-4-2-2",
+    "category": "raziskovanje",
+    "subtype": "4.2",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Kriptografske uganke",
+    "title": "Zrcalni obrat niza",
+    "prompt": "Niz črk je zakodiran z obratnim vrstnim redom z desne proti levi.\n\nŠifrirana beseda: NOLS\n\nKatera je izvorna beseda?",
+    "type": "text_input",
+    "answers": ["slon", "SLON"],
+    "hints": ["Beri črke od desne proti levi.", "Prva črka postane S."],
+    "explanation": "Z obrnjenim branjem niza NOLS dobimo besedo SLON."
+  },
+  {
+    "id": "puz-4-2-3",
+    "category": "raziskovanje",
+    "subtype": "4.2",
+    "categoryTitle": "Informacije in raziskovanje",
+    "subtypeTitle": "Kriptografske uganke",
+    "title": "Kriptografski atbash obrat abecede",
+    "prompt": "V starodavni šifri Atbash je prva črka abecede zamenjana z zadnjo (A ↔ Z), druga s predzadnjo (B ↔ Y) itd. (C↔X, D↔W, E↔V, F↔U, G↔T, H↔S, I↔R, J↔Q, K↔P, L↔O, M↔N).\n\nKatero 4-črkovno slovensko besedo dobimo iz šifriranega niza **NIZP** ob Atbash dešifriranju?",
+    "type": "text_input",
+    "answers": ["mrak", "MRAK"],
+    "hints": ["N ↔ M", "I ↔ R", "Z ↔ A", "P ↔ K"],
+    "explanation": "Atbash: A=Z, B=Y, C=X, D=W, E=V, F=U, G=T, H=S, I=R, J=Q, K=P, L=O, M=N. NIZP → M R A K."
+  },
+  {
+    "id": "puz-5-1-1",
+    "category": "intuicija",
+    "subtype": "5.1",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Kombinatorične uganke (Mastermind)",
+    "title": "Številčni Mastermind",
+    "prompt": "Ugotovi 3-mestno kodo na podlagi pogojev:\n– 6 8 2: Enkratno število je pravilno in na PRAVEM mestu.\n– 6 1 4: Enkratno število je pravilno, a na NAPAČNEM mestu.\n– 2 0 6: Dve števili sta pravilni, a OBE na NAPAČNEM mestu.\n– 7 3 8: Nobeno število ni pravilno.\n\nKatera je skrivna 3-mestna številka?",
+    "type": "text_input",
+    "answers": ["042", "0 4 2"],
+    "hints": [
+      "Iz zadnje vrstice: 7, 3, 8 NI v kodi.",
+      "Ker 8 ni v kodi, iz (6 8 2) sledi: 6 na 1. MESTU ali 2 na 3. MESTU.",
+      "Iz (6 1 4) in (2 0 6) izpade 6. Koda = 042."
+    ],
+    "explanation": "7,3,8 izločeni. 8 izločen → iz (6 8 2): 6 na 1. mesti ALI 2 na 3. mestu. (6 1 4): 6 pravilno a na napačem mestu → 6 NI na 1. mestu → 6 NI v kodi → 2 je na 3. mestu. (2 0 6): dve pravilni, obe na napačem mestu → 0 in 2 sta v kodi, 2 na 3. mestu, 0 na 1. mestu. 4 na 2. mestu. Koda: 042."
+  },
+  {
+    "id": "puz-5-1-2",
+    "category": "intuicija",
+    "subtype": "5.1",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Kombinatorične uganke (Mastermind)",
+    "title": "Barvni algoritem stikal",
+    "prompt": "4 barvne lučke (rdeča, zelena, modra, rumena) morajo biti postavljene po pravilih:\n1. Vsaka barva se pojavi enkrat.\n2. Rdeča je takoj PRED modro.\n3. Rumena je na 4. mestu.\n4. Rdeča NI na 1. mestu.\n\nKakšen je vrstni red barv od 1. do 4. mesta?",
+    "type": "multiple_choice",
+    "options": [
+      "zelena, rdeča, modra, rumena",
+      "rdeča, modra, zelena, rumena",
+      "modra, rdeča, zelena, rumena",
+      "zelena, modra, rdeča, rumena"
+    ],
+    "answer": "zelena, rdeča, modra, rumena",
+    "hints": [
+      "Rumena = fiksno 4. mesto.",
+      "Rdeča → Modra = sosednji par. Možni: (1,2) ali (2,3).",
+      "Rdeča ≠ 1. mesto → par na (2,3). 1. mesto = zelena."
+    ],
+    "explanation": "Rumena = 4. Rdeča→Modra = par. Rdeča ≠ 1. → par na (2,3). 1. mesto = zelena. Rezultat: zelena, rdeča, modra, rumena."
+  },
+  {
+    "id": "puz-5-2-1",
+    "category": "intuicija",
+    "subtype": "5.2",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Nelinearni labirinti",
+    "title": "Labirint 4 korakov",
+    "prompt": "V labirintu delaš 4 zaporedne korake (L = Levo, D = Desno):\n1. Prva dva koraka nista enaka.\n2. Tretji korak je enak prvemu.\n3. Četrti korak je nasproten tretjemu.\n\nČe je prvi korak LEVO (L), kakšno je celotno zaporedje?",
+    "type": "text_input",
+    "answers": ["LDLD", "L D L D", "L, D, L, D"],
+    "hints": ["1. korak = L.", "2. korak = D.", "3. korak = L, 4. korak = D → L D L D."],
+    "explanation": "1. L, 2. D, 3. L, 4. D. Zaporedje je L D L D."
+  },
+  {
+    "id": "puz-5-2-2",
+    "category": "intuicija",
+    "subtype": "5.2",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Nelinearni labirinti",
+    "title": "Kmet, volk, koza in zelje",
+    "prompt": "Kmet mora s čolnom prepeljati volka, kozo in zelje. Čoln sprejme le kmeta in ENO stvar.\n– Volk ne sme ostati sam s kozo.\n– Koza ne sme ostati sama z zeljem.\n\nKoga mora kmet prepeljati v PRVEM prevozu?",
+    "type": "multiple_choice",
+    "options": ["kozo", "volka", "zelje", "poljubno"],
+    "answer": "kozo",
+    "hints": [
+      "Če odpelje volka → koza pojé zelje (preostane na bregu).",
+      "Če odpelje zelje → volk pojé kozo (preostane na bregu).",
+      "Na bregu morata ostati volk IN zelje (nista v konfliktu)."
+    ],
+    "explanation": "Prvič prepelje KOZO. Volk in zelje na bregu nista v konfliktu. Nato vrne, prepelje volk/zelje, vrne kozo... Klasična rešitev."
+  },
+  {
+    "id": "puz-5-3-3",
+    "category": "intuicija",
+    "subtype": "5.3",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Stohastične in verjetnostne uganke",
+    "title": "Bayesov izrek dveh vrečk",
+    "prompt": "Vrečka A vsebuje 8 belih in 2 črni kroglice. Vrečka B vsebuje 2 beli in 8 črnih kroglic.\nNa slepo izberemo eno vrečko in iz nje potegnemo BELO kroglico.\n\nKolikšna je verjetnost, da je kroglica izvirala iz Vrečke A?",
+    "type": "multiple_choice",
+    "options": ["80% (4/5)", "50% (1/2)", "20% (1/5)", "90%"],
+    "answer": "80% (4/5)",
+    "hints": [
+      "Vrečki A+B skupaj: 10 belih kroglic.",
+      "Izmed njih 8 v A, 2 v B.",
+      "P(bela iz A | bela) = 8/10 = 80%."
+    ],
+    "explanation": "Bayes: P(A|bela) = P(bela|A)·P(A)/P(bela) = (8/10)·(1/2) / (10/20) = 4/5 = 80%. Intuitivno: od 10 belih kroglic skupaj je 8 v A → 80%."
+  },
+  {
+    "id": "puz-5-3-2",
+    "category": "intuicija",
+    "subtype": "5.3",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Stohastične in verjetnostne uganke",
+    "title": "Paradoks Monty Hall",
+    "prompt": "Izbiraš med 3 zaprtimi vrati (za enimi je avto, za drugima kozi). Izbereš vrata št. 1. Voditelj odpre vrata št. 3 in pokaže kozo, nato ti ponudi zamenjavo na vrata št. 2.\n\nAli se z zamenjavo vrat verjetnost zmage poveča?",
+    "type": "multiple_choice",
+    "options": [
+      "Da, z zamenjavo se verjetnost poveča na 2/3",
+      "Ne, verjetnost ostane 1/2",
+      "Ne, prva vrata imajo večjo verjetnost",
+      "Zamenjava verjetnost zmanjša na 1/3"
+    ],
+    "answer": "Da, z zamenjavo se verjetnost poveča na 2/3",
+    "hints": [
+      "Prva vrata: 1/3. Preostala DVE skupaj: 2/3.",
+      "Voditelj VEDNO odpre vrata s KOZO (pozna nastavitev).",
+      "Ko izloči eno kozo, se 2/3 zgosti na preostala vrata."
+    ],
+    "explanation": "Prvotna izbira = 1/3. Preostali dve skupaj = 2/3. Voditelj VEDNO odpre kozo → 2/3 verjetnost se zgosti na preostala vrata. Zamenjava = 2/3 zmage."
+  },
+  {
+    "id": "puz-5-3-4",
+    "category": "intuicija",
+    "subtype": "5.3",
+    "categoryTitle": "Intuicija in vodeno poskušanje",
+    "subtypeTitle": "Stohastične in verjetnostne uganke",
+    "title": "Bayesov izrek – vrečki (alternativni pristop)",
+    "prompt": "Vrečka A vsebuje 8 belih in 2 črni kroglici. Vrečka B vsebuje 2 beli in 8 črnih kroglic.\nNa slepo izberemo eno vrečko in iz nje potegnemo BELO kroglico.\n\nKolikšna je verjetnost, da je kroglica izvirala iz Vrečke A?",
+    "type": "multiple_choice",
+    "options": ["80% (4/5)", "50% (1/2)", "20% (1/5)", "90%"],
+    "answer": "80% (4/5)",
+    "hints": [
+      "V obeh vrečkah skupaj je 10 belih kroglic.",
+      "Od teh 10 belih kroglic jih je 8 v Vrečki A.",
+      "8 od 10 pomeni 80%."
+    ],
+    "explanation": "Po Bayesovem izreku: izmed vseh 10 belih kroglic se jih 8 nahaja v Vrečki A in 2 v Vrečki B. Verjetnost, da bela kroglica izvira iz Vrečke A, je 8/10 oziroma 80%."
+  }
+]

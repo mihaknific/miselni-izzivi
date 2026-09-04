@@ -1,0 +1,585 @@
+/* css/layout.css */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--safe-area-inset-top) var(--spacing-md) 0;
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  isolation: isolate;
+}
+
+/* Stranski gumbi so absolutno pozicionirani na levo/desno in ne vplivajo na sredinski naslov */
+.header-left {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: 2;
+}
+
+.header-right {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: 2;
+}
+
+/* Naslov je matematično natančno na sredini celotne širine glave */
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 56px; /* Zavarovanje pred prekrivanjem z gumbi na majhnih telefonih */
+  box-sizing: border-box;
+}
+
+/* --- GAMIFIKACIJA --- */
+.gamification-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  margin-right: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.streak-badge {
+  background: rgba(255, 152, 0, 0.15);
+  color: #ff9800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.level-badge {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- ANIMACIJE --- */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+  border-color: var(--color-danger) !important;
+  background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.flash-success {
+  background-color: rgba(34, 197, 94, 0.1) !important;
+  border-color: var(--color-success) !important;
+  transition: all 0.2s ease;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  overflow: hidden;
+}
+
+.header-right-extras {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header-gamification {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+@media (max-width: 380px) {
+  .header-gamification {
+    display: none !important;
+  }
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  position: static;
+  transform: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: inherit;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 0 transparent;
+
+  &:hover {
+    background: var(--color-surface, #fff);
+    color: var(--color-primary);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.sound-muted .sound-wave {
+  opacity: 0.15;
+}
+
+/* ── Slide-in Drawer Navigation ── */
+.main-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(250px, 85vw);
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: var(--safe-area-inset-top);
+  padding-right: var(--safe-area-inset-right);
+  padding-bottom: var(--safe-area-inset-bottom);
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+/* Drawer glava - enaka višina (60px) in poravnava kot app-header */
+.nav-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.nav-drawer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--custom-heading, var(--color-primary));
+  letter-spacing: -0.01em;
+}
+
+.nav-drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--custom-text, var(--color-text-main));
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-drawer-close:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+/* Navigacijski elementi v drawer-ju */
+.main-nav .nav-items {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  gap: 4px;
+  flex: 1;
+}
+
+.main-nav .btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--custom-text, var(--color-text-main));
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main-nav .btn-nav:hover {
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary);
+}
+
+.main-nav .btn-nav:active {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
+.nav-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ── Zvočni preklopnik v drawer-ju ── */
+.nav-sound-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.nav-sound-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--custom-text, var(--color-text-main));
+}
+
+.nav-sound-label svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.nav-sound-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-sound-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  outline-offset: 2px;
+  border-radius: 16px;
+}
+
+.nav-sound-track {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--color-text-main) 20%, transparent);
+  transition: background 0.25s ease;
+}
+
+.nav-sound-track .nav-sound-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Toggle ON stanje */
+.nav-sound-btn[aria-checked='true'] .nav-sound-track {
+  background: var(--color-primary);
+}
+
+.nav-sound-btn[aria-checked='true'] .nav-sound-thumb {
+  transform: translateX(22px);
+}
+
+/* Muted ikona v meniju */
+.nav-sound-toggle.sound-off .nav-sound-label svg {
+  opacity: 0.35;
+}
+
+/* ── Responsivni preklop pri 450px ── */
+@media (max-width: 450px) {
+  #btn-sound-toggle {
+    display: none !important;
+  }
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  min-height: 0;
+}
+
+.game-shell-actions {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.game-settings-fab,
+.game-info-fab {
+  z-index: 30;
+  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Skupne nastavitve za zamik in centriranje strani izven iger */
+.page-header,
+.container-grid {
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Home screen header spacing */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-bottom: 0;
+  /* ker ima container-grid svoj zgornji padding ali gap */
+}
+
+/* Home screen grid */
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  justify-content: center;
+  gap: clamp(1.2rem, 2.5vw, 1.75rem);
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Fiksiranje zaslona med igro – vedno en zaslon (100svh fallback + 100dvh), nav znotraj */
+body.game-active {
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+  /* prepreči bounce scroll na iOS */
+  overscroll-behavior: none;
+}
+
+/* Glavna igralna kartica: stisnjena na razpoložljivo višino (100svh - header - margini - safe area) */
+body.game-active .card.game-card-shell {
+  margin: var(--spacing-md) auto;
+  width: calc(100% - 2 * var(--spacing-md));
+  max-width: 1200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  min-height: 0;
+  /* Ključno: omeji na razpoložljivo višino, da nikoli ne preseže okna */
+  max-height: calc(
+    100svh - 60px - 2 * var(--spacing-md) - var(--safe-area-inset-top) -
+      var(--safe-area-inset-bottom)
+  );
+  max-height: calc(
+    100dvh - 60px - 2 * var(--spacing-md) - var(--safe-area-inset-top) -
+      var(--safe-area-inset-bottom)
+  );
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.game-shell-body {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-areas: 'stack';
+  align-items: stretch;
+  justify-items: stretch;
+  overflow: hidden;
+  /* omogoči notranji scroll, če vsebina preseže višino kartice */
+}
+
+.game-stage-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  min-height: 0;
+  max-height: 100%;
+  grid-area: stack;
+  align-self: stretch;
+  justify-self: stretch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  /* notranji scroll je fallback – idealno vse ostane v enem zaslonu, če preseže, uporabnik lahko drsa znotraj kartice */
+}
+
+/* --- GAME PANELS --- */
+.game-info-modal,
+.game-aux-panel {
+  grid-area: stack;
+  display: block;
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  overflow: auto;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.game-info-modal.panel-hidden,
+.game-aux-panel.panel-hidden,
+.game-stage-content.hidden {
+  display: none;
+}
+
+.game-info-modal .modal-content,
+.game-aux-panel .modal-content {
+  position: relative;
+  display: grid;
+  gap: var(--spacing-md);
+  width: 100%;
+  padding: var(--spacing-sm) 0 var(--spacing-lg);
+}
+
+.game-info-modal .modal-close,
+.game-aux-panel .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.game-info-modal .modal-close:hover,
+.game-aux-panel .modal-close:hover {
+  opacity: 1;
+}
+
+.info-body {
+  line-height: 1.6;
+}
+
+.info-body h4 {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

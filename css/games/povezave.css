@@ -1,0 +1,233 @@
+/* css/games/povezave.css — Povezave (Connections) stilizacija */
+
+.pov-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  justify-content: flex-start;
+}
+
+.pov-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.pov-lives {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.pov-life {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: inline-block;
+}
+
+.pov-life.lost {
+  background: var(--color-border);
+}
+
+.pov-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.pov-card {
+  aspect-ratio: 1.6 / 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 2.2vw, 0.92rem);
+  line-height: 1.2;
+  padding: 6px 4px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.15s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.pov-card:hover:not(.selected):not(.solved) {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+.pov-card.selected {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+.pov-card.solved {
+  cursor: default;
+  color: #1a1a2e;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+.pov-card.shake {
+  animation: shake 0.35s ease;
+  border-color: #ef4444 !important;
+}
+.pov-card.dim {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.pov-solved-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pov-solved-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.3;
+  animation: pov-reveal 0.4s ease;
+}
+
+@keyframes pov-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.pov-solved-group .pov-group-name {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pov-solved-group .pov-group-words {
+  font-size: 0.82rem;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.pov-group-yellow {
+  background: #fef08a;
+  border: 1px solid #facc15;
+  color: #713f12;
+}
+.pov-group-green {
+  background: #bbf7d0;
+  border: 1px solid #4ade80;
+  color: #14532d;
+}
+.pov-group-blue {
+  background: #bfdbfe;
+  border: 1px solid #60a5fa;
+  color: #1e3a5f;
+}
+.pov-group-purple {
+  background: #e9d5ff;
+  border: 1px solid #c084fc;
+  color: #581c87;
+}
+
+.pov-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pov-message {
+  min-height: 1.4em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.pov-message.error {
+  color: #ef4444;
+}
+.pov-message.success {
+  color: #16a34a;
+}
+.pov-message.info {
+  color: var(--color-primary);
+}
+
+.pov-help {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .pov-grid {
+    gap: 6px;
+  }
+  .pov-card {
+    font-size: 0.72rem;
+    padding: 4px 3px;
+    border-radius: 8px;
+    aspect-ratio: 1.4 / 1;
+  }
+  .pov-solved-group {
+    padding: 8px 10px;
+  }
+}
+@media (max-height: 700px) {
+  .pov-stage-container {
+    gap: 6px;
+  }
+  .pov-card {
+    padding: 4px 2px;
+    font-size: 0.68rem;
+  }
+  .pov-grid {
+    gap: 6px;
+  }
+}
+@media (max-height: 600px) {
+  .pov-card {
+    font-size: 0.62rem;
+    aspect-ratio: 1.3 / 1;
+  }
+}

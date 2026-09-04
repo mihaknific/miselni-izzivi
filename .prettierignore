@@ -1,0 +1,8 @@
+node_modules
+dist
+playwright-report
+test-results
+coverage
+css/games.bundle.css
+data/slovar*.json
+icons/*.png

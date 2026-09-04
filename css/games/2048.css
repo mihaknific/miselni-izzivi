@@ -1,0 +1,334 @@
+/* css/games/2048.css — Združi ploščice (2048) stilizacija */
+
+.twfo-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  /* omogoči notranji scroll, če višina preseže – idealno pa vse ostane v enem zaslonu */
+}
+
+.twfo-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.twfo-score-box {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.twfo-score-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 86px;
+  padding: 6px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.twfo-score-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.twfo-score-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.twfo-board {
+  position: relative;
+  width: min(92vw, 400px, 48vh);
+  width: min(92vw, 400px, 48dvh);
+  height: min(92vw, 400px, 48vh);
+  height: min(92vw, 400px, 48dvh);
+  max-width: min(92vw, 400px);
+  max-height: min(48vh, 48dvh, 400px);
+  aspect-ratio: 1 / 1;
+  background: #bbada0;
+  border-radius: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 8px;
+  touch-action: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.twfo-board.size-4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.twfo-board.size-5 {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 6px;
+  padding: 6px;
+}
+.twfo-board.size-6 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  padding: 6px;
+}
+
+.twfo-cell {
+  background: rgba(238, 228, 218, 0.35);
+  border-radius: 6px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twfo-tile-layer {
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.twfo-board.size-5 .twfo-tile-layer,
+.twfo-board.size-6 .twfo-tile-layer {
+  inset: 6px;
+}
+
+.twfo-tile {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  color: #776e65;
+  background: #eee4da;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+  will-change: transform;
+  /* privzeto brez animacije – samo nove in združene dobijo animacijo */
+  animation: none;
+}
+
+.twfo-tile.moved {
+  /* nežen premik – ne utripa, samo drsi z grid prehodom */
+  transition: none;
+}
+
+.twfo-tile.merged {
+  animation: twfo-pop 0.12s ease-out;
+  z-index: 1;
+}
+
+@keyframes twfo-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.twfo-tile.v2 {
+  background: #eee4da;
+  color: #776e65;
+}
+.twfo-tile.v4 {
+  background: #ede0c8;
+  color: #776e65;
+}
+.twfo-tile.v8 {
+  background: #f2b179;
+  color: #f9f6f2;
+}
+.twfo-tile.v16 {
+  background: #f59563;
+  color: #f9f6f2;
+}
+.twfo-tile.v32 {
+  background: #f67c5f;
+  color: #f9f6f2;
+}
+.twfo-tile.v64 {
+  background: #f65e3b;
+  color: #f9f6f2;
+}
+.twfo-tile.v128 {
+  background: #edcf72;
+  color: #f9f6f2;
+  font-size: clamp(0.9rem, 3.5vw, 1.4rem);
+}
+.twfo-tile.v256 {
+  background: #edcc61;
+  color: #f9f6f2;
+  font-size: clamp(0.9rem, 3.5vw, 1.4rem);
+  box-shadow: 0 0 8px rgba(243, 215, 116, 0.6);
+}
+.twfo-tile.v512 {
+  background: #edc850;
+  color: #f9f6f2;
+  font-size: clamp(0.9rem, 3.5vw, 1.4rem);
+}
+.twfo-tile.v1024 {
+  background: #edc53f;
+  color: #f9f6f2;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
+}
+.twfo-tile.v2048 {
+  background: #edc22e;
+  color: #f9f6f2;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
+  box-shadow: 0 0 12px rgba(237, 194, 46, 0.7);
+}
+.twfo-tile.v4096 {
+  background: #3c3a32;
+  color: #f9f6f2;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+.twfo-tile.v8192 {
+  background: #3c3a32;
+  color: #f9f6f2;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+.twfo-board.size-6 .twfo-tile {
+  font-size: clamp(0.75rem, 2.5vw, 1.1rem);
+}
+
+.twfo-tile.empty {
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+}
+
+.twfo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  width: 100%;
+}
+
+.twfo-dpad {
+  display: grid;
+  grid-template-columns: 44px 44px 44px;
+  grid-template-rows: 44px 44px;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.twfo-dpad button {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.12s ease;
+  touch-action: manipulation;
+}
+.twfo-dpad button:active {
+  transform: scale(0.94);
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.twfo-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.twfo-message {
+  min-height: 1.4em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.twfo-message.win {
+  color: var(--color-success);
+}
+.twfo-message.over {
+  color: var(--color-error);
+}
+
+@media (max-width: 480px) {
+  .twfo-board {
+    gap: 6px;
+    padding: 6px;
+  }
+  .twfo-score-pill {
+    min-width: 76px;
+    padding: 5px 10px;
+  }
+  .twfo-dpad button {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-height: 700px) {
+  .twfo-board {
+    width: min(92vw, 340px, 44vh);
+    height: min(92vw, 340px, 44vh);
+  }
+  .twfo-stage-container {
+    gap: 6px;
+  }
+  .twfo-dpad {
+    gap: 4px;
+  }
+  .twfo-dpad button {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media (max-height: 600px) {
+  .twfo-board {
+    width: min(92vw, 300px, 42vh);
+    height: min(92vw, 300px, 42vh);
+  }
+}

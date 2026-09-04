@@ -1,0 +1,250 @@
+/* css/games/besedle.css — Besedle (Wordle) slovene stilizacija */
+
+.bes-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+}
+
+.bes-board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 6px;
+  width: min(92vw, 360px, 42vh);
+  width: min(92vw, 360px, 42dvh);
+  max-width: min(92vw, 360px);
+  max-height: min(42vh, 42dvh, 360px);
+  aspect-ratio: 5 / 6;
+}
+
+.bes-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.bes-tile {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition:
+    transform 0.12s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  user-select: none;
+}
+
+.bes-tile.filled {
+  border-color: #94a3b8;
+  animation: bes-pop 0.1s ease;
+}
+
+@keyframes bes-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bes-tile.reveal {
+  animation: bes-flip 0.45s ease forwards;
+}
+
+@keyframes bes-flip {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.bes-tile.correct {
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #fff !important;
+}
+
+.bes-tile.present {
+  background: #eab308 !important;
+  border-color: #eab308 !important;
+  color: #fff !important;
+}
+
+.bes-tile.absent {
+  background: #64748b !important;
+  border-color: #64748b !important;
+  color: #fff !important;
+}
+
+.bes-tile.shake {
+  animation: shake 0.35s ease;
+  border-color: #ef4444 !important;
+}
+
+.bes-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 4px;
+}
+
+.bes-kb-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.bes-key {
+  flex: 1;
+  min-width: 0;
+  max-width: 42px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.12s ease;
+  padding: 0 2px;
+}
+
+.bes-key.wide {
+  max-width: 72px;
+  font-size: 0.75rem;
+  background: #e2e8f0;
+}
+
+.bes-key:hover:not(.used) {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+.bes-key:active {
+  transform: scale(0.96);
+}
+
+.bes-key.correct {
+  background: #16a34a !important;
+  color: #fff !important;
+  border-color: #16a34a !important;
+}
+.bes-key.present {
+  background: #eab308 !important;
+  color: #fff !important;
+  border-color: #eab308 !important;
+}
+.bes-key.absent {
+  background: #64748b !important;
+  color: #fff !important;
+  border-color: #64748b !important;
+}
+
+.bes-message {
+  min-height: 1.5em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+}
+.bes-message.error {
+  color: #ef4444;
+}
+
+.bes-stats {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+.bes-stats strong {
+  color: var(--color-text);
+}
+
+.bes-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .bes-board {
+    gap: 5px;
+  }
+  .bes-row {
+    gap: 5px;
+  }
+  .bes-key {
+    height: 40px;
+    font-size: 0.82rem;
+    max-width: 34px;
+  }
+  .bes-key.wide {
+    max-width: 60px;
+    font-size: 0.7rem;
+  }
+}
+@media (max-height: 700px) {
+  .bes-board {
+    width: min(92vw, 320px, 38vh);
+    height: min(92vw, 320px, 38vh);
+  }
+  .bes-key {
+    height: 38px;
+  }
+  .bes-stage-container {
+    gap: 6px;
+  }
+}
+@media (max-height: 600px) {
+  .bes-board {
+    width: min(92vw, 280px, 36vh);
+    height: min(92vw, 280px, 36vh);
+    gap: 4px;
+  }
+  .bes-key {
+    height: 34px;
+    font-size: 0.78rem;
+  }
+}

@@ -1,0 +1,147 @@
+/* css/games/corsi.css — Corsi Block test stilizacija */
+
+.corsi-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: var(--spacing-md);
+}
+
+.corsi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: clamp(10px, 2.5vw, 16px);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 360px;
+  padding: var(--spacing-sm);
+  box-sizing: border-box;
+}
+
+.corsi-block {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  touch-action: manipulation;
+}
+
+.corsi-block:hover:not(.disabled) {
+  border-color: var(--color-primary);
+  transform: scale(1.03);
+}
+
+.corsi-block:active:not(.disabled) {
+  transform: scale(0.97);
+}
+
+.corsi-block.lit {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.6);
+  transform: scale(1.05);
+}
+
+.corsi-block.user-correct {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+.corsi-block.user-wrong {
+  background-color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+}
+
+.corsi-block.disabled {
+  cursor: default;
+}
+
+.corsi-grid.corsi-irregular-mode {
+  position: relative;
+}
+
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(1) {
+  transform: translate(-8px, 6px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(2) {
+  transform: translate(10px, -12px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(3) {
+  transform: translate(-6px, 14px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(4) {
+  transform: translate(12px, -4px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(5) {
+  transform: scale(0.92) translate(-4px, -6px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(6) {
+  transform: translate(-14px, 8px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(7) {
+  transform: translate(8px, -10px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(8) {
+  transform: translate(-10px, 4px);
+}
+.corsi-grid.corsi-irregular-mode .corsi-block:nth-child(9) {
+  transform: translate(6px, -14px);
+}
+
+.corsi-status-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--custom-heading, var(--color-primary));
+  min-height: 1.6em;
+  text-align: center;
+}
+
+@media (max-width: 479px) {
+  .corsi-grid {
+    gap: clamp(6px, 2vw, 10px);
+    max-width: 300px;
+  }
+  /* Zmanjšaj razpršitev pri asimetrični plošči na majhnih zaslonih da ne seka roba */
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(1) {
+    transform: translate(-4px, 3px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(2) {
+    transform: translate(5px, -6px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(3) {
+    transform: translate(-3px, 7px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(4) {
+    transform: translate(6px, -2px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(5) {
+    transform: scale(0.92) translate(-2px, -3px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(6) {
+    transform: translate(-7px, 4px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(7) {
+    transform: translate(4px, -5px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(8) {
+    transform: translate(-5px, 2px);
+  }
+  .corsi-grid.corsi-irregular-mode .corsi-block:nth-child(9) {
+    transform: translate(3px, -7px);
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "spomin",
+    "title": "Spomin",
+    "description": "Poišči pare enakih kartic. Urjenje delovnega spomina in vidne pozornosti.",
+    "tag": "Pomnjenje"
+  },
+  {
+    "id": "racunanje",
+    "title": "Hitro računanje",
+    "description": "Reši čim več računskih nalog v omejenem času. Urjenje miselne aritmetike.",
+    "tag": "Aritmetika"
+  },
+  {
+    "id": "stroop",
+    "title": "Stroopov test",
+    "description": "Določi barvo pisave in prezri pomen besede. Klasični preizkus kognitivne prožnosti.",
+    "tag": "Pozornost"
+  },
+  {
+    "id": "reakcija",
+    "title": "Reakcijski čas",
+    "description": "Izmeri svoj odzivni čas ob vidnem signalu. Urjenje motoričnega odziva.",
+    "tag": "Odzivnost"
+  },
+  {
+    "id": "gonogo",
+    "title": "Go / No-Go",
+    "description": "Klikni ob zelenem signalu (Go) in zadrži odziv ob rdečem/modrem (No-Go). Urjenje kognitivnega nadzora.",
+    "tag": "Inhibicija"
+  },
+  {
+    "id": "zaporedje",
+    "title": "Zaporedje števil",
+    "description": "Ponovi vedno daljša zaporedja številk. Preizkus neposrednega obsega pomnjenja.",
+    "tag": "Pomnjenje"
+  },
+  {
+    "id": "abeceda",
+    "title": "Abeceda ↔ Številke",
+    "description": "Povezovanje črk slovenske abecede z njihovimi zaporednimi številkami in obratno.",
+    "tag": "Trening"
+  },
+  {
+    "id": "kvadriranje",
+    "title": "Kvadriranje",
+    "description": "Računanje kvadratov dvo- in trimestnih števil na pamet z algebrsko tehniko.",
+    "tag": "Trening"
+  },
+  {
+    "id": "major",
+    "title": "Major Sistem",
+    "description": "Vadba preslikav števk v soglasnike za mnemotehnični Major sistem.",
+    "tag": "Trening"
+  },
+  {
+    "id": "corsi",
+    "title": "Prostorski spomin (Corsi)",
+    "description": "Nevropsihološki preizkus ponavljanja vizualno-prostorskih vzorcev na mreži polj.",
+    "tag": "Pomnjenje"
+  },
+  {
+    "id": "search",
+    "title": "Iskanje tujka",
+    "description": "Nevropsihološki preizkus vizualnega skeniranja in selektivne pozornosti z iskanjem izstopajočega elementa.",
+    "tag": "Pozornost"
+  },
+  {
+    "id": "switch",
+    "title": "Preklop pozornosti",
+    "description": "Nevropsihološki preizkus kognitivne prožnosti in hitrega preklapljanja pravila.",
+    "tag": "Pozornost"
+  },
+  {
+    "id": "dualnback",
+    "title": "Dual N-Back",
+    "description": "Znanstveno potrjeni trening delovnega spomina in tekoče inteligence s sočasnim spremljanjem vizualnih in znakovnih vzorcev.",
+    "tag": "Pomnjenje"
+  },
+  {
+    "id": "words",
+    "title": "Besedna fluentnost",
+    "description": "Nevropsihološki preizkus hitrega leksikalnega priklica in sestavljanja besed iz anagramov.",
+    "tag": "Trening"
+  },
+  {
+    "id": "uganke",
+    "title": "Ugankarski Izziv",
+    "description": "Zbirka kognitivnih ugank iz 5 glavnih kategorij in 13 podtipov (logika, fizika, izraznost, detektivka in verjetnost).",
+    "tag": "Uganke"
+  },
+  {
+    "id": "vzorci",
+    "title": "Matematični Vzorci",
+    "description": "50 vizualnih matematičnih nalog: algebrski sistemi, sadne enačbe, piramide, trikotniki, kolesa, domino, ure in še več.",
+    "tag": "Vzorci"
+  },
+  {
+    "id": "trail",
+    "title": "Barvni Labirint",
+    "description": "Sodoben Trail Making test – poveži 1→A→2→B… s črto. Merjenje preklapljanja in vidne hitrosti kot v Peak/Lumosity.",
+    "tag": "Pozornost"
+  },
+  {
+    "id": "2048",
+    "title": "2048 – Združi ploščice",
+    "description": "Združi enake številke in doseži ploščico 2048! Logična sestavljanka drsenja s taktiko kota.",
+    "tag": "Logika"
+  },
+  {
+    "id": "besedle",
+    "title": "Besedle",
+    "description": "Ugani 5-črkovno slovensko besedo v 6 poskusih. Zelena, rumena in siva barva vodijo do rešitve.",
+    "tag": "Besede"
+  },
+  {
+    "id": "povezave",
+    "title": "Povezave",
+    "description": "Razvrsti 16 besed v 4 smiselne skupine. Rumena je najlažja, vijolična najtežja. 4 življenja!",
+    "tag": "Besede"
+  },
+  {
+    "id": "besedolov",
+    "title": "Besedolov",
+    "description": "Satovje 7 črk – sestavi čim več besed! Osrednja črka obvezna, pangram +7. Dnevni izziv kot na tacko.io.",
+    "tag": "Besede"
+  },
+  {
+    "id": "sudoku",
+    "title": "Sudoku",
+    "description": "Klasični 9×9 Sudoku. Vsaka vrstica, stolpec in 3×3 blok = 1–9. Zapiski, namigi, tri težavnosti.",
+    "tag": "Logika"
+  },
+  {
+    "id": "minolovec",
+    "title": "Minolovec",
+    "description": "Očisti polje brez min! Številke štejejo sosednje mine. Zastavice, prvi klik varen, čas in poteze.",
+    "tag": "Logika"
+  },
+  {
+    "id": "nonogram",
+    "title": "Nonogram",
+    "description": "Japonska križanka – pobarvaj sliko po številkah. Polno/✕, 5×5, 10×10 in 15×15, preveri in namigi.",
+    "tag": "Logika"
+  },
+  {
+    "id": "daily",
+    "title": "Dnevni Izziv",
+    "description": "3–4 kratke igre dnevno. Enaki izzivi za vse, težavnost se prilagaja tebi. Streak bonus za serijo dni!",
+    "tag": "Dnevni"
+  }
+]

@@ -1,0 +1,188 @@
+/* css/games/minolovec.css — Minolovec (Minesweeper) */
+
+.mine-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: none;
+  overflow: visible;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  justify-content: flex-start;
+}
+
+.mine-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 420px;
+  gap: var(--spacing-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.mine-counter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-mono, monospace);
+}
+
+.mine-timer {
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.mine-board {
+  display: grid;
+  gap: 2px;
+  background: #b8c0cc;
+  border: 2px solid #8a95a5;
+  border-radius: 6px;
+  padding: 4px;
+  touch-action: manipulation;
+  user-select: none;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-content: start;
+  flex-shrink: 0;
+}
+
+.mine-cell {
+  width: clamp(20px, min(8vw, 6dvh), 40px);
+  height: clamp(20px, min(8vw, 6dvh), 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  background: #d1d5db;
+  border: 2px outset #e5e7eb;
+  border-radius: 3px;
+  cursor: pointer;
+  transition:
+    background 0.08s,
+    transform 0.08s;
+}
+
+.mine-cell.revealed {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  cursor: default;
+}
+
+.mine-cell.flagged {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.mine-cell.mine {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+
+.mine-cell.mine-hit {
+  background: #ef4444 !important;
+  color: #fff;
+}
+
+.mine-cell:active:not(.revealed) {
+  transform: scale(0.96);
+}
+
+.mine-cell .mine-num-1 {
+  color: #2563eb;
+}
+.mine-cell .mine-num-2 {
+  color: #16a34a;
+}
+.mine-cell .mine-num-3 {
+  color: #dc2626;
+}
+.mine-cell .mine-num-4 {
+  color: #7c3aed;
+}
+.mine-cell .mine-num-5 {
+  color: #b45309;
+}
+.mine-cell .mine-num-6 {
+  color: #0891b2;
+}
+.mine-cell .mine-num-7 {
+  color: #000;
+}
+.mine-cell .mine-num-8 {
+  color: #64748b;
+}
+
+.mine-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mine-mode-btn.active {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+}
+
+.mine-help {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .mine-cell {
+    width: clamp(20px, min(8vw, 6dvh), 32px);
+    height: clamp(20px, min(8vw, 6dvh), 32px);
+    font-size: 0.85rem;
+  }
+  .mine-board {
+    gap: 1px;
+    padding: 3px;
+  }
+}
+@media (max-width: 380px) {
+  .mine-cell {
+    width: clamp(20px, min(8vw, 6dvh), 28px);
+    height: clamp(20px, min(8vw, 6dvh), 28px);
+    font-size: 0.78rem;
+  }
+}
+@media (max-height: 700px) {
+  .mine-cell {
+    width: clamp(20px, min(8vw, 6dvh), 30px);
+    height: clamp(20px, min(8vw, 6dvh), 30px);
+    font-size: 0.8rem;
+  }
+  .mine-stage-container {
+    gap: 6px;
+  }
+}
+@media (max-height: 600px) {
+  .mine-cell {
+    width: clamp(20px, min(8vw, 6dvh), 26px);
+    height: clamp(20px, min(8vw, 6dvh), 26px);
+    font-size: 0.72rem;
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Miselni Izzivi">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#171717"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="160" y1="112" x2="352" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fafc" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#e2e8f0" stop-opacity="0.65"/>
+    </linearGradient>
+  </defs>
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bg)"/>
+  <path d="M126 318c0-78 63-141 141-141h72c17 0 31 14 31 31v35c0 17-14 31-31 31h-36c-35 0-63 28-63 63v8c0 17-14 31-31 31h-52c-17 0-31-14-31-31z" fill="url(#accent)" opacity="0.9"/>
+  <path d="M157 166h198c17 0 31 14 31 31v14c0 17-14 31-31 31H157c-17 0-31-14-31-31v-14c0-17 14-31 31-31z" fill="#ffffff" opacity="0.12"/>
+  <text x="256" y="300" text-anchor="middle" font-size="132" font-weight="800" font-family="Outfit, Inter, Arial, sans-serif" fill="#ffffff" letter-spacing="8">MI</text>
+</svg>

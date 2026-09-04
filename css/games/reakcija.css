@@ -1,0 +1,187 @@
+/* css/games/reakcija.css */
+
+.rk-play-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.rk-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 680px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 0 0.25rem;
+}
+
+.rk-box {
+  flex: 1;
+  width: 100%;
+  max-width: 680px;
+  max-height: 420px;
+  min-height: 260px;
+  border-radius: calc(var(--border-radius) + 4px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: #ffffff;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* State variants */
+.rk-box-idle {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-hover) 100%
+  ) !important;
+  color: #ffffff !important;
+}
+
+.rk-box-wait {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important; /* Bold rose/red WAIT */
+  color: #ffffff !important;
+  box-shadow: 0 12px 35px rgba(225, 29, 72, 0.25) !important;
+}
+
+.rk-box-go {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important; /* Bright GO green */
+  color: #ffffff !important;
+  transform: scale(1.02);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.45) !important;
+}
+
+.rk-box-nogo {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important; /* Bright NO-GO blue */
+  color: #ffffff !important;
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.35) !important;
+}
+
+.rk-box-early {
+  background: linear-gradient(135deg, #f97316 0%, #c2410c 100%) !important; /* Orange early */
+  color: #ffffff !important;
+}
+
+.rk-box-error {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
+}
+
+.rk-box-result {
+  background: var(--color-surface) !important;
+  color: var(--color-text-main) !important;
+  border: 2px solid var(--color-primary) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Typography inside stimulus box */
+.rk-title {
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.rk-message {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+  opacity: 0.95;
+  max-width: 480px;
+  line-height: 1.4;
+}
+
+.rk-result {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  padding: 0.45rem 1.25rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.02em;
+  min-height: 34px;
+}
+
+.rk-result:empty {
+  display: none;
+}
+
+.rk-box-result .rk-result {
+  background: rgba(var(--color-primary-rgb), 0.12);
+  color: var(--color-primary);
+}
+
+.rk-feedback {
+  min-height: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.rk-summary-card {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.rk-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: var(--spacing-md) 0;
+}
+
+.rk-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: color-mix(in srgb, var(--color-surface) 96%, var(--color-primary) 4%);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+
+  & span {
+    color: var(--color-text-muted);
+  }
+  & strong {
+    color: var(--color-text-main);
+    font-weight: 700;
+  }
+}

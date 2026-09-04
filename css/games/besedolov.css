@@ -1,0 +1,331 @@
+/* css/games/besedolov.css — Besedolov (tacko.io) Spelling Bee stil */
+
+.blov-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  justify-content: flex-start;
+}
+
+.blov-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.blov-score-box {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.blov-score-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 84px;
+  padding: 6px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.blov-score-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.blov-score-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.blov-progress {
+  width: 100%;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.blov-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #8b5cf6);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.blov-rank {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.blov-input-display {
+  min-height: 48px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+.blov-input-display .blov-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--color-primary);
+  animation: blov-blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blov-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blov-hive {
+  position: relative;
+  width: min(280px, 52vw, 36vh);
+  width: min(280px, 52vw, 36dvh);
+  height: min(280px, 52vw, 36vh);
+  height: min(280px, 52vw, 36dvh);
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+.blov-hex {
+  position: absolute;
+  width: 78px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition:
+    transform 0.12s ease,
+    background 0.15s,
+    color 0.15s,
+    box-shadow 0.15s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.blov-hex:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+.blov-hex:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.blov-hex.central {
+  background: var(--color-primary);
+  color: var(--custom-primary-text, #fff);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+  z-index: 2;
+}
+
+.blov-hex.pos-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-top {
+  left: 50%;
+  top: 18%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-top-right {
+  left: 76%;
+  top: 33%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-bottom-right {
+  left: 76%;
+  top: 67%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-bottom {
+  left: 50%;
+  top: 82%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-bottom-left {
+  left: 24%;
+  top: 67%;
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-top-left {
+  left: 24%;
+  top: 33%;
+  transform: translate(-50%, -50%);
+}
+
+.blov-hex.central.pos-center {
+  transform: translate(-50%, -50%);
+}
+.blov-hex.pos-top:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+.blov-hex.pos-center:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.blov-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.blov-found {
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  max-height: min(140px, 18vh);
+  max-height: min(140px, 18dvh);
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-content: flex-start;
+  flex-shrink: 1;
+}
+
+.blov-found-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  color: #065f46;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.blov-found-chip.pangram {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  border-color: #eab308;
+  color: #422006;
+}
+
+.blov-message {
+  min-height: 1.4em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.blov-message.success {
+  color: #16a34a;
+}
+.blov-message.error {
+  color: #ef4444;
+}
+.blov-message.info {
+  color: var(--color-primary);
+}
+
+.blov-help {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 380px) {
+  .blov-hive {
+    width: 240px;
+    height: 240px;
+  }
+  .blov-hex {
+    width: 66px;
+    height: 72px;
+    font-size: 1.3rem;
+  }
+  .blov-input-display {
+    font-size: 1.35rem;
+    min-height: 44px;
+  }
+}
+@media (max-height: 700px) {
+  .blov-hive {
+    width: min(240px, 44vw, 32vh);
+    height: min(240px, 44vw, 32vh);
+  }
+  .blov-hex {
+    width: 62px;
+    height: 68px;
+    font-size: 1.25rem;
+  }
+  .blov-stage-container {
+    gap: 6px;
+  }
+  .blov-found {
+    max-height: 90px;
+  }
+}
+@media (max-height: 600px) {
+  .blov-hive {
+    width: min(200px, 40vw, 28vh);
+    height: min(200px, 40vw, 28vh);
+  }
+  .blov-hex {
+    width: 56px;
+    height: 60px;
+    font-size: 1.1rem;
+  }
+  .blov-input-display {
+    min-height: 40px;
+    font-size: 1.25rem;
+  }
+}

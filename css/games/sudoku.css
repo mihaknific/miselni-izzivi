@@ -1,0 +1,234 @@
+/* css/games/sudoku.css — Sudoku 9x9 */
+
+.sud-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: none;
+  overflow: visible;
+  overflow-x: hidden;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  justify-content: flex-start;
+}
+
+.sudoku-game-stage {
+  place-items: start center;
+}
+
+#sud-play-screen.stage-layer {
+  min-height: 0;
+  height: auto;
+  align-content: start;
+}
+
+.sud-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.sud-timer {
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+}
+
+.sud-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: min(92vw, 420px, 52vh);
+  width: min(92vw, 420px, 52dvh);
+  height: min(92vw, 420px, 52vh);
+  height: min(92vw, 420px, 52dvh);
+  max-width: min(92vw, 420px);
+  max-height: min(52vh, 52dvh, 420px);
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface);
+  border: 2px solid var(--color-text);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.sud-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  background: var(--color-surface);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 2.8vw, 1.15rem);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.sud-cell.given {
+  background: #f1f5f9;
+  color: var(--color-text);
+  font-weight: 800;
+  cursor: default;
+}
+
+.sud-cell.selected {
+  background: rgba(99, 102, 241, 0.18) !important;
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+}
+
+.sud-cell.same-number {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.sud-cell.error {
+  background: rgba(239, 68, 68, 0.18) !important;
+  color: #b91c1c;
+}
+
+.sud-cell:nth-child(3n) {
+  border-right-width: 1.5px;
+}
+.sud-cell:nth-child(9n) {
+  border-right-width: 1px;
+}
+
+.sud-board .sud-cell:nth-child(n + 19):nth-child(-n + 27),
+.sud-board .sud-cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom-width: 1.5px;
+}
+
+/* thicker box borders via nth */
+.sud-cell.box-right {
+  border-right: 2px solid var(--color-text) !important;
+}
+.sud-cell.box-bottom {
+  border-bottom: 2px solid var(--color-text) !important;
+}
+
+.sud-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  gap: 1px;
+  pointer-events: none;
+}
+
+.sud-note {
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sud-numpad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.sud-num-btn {
+  padding: 0.7rem 0.2rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.12s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  touch-action: manipulation;
+}
+
+.sud-num-btn:hover {
+  border-color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-1px);
+}
+.sud-num-btn:active {
+  transform: scale(0.96);
+}
+.sud-num-btn.active-num {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.sud-num-btn.erase {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.05);
+}
+.sud-num-btn.note-toggle.active {
+  background: #f59e0b;
+  color: #fff;
+  border-color: #f59e0b;
+}
+
+.sud-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sud-help {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 420px) {
+  .sud-num-btn {
+    padding: 0.6rem 0.1rem;
+    font-size: 1rem;
+  }
+}
+@media (max-height: 700px) {
+  .sud-board {
+    width: min(92vw, 360px, 48vh);
+    height: min(92vw, 360px, 48vh);
+  }
+  .sud-stage-container {
+    gap: 6px;
+  }
+  .sud-num-btn {
+    padding: 0.5rem 0.1rem;
+    font-size: 0.95rem;
+  }
+}
+@media (max-height: 600px) {
+  .sud-board {
+    width: min(92vw, 300px, 44vh);
+    height: min(92vw, 300px, 44vh);
+  }
+  .sud-num-btn {
+    padding: 0.4rem 0.1rem;
+    font-size: 0.9rem;
+  }
+}

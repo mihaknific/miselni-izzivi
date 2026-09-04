@@ -1,0 +1,45 @@
+/* css/games/zaporedje.css */
+
+/* Zaporedje display and input styles */
+.zp-display {
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: var(--color-primary);
+}
+
+.zp-user-input {
+  font-size: clamp(1.8rem, 5vh, 2.5rem);
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: var(--spacing-sm);
+  min-height: 40px;
+}
+
+/* Numpad / keypad buttons used by Zaporedje */
+.numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  flex: 1;
+  max-height: 280px;
+  min-height: 0;
+
+  & .numpad-btn,
+  & .numpad-ok {
+    padding: 0.4rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .numpad-del {
+    color: var(--color-error);
+  }
+}
+
+/* Stari modali za Zaporedje odstranjeni */
