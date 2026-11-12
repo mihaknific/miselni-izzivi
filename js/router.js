@@ -25,13 +25,15 @@ export function parseHash(hashStr) {
     return { target: 'game', params: 'daily', subParam: parts.slice(1).join('/') || null };
   }
   if (
+    main === 'hero' ||
     main === 'game-list' ||
     main === 'settings' ||
     main === 'stats' ||
     main === 'achievements' ||
     main === 'daily'
   ) {
-    return { target: main, params: null, subParam: null };
+    const target = main === 'hero' ? 'game-list' : main;
+    return { target, params: null, subParam: null };
   }
   return { target: 'game', params: main, subParam: parts.slice(1).join('/') || null };
 }
