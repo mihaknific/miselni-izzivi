@@ -660,7 +660,7 @@ export function init2048() {
           const positions = findFarthestPosition({ row: r, col: c }, vector);
           const nextTile = grid.cellContent(positions.next);
 
-          if (nextTile && nextTile.value === tile.value && !nextTile.mergedInto) {
+          if (nextTile && nextTile.value === tile.value && !nextTile.mergedInto && !nextTile.isMerged) {
             const merged = new Tile(positions.next.row, positions.next.col, tile.value * 2);
             merged.isNew = false;
             merged.isMerged = true;
