@@ -206,7 +206,11 @@ async function initApp() {
         // Nepričakovano: loader obstaja, vnos registra pa ne
         return renderUnknownGameCard(id);
       }
-      return renderSingleGame(appTasks.find(t => t.id === id) || appTasks[0]);
+      const task = appTasks.find(t => t.id === id);
+      if (task && Array.isArray(task.opcije) && task.opcije.length > 0) {
+        return renderSingleGame(task);
+      }
+      return renderUnknownGameCard(id);
     },
   };
 
@@ -401,6 +405,15 @@ async function initApp() {
       setMenuOpen(false);
       if (target)
         navigateTo(target, null, { replace: target === 'stats' || target === 'settings' });
+      return;
+    }
+
+    const homeButton = e.target.closest('[data-target="home"]');
+    if (homeButton) {
+      if (currentRoute !== 'game-list') {
+        navigateTo('game-list', null, { replace: true });
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 

@@ -218,6 +218,7 @@ export const GAMES = [
 
 /** Vrne vnos registra za igro, ali null. */
 export function getGameEntry(id) {
+  if (id === 'dnevni-izziv') id = 'daily';
   return GAMES.find(g => g.id === id) || null;
 }
 

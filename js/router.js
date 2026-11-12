@@ -16,9 +16,13 @@ export function parseHash(hashStr) {
   const parts = raw.split('/');
   const main = parts[0];
   if (main === 'game') {
-    const gameId = parts[1] || 'uganke';
+    let gameId = parts[1] || 'uganke';
+    if (gameId === 'dnevni-izziv') gameId = 'daily';
     const subParam = parts.slice(2).join('/');
     return { target: 'game', params: gameId, subParam: subParam || null };
+  }
+  if (main === 'dnevni-izziv') {
+    return { target: 'game', params: 'daily', subParam: parts.slice(1).join('/') || null };
   }
   if (
     main === 'game-list' ||

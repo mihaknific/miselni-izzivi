@@ -20,6 +20,13 @@ body {
   isolation: isolate;
 }
 
+/* Scroll margin za sidra znotraj strani, da lepljiv header (60px) ne prekrije naslovov */
+section[id],
+article[id],
+div[id] {
+  scroll-margin-top: 80px;
+}
+
 /* Odprt meni: header ostane NAD overlayjem, da je gumb Meni (hamburger↔X)
    klikabil na točno isti poziciji za odpiranje IN zapiranje */
 body.menu-open header {
