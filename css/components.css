@@ -493,31 +493,18 @@
 
   & .start-card {
     text-align: center;
-    padding: var(--spacing-md);
-    max-width: 640px;
+    max-width: 580px;
     width: 100%;
+    box-sizing: border-box;
 
     & p {
-      margin: 0 0 var(--spacing-md) 0;
-      color: var(--custom-muted, var(--color-text-muted));
-    }
-
-    & .start-btn {
-      padding: 0.8rem 1.2rem;
+      margin: 0;
     }
   }
 }
 
 .stage-card {
   text-align: center;
-
-  & .start-card {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    border-radius: 0;
-  }
 }
 
 /* Glava nastavitev */
