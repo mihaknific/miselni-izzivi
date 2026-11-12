@@ -410,8 +410,12 @@ async function initApp() {
 
     const homeButton = e.target.closest('[data-target="home"]');
     if (homeButton) {
+      e.preventDefault();
       if (currentRoute !== 'game-list') {
         navigateTo('game-list', null, { replace: true });
+      }
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
