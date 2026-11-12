@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#FACC15" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Miselni izzivi — brezplačni logični izzivi in uganke</title>
@@ -25,9 +25,6 @@
   <link rel="icon" href="./icons/favicon-32-v2.png?v=1314" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 
-  <!-- Tailwind CSS CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -38,94 +35,7 @@
     href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap"
     rel="stylesheet" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            heading: ['Plus Jakarta Sans', 'sans-serif'],
-            sans: ['Lexend', 'sans-serif'],
-          },
-          colors: {
-            'brutal-yellow': '#FACC15',
-            'brutal-pink': '#F472B6',
-            'brutal-purple': '#A855F7',
-            'brutal-cyan': '#38BDF8',
-            'brutal-green': '#4ADE80',
-            'brutal-orange': '#FB923C',
-            'brutal-bg': '#FEFCE8',
-            'brutal-black': '#000000',
-          },
-          boxShadow: {
-            'brutal-sm': '3px 3px 0px 0px #000000',
-            'brutal': '5px 5px 0px 0px #000000',
-            'brutal-lg': '8px 8px 0px 0px #000000',
-            'brutal-xl': '12px 12px 0px 0px #000000',
-          },
-          borderWidth: {
-            '3': '3px',
-            '4': '4px',
-          },
-        },
-      },
-    };
-  </script>
-
-  <style>
-    .brutal-border {
-      border: 3px solid #000000;
-    }
-
-    .brutal-border-lg {
-      border: 4px solid #000000;
-    }
-
-    .brutal-btn {
-      transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-
-    .brutal-btn:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 8px 8px 0px 0px #000;
-    }
-
-    .brutal-btn:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px 0px #000;
-    }
-
-    .brutal-card {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .brutal-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 8px 8px 0px 0px #000;
-    }
-
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #FEFCE8;
-      border-left: 3px solid #000;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #FACC15;
-      border: 3px solid #000;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #F472B6;
-    }
-
-    body {
-      background-color: #FEFCE8;
-    }
-  </style>
-
+  <link rel="stylesheet" href="./css/tailwind.min.css?v=1" />
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/layout.css?v=28" />
   <link rel="stylesheet" href="./css/components.css?v=4" />
@@ -208,10 +118,6 @@
 
   <nav class="main-nav" id="main-nav" role="navigation" aria-label="Glavni meni">
     <div class="nav-card-wrapper">
-      <div class="nav-drawer-header">
-        <span class="nav-drawer-title">Meni</span>
-        <span class="nav-drawer-close-placeholder" aria-hidden="true"></span>
-      </div>
       <div class="nav-game-actions" id="nav-game-actions" hidden></div>
       <div class="nav-items">
         <button class="btn-nav" data-target="stats">
@@ -229,10 +135,10 @@
           <span class="nav-item-label">Nastavitve</span>
           <span class="nav-item-arrow" aria-hidden="true">→</span>
         </button>
-        <a href="https://mihaknific.github.io/daruj" target="_blank" rel="noopener noreferrer"
+        <a href="https://mihaknific.github.io/podpora" target="_blank" rel="noopener noreferrer"
           class="brutal-btn inline-flex items-center justify-center gap-2 px-6 py-3 bg-brutal-pink text-black font-heading font-black border-3 border-black shadow-brutal hover:bg-brutal-orange w-full"
-          data-external="donate" aria-label="Doniraj — podpri projekt (zunanja povezava)">
-          <i class="fa-solid fa-heart" aria-hidden="true"></i> Doniraj
+          data-external="donate" aria-label="Podpri projekt (zunanja povezava)">
+          <i class="fa-solid fa-heart" aria-hidden="true"></i> Podpri
         </a>
       </div>
       <div class="nav-gamification flex items-center justify-center gap-3 py-3" id="header-gamification"
@@ -262,9 +168,9 @@
 
   <footer class="bg-brutal-yellow border-t-4 border-black py-10 px-4 mt-12">
     <div class="max-w-7xl mx-auto flex flex-col items-center gap-7">
-      <a href="https://mihaknific.github.io/daruj" target="_blank" rel="noopener noreferrer"
+      <a href="https://mihaknific.github.io/podpora" target="_blank" rel="noopener noreferrer"
         class="brutal-btn inline-flex items-center gap-2 px-8 py-4 bg-brutal-pink text-black font-heading font-black text-lg md:text-xl border-4 border-black shadow-brutal hover:bg-brutal-orange hover:-translate-y-1 transition-transform w-full justify-center sm:w-auto">
-        <i class="fa-solid fa-heart" aria-hidden="true"></i> DARUJ <span aria-hidden="true">→</span>
+        <i class="fa-solid fa-heart" aria-hidden="true"></i> PODPRI <span aria-hidden="true">→</span>
       </a>
       <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t-3 border-black">
         <div class="flex items-center gap-3">

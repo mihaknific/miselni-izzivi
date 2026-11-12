@@ -126,15 +126,16 @@ async function initApp() {
     clearTimeout(menuCloseTimer);
     if (open) {
       document.body.classList.add('menu-open');
-      // Zaklene scroll strani ZA overlay-jem — scrollbar ozadja sicer "utrka"
-      // skozi meni (viden na njihovih robovih). Overlay skrola sam.
+      // Zaklene scroll strani, ko je meni odprt
       document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
       updateSoundUI();
     } else {
       menuCloseTimer = setTimeout(() => {
         document.body.classList.remove('menu-open');
         document.documentElement.style.overflow = '';
-      }, 380);
+        document.body.style.overflow = '';
+      }, 300);
     }
   }
 

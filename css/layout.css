@@ -271,67 +271,59 @@ html {
 /* ── Full-screen Premium Modal Navigation ── */
 .main-nav {
   position: fixed;
-  inset: 0;
-  will-change: transform, opacity;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  max-width: 100%;
-  background: var(--color-bg);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: var(--color-surface, #ffffff);
   z-index: 100;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  /* vsebina izpod sticky headerja (60px), da je "cel zaslon" slike namerna;
-     brez bočnih paddingov — kartica gre ČISTO od leve do desnega roba */
-  padding: calc(60px + var(--safe-area-inset-top)) 0 var(--safe-area-inset-bottom);
-  transform: scale(0.96);
+  flex-direction: column;
+  transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
   transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.3s ease;
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.2s ease;
   overflow-y: auto;
   overscroll-behavior: contain;
-  /* scrollbar v barvi kartice — trak ne pokaže rumenega roba desno na ozkih zaslonih */
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.35) #ffffff;
+  scrollbar-color: rgba(0, 0, 0, 0.35) var(--color-surface, #ffffff);
   &::-webkit-scrollbar {
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: var(--color-surface, #ffffff);
   }
   &::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.35);
   }
 
   &.open {
-    transform: scale(1);
+    transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 }
 
-/* Scroll-lock viewporta: ko je meni odprt, se ozadje ne skrola.
-   Overlay skrola sam — in le kadar je to potrebno (beli, tanek track). */
+/* Scroll-lock viewporta: ko je meni odprt, se ozadje ne skrola. */
 body.menu-open {
   overflow: hidden;
 }
 
-/* Vsebina menija v sredini – en premium card */
+/* Vsebina menija */
 .main-nav .nav-card-wrapper {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  background: var(--color-surface);
+  background: var(--color-surface, #ffffff);
   border: none;
   border-radius: 0;
   box-shadow: none;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  flex: 1 0 auto;
 }
 
 .main-nav .nav-drawer-header,

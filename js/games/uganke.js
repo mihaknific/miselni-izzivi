@@ -67,7 +67,7 @@ export function renderUganke() {
 
             <div id="uganke-end-screen" class="stage-layer hidden">
                 <div class="rc-victory-content game-dialog-box">
-                    <h3 class="result-title result-success">Sklop ugank zaključen! 🧠</h3>
+                    <h3 class="result-title result-success">Sklop ugank zaključen! <img src="./icons/brain-symbol.png" class="inline-block w-6 h-6 align-text-bottom" alt="" /></h3>
                     <p class="muted-xs MBXS">Rešenih ugank: <strong id="uganke-final-count">0/0</strong></p>
                     <p class="muted-xs mb-sm">Pridobljene XP točke: <strong id="uganke-final-xp">0</strong> XP</p>
                     <button id="uganke-retry-btn" class="btn">Nazaj na uganke</button>

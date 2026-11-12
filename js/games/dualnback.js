@@ -65,7 +65,7 @@ export function renderDualNBack() {
 
             <div id="nback-end-screen" class="stage-layer hidden">
                 <div class="rc-victory-content game-dialog-box" style="--dialog-max-w: 360px;">
-                    <h3 class="result-title result-success">Preizkus zaključen! 🧠</h3>
+                    <h3 class="result-title result-success">Preizkus zaključen! <img src="./icons/brain-symbol.png" class="inline-block w-6 h-6 align-text-bottom" alt="" /></h3>
                     <p class="muted-xs MBXS">Skupna točnost: <strong id="nback-accuracy">0%</strong></p>
                     <p class="muted-xs mb-sm">Pravilna ujemanja: <strong id="nback-hits">0/0</strong></p>
                     <button id="nback-retry-btn" class="btn">Poskusi znova</button>

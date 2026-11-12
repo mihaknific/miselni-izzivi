@@ -16,7 +16,10 @@ const CATEGORY_META = {
   matematika: { title: 'Matematika', icon: '🔢' },
   besede: { title: 'Besede', icon: '✍️' },
   spomin: { title: 'Spomin', icon: '👁️' },
-  logika: { title: 'Logika', icon: '🧠' },
+  logika: {
+    title: 'Logika',
+    icon: '<img src="./icons/brain-symbol.png" alt="" aria-hidden="true" class="h-4 w-4 inline-block object-contain" width="16" height="16" />',
+  },
 };
 
 const STATS_KEY = 'miselni_izzivi_stats';

@@ -80,7 +80,7 @@ const ACHIEVEMENT_DEFS = [
     id: 'memory_master',
     name: 'Mojster spomina',
     desc: 'Doseži raven „Ekspert“ v Spominu',
-    icon: '🧠',
+    icon: '<img src="./icons/brain-symbol.png" alt="" aria-hidden="true" class="h-8 w-8 object-contain inline-block" width="32" height="32" />',
     xp: 100,
     condition: s => s.bestByGame?.spomin?.difficulty === 'expert',
   },

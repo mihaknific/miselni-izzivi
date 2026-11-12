@@ -1,5 +1,56 @@
 /* css/components.css */
 
+/* ── Neo-brutalism skupni slogi ── */
+.brutal-border {
+  border: 3px solid #000000;
+}
+
+.brutal-border-lg {
+  border: 4px solid #000000;
+}
+
+.brutal-btn {
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.brutal-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000;
+}
+
+.brutal-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brutal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+/* ── Globalni drsniki ── */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEFCE8;
+  border-left: 3px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FACC15;
+  border: 3px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F472B6;
+}
+
 /* Uporaba nativnega CSS Nestinga - preveri brskalnik podporo, zdaj varna */
 
 .btn {
@@ -1972,12 +2023,24 @@ hr {
   min-width: 0;
 }
 
-.hero-stat-grid > div {
-  min-width: 0;
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
 }
 
-@media (max-width: 260px) {
+@media (min-width: 400px) {
   .hero-stat-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (min-width: 768px) {
+  .hero-stat-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.hero-stat-grid > div {
+  min-width: 0;
 }

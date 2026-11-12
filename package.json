@@ -14,7 +14,8 @@
     "format": "prettier --write \"**/*.{js,css,json,md}\" --ignore-path .prettierignore",
     "format:check": "prettier --check \"**/*.{js,css,json,md}\"",
     "qa": "npm run validate && npm test && npm run lint",
-    "qa:full": "npm run validate && npm test && npm run lint && playwright test"
+    "qa:full": "npm run validate && npm test && npm run lint && playwright test",
+    "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.min.css -c ./tailwind.config.js --minify"
   },
   "keywords": [
     "pwa",
@@ -29,7 +30,8 @@
     "@playwright/test": "1.62.1",
     "eslint": "10.14.0",
     "prettier": "3.9.6",
-    "serve": "14.2.6"
+    "serve": "14.2.6",
+    "tailwindcss": "^3.4.19"
   },
   "overrides": {
     "compression": "1.8.2"

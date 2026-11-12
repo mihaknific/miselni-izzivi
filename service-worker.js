@@ -2,9 +2,8 @@ const CACHE_VERSION = 'v1314';
 const APP_CACHE = `miselni-shell-${CACHE_VERSION}`;
 const DATA_CACHE = `miselni-data-${CACHE_VERSION}`;
 const OFFLINE_FALLBACK = './index.html';
-// CDNi, brez katerih OFFLINE pade izgled strani (Tailwind, Google Fonts, Font Awesome)
+// CDNi, brez katerih OFFLINE pade izgled strani (Google Fonts, Font Awesome)
 const CDN_ORIGINS = [
-  'https://cdn.tailwindcss.com',
   'https://fonts.googleapis.com',
   'https://fonts.gstatic.com',
   'https://cdnjs.cloudflare.com',
@@ -13,15 +12,12 @@ const PRECACHE_ASSETS = [
   './index.html',
   './favicon.ico',
   './manifest.webmanifest',
+  './css/tailwind.min.css?v=1',
   './css/main.css',
   './css/layout.css',
   './css/components.css',
   './css/form.css',
   './css/games.bundle.css',
-  './fonts/inter-300.woff2',
-  './fonts/inter-400.woff2',
-  './fonts/inter-600.woff2',
-  './fonts/inter-800.woff2',
   './js/main.js',
   './js/router.js',
   './js/game-catalog.js',

@@ -58,9 +58,9 @@ export function renderGameList(tasks) {
           <div class="inline-block self-center bg-brutal-orange text-black font-heading font-black border-3 border-black px-4 py-1 text-sm md:text-base uppercase shadow-brutal">
             🚀 LOGIKA • SPOMIN • MATEMATIKA • BESEDE
           </div>
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight leading-none text-black">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight leading-tight md:leading-none text-black">
             RAZGIBAJ MOŽGANE Z <br/>
-            <span class="bg-brutal-yellow px-3 py-1 inline-block border-3 border-black shadow-brutal transform -rotate-1 mt-2">
+            <span class="bg-brutal-yellow px-3 py-1 inline-block border-3 border-black shadow-brutal transform -rotate-1 mt-3">
               IGRO IN LOGIKO!
             </span>
           </h1>
@@ -71,27 +71,27 @@ export function renderGameList(tasks) {
             <a href="#game-list" class="brutal-btn px-6 py-3 bg-brutal-pink text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
               <i class="fa-solid fa-play"></i> SKOČI NA IGRE
             </a>
-            <button onclick="document.getElementById('dnevni-izziv')?.scrollIntoView({behavior:'smooth', block:'start'})" class="brutal-btn px-6 py-3 bg-brutal-cyan text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
+            <a href="#dnevni-izziv" class="brutal-btn px-6 py-3 bg-brutal-cyan text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
               <i class="fa-solid fa-bolt"></i> DNEVNI IZZIV
-            </button>
+            </a>
           </div>
         </div>
-        <div class="hero-stat-grid grid grid-cols-2 md:grid-cols-4 gap-3 pt-6 border-t-4 border-black" role="group" aria-label="Statistika aplikacije">
+        <div class="hero-stat-grid pt-6 border-t-4 border-black" role="group" aria-label="Statistika aplikacije">
           <div class="bg-brutal-bg p-3 border-3 border-black text-center shadow-brutal-sm stack stack--sm relative">
-            <span class="block font-heading font-black text-2xl text-brutal-purple">${tasks.length}+</span>
-            <span class="hero-stat-label text-xs font-bold uppercase">kognitivnih iger</span>
+            <span class="block font-heading font-black text-xl sm:text-2xl text-brutal-purple">${tasks.length}+</span>
+            <span class="hero-stat-label text-xs font-bold uppercase">iger</span>
             <div class="only-lg-block absolute -bottom-10 -left-2 bg-brutal-pink text-black border-3 border-black font-heading font-extrabold text-sm px-4 py-2 rotate-3 shadow-brutal z-20 flex items-center gap-1.5 whitespace-nowrap"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> MOŽGANSKI TRENER v2.0</div>
           </div>
           <div class="bg-brutal-bg p-3 border-3 border-black text-center shadow-brutal-sm stack stack--sm">
-            <span class="block font-heading font-black text-2xl text-brutal-orange">100%</span>
+            <span class="block font-heading font-black text-xl sm:text-2xl text-brutal-orange">100%</span>
             <span class="hero-stat-label text-xs font-bold uppercase">Brezplačno</span>
           </div>
           <div class="bg-brutal-bg p-3 border-3 border-black text-center shadow-brutal-sm stack stack--sm">
-            <span class="block font-heading font-black text-2xl text-brutal-green">5 MIN</span>
+            <span class="block font-heading font-black text-xl sm:text-2xl text-brutal-green">5 MIN</span>
             <span class="hero-stat-label text-xs font-bold uppercase">na izziv</span>
           </div>
           <div class="bg-brutal-bg p-3 border-3 border-black text-center shadow-brutal-sm stack stack--sm">
-            <span class="block font-heading font-black text-2xl text-brutal-pink">LOKALNO</span>
+            <span class="block font-heading font-black text-lg sm:text-xl md:text-2xl text-brutal-pink tracking-tight truncate">LOKALNO</span>
             <span class="hero-stat-label text-xs font-bold uppercase">shranjevanje</span>
           </div>
         </div>
@@ -101,12 +101,12 @@ export function renderGameList(tasks) {
     <!-- CTA: PODPRI PROJEKT -->
     <section class="px-0 max-w-7xl mx-auto w-full stack stack--sm" aria-label="Podpri projekt">
       <a
-        href="https://mihaknific.github.io/daruj"
+        href="https://mihaknific.github.io/podpora"
         target="_blank"
         rel="noopener"
         class="brutal-btn flex items-center justify-center gap-2 px-6 py-3.5 bg-brutal-pink text-black font-heading font-black text-base md:text-lg border-4 border-black shadow-brutal-xl hover:bg-brutal-orange w-full max-w-2xl mx-auto"
       >
-        <i class="fa-solid fa-heart" aria-hidden="true"></i> PODPRI PROJEKT — DARUJ <span aria-hidden="true">→</span>
+        <i class="fa-solid fa-heart" aria-hidden="true"></i> PODPRI PROJEKT <span aria-hidden="true">→</span>
       </a>
     </section>
 
@@ -169,19 +169,19 @@ export function renderGameList(tasks) {
       <!-- GAMES GRID -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="games-container" role="list">
         ${(() => {
-          const allRecs = statsManager.getAllRecords();
-          return tasks
-            .map(t => {
-              const played = (allRecs[t.id] || []).length;
-              const meta = CARD_BEST[t.id];
-              let bestHtml = '';
-              if (played > 0 && meta) {
-                const rec = statsManager.getBest(t.id, meta.metric, meta.max);
-                if (rec && rec[meta.metric] != null) {
-                  bestHtml = `<span>🏆 Rekord: <strong class="text-brutal-purple">${meta.fmt(rec[meta.metric])}</strong></span>`;
-                }
-              }
-              return `
+      const allRecs = statsManager.getAllRecords();
+      return tasks
+        .map(t => {
+          const played = (allRecs[t.id] || []).length;
+          const meta = CARD_BEST[t.id];
+          let bestHtml = '';
+          if (played > 0 && meta) {
+            const rec = statsManager.getBest(t.id, meta.metric, meta.max);
+            if (rec && rec[meta.metric] != null) {
+              bestHtml = `<span>🏆 Rekord: <strong class="text-brutal-purple">${meta.fmt(rec[meta.metric])}</strong></span>`;
+            }
+          }
+          return `
             <article class="game-card brutal-card bg-white border-4 border-black p-6 shadow-brutal relative flex flex-col justify-between cursor-pointer" data-tid="${escapeHtml(t.id)}" data-category="${escapeHtml((t.tag || '').toLowerCase())}" data-title="${escapeHtml((t.title || '').toLowerCase())}" role="listitem" aria-label="${escapeHtml(t.title || 'Izziv')}">
               <div class="stack">
                 <div class="cluster">
@@ -207,9 +207,9 @@ export function renderGameList(tasks) {
               <div class="gc-badge hidden">${escapeHtml(t.tag || t.kategorija || '')}</div>
             </article>
             `;
-            })
-            .join('');
-        })()}
+        })
+        .join('');
+    })()}
       </div>
 
       <div id="no-results" class="hidden text-center py-10 bg-white border-4 border-black p-6 shadow-brutal stack items-center">
@@ -236,12 +236,12 @@ export function renderSingleGame(task) {
         <p class="text-lg mb-lg">${escapeHtml(task.vprasanje)}</p>
         <div class="flex-col gap-sm">
           ${task.opcije
-            .map(
-              (opt, i) => `
+      .map(
+        (opt, i) => `
             <button class="btn btn-outline answer-btn" data-tid="${escapeHtml(task.id)}" data-idx="${i}">${escapeHtml(opt)}</button>
           `
-            )
-            .join('')}
+      )
+      .join('')}
         </div>
       </div>
     `;
@@ -321,14 +321,14 @@ export function renderSettings() {
           <hr>
 
           <h3 class="text-md text-primary m-0">Podpri projekt</h3>
-          <p class="text-sm text-muted mb-sm">Aplikacija je brezplačna — donacija je prostovoljna.</p>
+          <p class="text-sm text-muted mb-sm">Aplikacija je brezplačna — podpora je prostovoljna.</p>
           <a
-            href="https://mihaknific.github.io/daruj"
+            href="https://mihaknific.github.io/podpora"
             target="_blank"
             rel="noopener"
             class="brutal-btn inline-flex items-center gap-2 px-6 py-3 bg-brutal-pink text-black font-heading font-black border-3 border-black shadow-brutal hover:bg-brutal-orange"
           >
-            <i class="fa-solid fa-heart" aria-hidden="true"></i> Doniraj
+            <i class="fa-solid fa-heart" aria-hidden="true"></i> Podpri
           </a>
 
           <hr>
