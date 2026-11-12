@@ -20,18 +20,55 @@ const loadedModules = {};
 let appTasks = [];
 let currentRoute = 'game-list';
 
+function showUpdateToast(worker) {
+  const existing = document.getElementById('pwa-update-toast');
+  if (existing) return;
+
+  const toast = document.createElement('div');
+  toast.id = 'pwa-update-toast';
+  toast.className =
+    'fixed bottom-4 right-4 z-50 bg-brutal-yellow text-black border-4 border-black p-4 shadow-brutal-xl flex items-center gap-4 max-w-sm';
+  toast.innerHTML = `
+    <div class="flex flex-col gap-1">
+      <span class="font-heading font-black text-sm uppercase">🚀 NOVA RAZLIČICA!</span>
+      <span class="text-xs font-bold text-slate-800">Na voljo je posodobitev z novostmi in popravki.</span>
+    </div>
+    <button id="pwa-reload-btn" class="brutal-btn px-3 py-2 bg-black text-white font-heading font-black text-xs border-2 border-black shadow-brutal-sm hover:bg-brutal-green hover:text-black transition-colors whitespace-nowrap">
+      OSVEŽI
+    </button>
+  `;
+  document.body.appendChild(toast);
+
+  toast.querySelector('#pwa-reload-btn')?.addEventListener('click', () => {
+    worker.postMessage({ type: 'SKIP_WAITING' });
+    toast.remove();
+  });
+}
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   const register = () => {
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) {
+        refreshing = true;
+        window.location.reload();
+      }
+    });
+
     navigator.serviceWorker
       .register('./service-worker.js')
       .then(registration => {
+        if (registration.waiting) {
+          showUpdateToast(registration.waiting);
+        }
+
         registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing;
           if (!newWorker) return;
           newWorker.addEventListener('statechange', () => {
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              showToast('Na voljo je nova različica. Osveži stran.', { type: 'info' });
+              showUpdateToast(newWorker);
             }
           });
         });

@@ -15,7 +15,7 @@
     "format:check": "prettier --check \"**/*.{js,css,json,md}\"",
     "qa": "npm run validate && npm test && npm run lint",
     "qa:full": "npm run validate && npm test && npm run lint && playwright test",
-    "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.min.css -c ./tailwind.config.js --minify"
+    "build:css": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.min.css -c ./tailwind.config.js --minify && node scripts/build-bundle-css.js"
   },
   "keywords": [
     "pwa",

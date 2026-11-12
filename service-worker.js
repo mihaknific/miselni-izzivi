@@ -11,14 +11,8 @@ const PRECACHE_ASSETS = [
   './index.html',
   './favicon.ico',
   './manifest.webmanifest',
-  './css/tailwind.min.css?v=1',
-  './css/icons.css',
+  './css/bundle.min.css?v=1314',
   './webfonts/fa-solid-900.woff2',
-  './css/main.css',
-  './css/layout.css',
-  './css/components.css',
-  './css/form.css',
-  './css/games.bundle.css',
   './js/main.js',
   './js/router.js',
   './js/game-catalog.js',
@@ -84,6 +78,12 @@ const PRECACHE_ASSETS = [
   './icons/icon-512-maskable.png',
   './icons/apple-touch-icon.png',
 ];
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 self.addEventListener('install', event => {
   event.waitUntil(
