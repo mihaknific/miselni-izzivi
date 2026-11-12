@@ -49,33 +49,33 @@ export function saveJson(key, value) {
  */
 let _dbPromise = null;
 function openDB() {
+  if (typeof indexedDB === 'undefined') return Promise.reject(new Error('IndexedDB not supported'));
   if (_dbPromise) return _dbPromise;
   _dbPromise = new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, VERSION);
-    request.onerror = () => {
+    try {
+      const request = indexedDB.open(DB_NAME, VERSION);
+      request.onerror = () => {
+        _dbPromise = null;
+        reject(request.error);
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onupgradeneeded = e => {
+        const db = e.target.result;
+
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+        }
+
+        if (!db.objectStoreNames.contains(SETTINGS_STORE)) {
+          db.createObjectStore(SETTINGS_STORE, { keyPath: 'key' });
+        }
+      };
+    } catch (err) {
       _dbPromise = null;
-      reject(request.error);
-    };
-    request.onsuccess = () => resolve(request.result);
-    request.onupgradeneeded = e => {
-      const db = e.target.result;
-      const oldVersion = e.oldVersion;
-
-      if (!db.objectStoreNames.contains(STORE_NAME)) {
-        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
-      }
-
-      if (!db.objectStoreNames.contains(SETTINGS_STORE)) {
-        db.createObjectStore(SETTINGS_STORE, { keyPath: 'key' });
-      }
-
-      // Migracija iz v1: premakni nastavitve iz localStorage v IndexedDB
-      if (oldVersion < 2) {
-        // To se izvaja v browser kontekstu, ne more neposredno dostopati do localStorage
-        // Migracija se bo izvedla ob prvi uporabi Settings.get/set
-      }
-    };
+      reject(err);
+    }
   });
+  return _dbPromise;
 }
 
 /**
@@ -306,6 +306,7 @@ async function migrateSettings() {
     console.debug('IndexedDB nedostopen, fallback na localStorage:', err);
     return; // IndexedDB nedostopen — fallback na localStorage deluje naprej
   }
+  if (!db || typeof db.transaction !== 'function') return;
   const outcome = await new Promise((resolve, reject) => {
     const tx = db.transaction(SETTINGS_STORE, 'readwrite');
     const store = tx.objectStore(SETTINGS_STORE);

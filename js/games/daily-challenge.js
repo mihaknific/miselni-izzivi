@@ -87,21 +87,28 @@ export function renderDailyChallenge(subParam = null) {
   const isComplete = isShared ? false : completedCount >= totalCount;
 
   const settingsHtml = `
-    <div class="card mb-md">
-      <h3>📅 Dnevni izziv ${isShared ? '(deljen)' : `— ${formatDateSlovenian(today)}`}</h3>
-      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">
-        ${isComplete ? '🎉 Dnevni izziv zaključen!' : `${completedCount} / ${totalCount} iger opravljeno`}
-        ${isShared ? `<br><small>Seed: ${seed} | Deljen izziv – rezultat se ne shranjuje v tvoj streak.</small>` : ''}
+    <div class="brutal-card bg-white border-4 border-black p-5 shadow-brutal mb-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <span class="px-2.5 py-1 bg-brutal-orange text-black border-2 border-black font-heading font-black text-xs uppercase shadow-brutal-sm">
+          📅 ${isShared ? 'DELJEN IZZIV' : formatDateSlovenian(today).toUpperCase()}
+        </span>
+        <span class="text-xs font-bold ${isComplete ? 'text-green-700' : 'text-slate-700'}">
+          ${isComplete ? '🎉 Opravljeno!' : `${completedCount} / ${totalCount} iger`}
+        </span>
+      </div>
+      <p class="text-sm font-medium text-slate-700 mb-4">
+        ${isComplete ? 'Čestitke! Današnji paket je zaključen.' : 'Opravi vse igre v paketu za današnji streak in bonus točke.'}
+        ${isShared ? `<br><small class="text-xs text-slate-500">Seed: ${seed} | Deljen izziv – rezultat se ne shranjuje v streak.</small>` : ''}
       </p>
-      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+      <div class="flex flex-wrap gap-2">
         ${dailyGames
           .map(
             (g, i) => `
-          <span class="badge ${progress.completed.includes(g.id) ? 'completed' : ''}" style="
-            background: ${progress.completed.includes(g.id) ? 'rgba(16,185,129,0.2)' : 'rgba(var(--color-primary-rgb),0.12)'};
-            color: ${progress.completed.includes(g.id) ? '#047857' : 'var(--color-primary)'};
-            border-color: ${progress.completed.includes(g.id) ? 'rgba(16,185,129,0.3)' : 'rgba(var(--color-primary-rgb),0.2)'};
-          ">
+          <span class="px-3 py-1.5 border-2 border-black font-heading font-black text-xs flex items-center gap-1.5 shadow-brutal-sm ${
+            progress.completed.includes(g.id)
+              ? 'bg-brutal-green text-black'
+              : 'bg-brutal-bg text-slate-700'
+          }">
             ${i + 1}. ${g.name} ${progress.completed.includes(g.id) ? '✓' : ''}
           </span>
         `
@@ -111,9 +118,9 @@ export function renderDailyChallenge(subParam = null) {
       ${
         !isShared && isComplete
           ? `
-        <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
-          <button id="daily-share-btn" class="btn btn-outline" style="font-size: 0.85rem;">🔗 Deli izziv</button>
-          <button id="daily-copy-link-btn" class="btn btn-outline" style="font-size: 0.85rem;">📋 Kopiraj povezavo</button>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button id="daily-share-btn" class="brutal-btn px-4 py-2 bg-white text-black font-heading font-black text-xs border-3 border-black shadow-brutal-sm hover:bg-brutal-cyan transition-colors">🔗 DELI IZZIV</button>
+          <button id="daily-copy-link-btn" class="brutal-btn px-4 py-2 bg-white text-black font-heading font-black text-xs border-3 border-black shadow-brutal-sm hover:bg-brutal-yellow transition-colors">📋 KOPIRAJ POVEZAVO</button>
         </div>
       `
           : ''
@@ -122,32 +129,32 @@ export function renderDailyChallenge(subParam = null) {
   `;
 
   const stageHtml = `
-    <div id="daily-stage">
+    <div id="daily-stage" class="w-full">
       <div id="daily-start-screen" class="stage-layer">
         ${renderStartCard(
           isComplete
             ? `Dnevni izziv za ${formatDateSlovenian(today)} je že zaključen! 🎉\n\nPridobil si ${progress.totalXP || 0} XP. Pričakuj jutri za nov izziv.`
             : `Danes te čakajo <strong>${totalCount} kratke igre</strong> (skupaj ~${Math.round(dailyGames.reduce((s, g) => s + g.minDuration, 0) / 60)} min).\n\nVsaka igra meri eno kognitivno sposobnost. Rezultati se primerjajo z včerajšnjim dnem.`,
           'daily-start-btn',
-          isComplete ? '📊 Poglej statistiko' : '▶ Začni dnevni izziv',
+          isComplete ? '📊 Poglej statistiko' : '▶ ZAČNI DNEVNI IZZIV',
           'Dnevni Izziv'
         )}
       </div>
 
-      <div id="daily-game-screen" class="stage-layer hidden"></div>
+      <div id="daily-game-screen" class="stage-layer hidden w-full"></div>
 
       <div id="daily-complete-screen" class="stage-layer hidden">
-        <div class="card text-center" style="max-width: 400px; margin: auto;">
-          <div style="font-size: 3rem; margin-bottom: var(--spacing-sm);">🏆</div>
-          <h3 class="result-title result-success">Dnevni izziv zaključen!</h3>
-          <p class="muted-xs">Opravljeno iger: <strong>${totalCount}/${totalCount}</strong></p>
-          <p class="muted-xs">Skupni XP: <strong id="daily-total-xp">${progress.totalXP || 0}</strong> XP</p>
-          <p class="muted-xs" style="margin-top: var(--spacing-sm);" id="daily-comparison"></p>
-          <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-            <button id="daily-share-btn" class="btn btn-outline" style="font-size: 0.85rem;">🔗 Deli izziv</button>
-            <button id="daily-copy-link-btn" class="btn btn-outline" style="font-size: 0.85rem;">📋 Kopiraj povezavo</button>
-            <button id="daily-back-btn" class="btn" data-action="back-to-list" style="margin-top: var(--spacing-md);">← Nazaj na meni</button>
+        <div class="brutal-card bg-white border-4 border-black p-8 shadow-brutal-xl text-center max-w-md mx-auto flex flex-col items-center gap-4">
+          <div class="w-16 h-16 bg-brutal-yellow border-3 border-black flex items-center justify-center text-3xl shadow-brutal-sm">🏆</div>
+          <h3 class="text-2xl font-heading font-black text-black">Dnevni izziv zaključen!</h3>
+          <p class="text-sm font-bold text-slate-800">Opravljeno iger: <strong>${totalCount}/${totalCount}</strong></p>
+          <p class="text-sm font-bold text-slate-800">Skupni XP: <strong id="daily-total-xp" class="text-brutal-purple">${progress.totalXP || 0}</strong> XP</p>
+          <p class="text-xs font-semibold text-slate-600" id="daily-comparison"></p>
+          <div class="mt-2 flex flex-wrap gap-3 justify-center w-full">
+            <button id="daily-share-btn" class="brutal-btn px-4 py-2.5 bg-brutal-cyan text-black font-heading font-black text-xs border-3 border-black shadow-brutal-sm hover:bg-brutal-green transition-colors flex-1">🔗 DELI</button>
+            <button id="daily-copy-link-btn" class="brutal-btn px-4 py-2.5 bg-brutal-yellow text-black font-heading font-black text-xs border-3 border-black shadow-brutal-sm hover:bg-brutal-pink transition-colors flex-1">📋 KOPIRAJ</button>
           </div>
+          <button id="daily-back-btn" class="brutal-btn w-full py-3 bg-white text-black font-heading font-black text-sm border-3 border-black shadow-brutal-sm hover:bg-slate-100 transition-colors mt-2" data-action="back-to-list">← NAZAJ NA SEZNAM IGER</button>
         </div>
       </div>
     </div>
@@ -207,17 +214,34 @@ export function initDailyChallenge() {
   async function loadAndRunGame(gameId) {
     const loader = DAILY_IMPORTS[gameId];
     if (!loader) return;
-    const { default: mod } = await loader();
+    const mod = await loader();
     gameScreen.innerHTML = '';
+
+    const renderMap = {
+      spomin: () => mod.renderSpomin?.(),
+      zaporedje: () => mod.renderZaporedje?.(),
+      reakcija: () => mod.renderReakcija?.(),
+      corsi: () => mod.renderCorsi?.(),
+      search: () => mod.renderSearch?.(),
+      stroop: () => mod.renderStroop?.(),
+      racunanje: () => mod.renderRacunanje?.(),
+      switch: () => mod.renderSwitch?.(),
+    };
+
+    const rendered = renderMap[gameId]?.();
+    if (rendered) {
+      gameScreen.innerHTML = rendered;
+    }
+
     const initMap = {
-      spomin: () => mod.initSpomin(),
-      zaporedje: () => mod.initZaporedje(),
-      reakcija: () => mod.initReakcija('classic'),
-      corsi: () => mod.initCorsi(),
-      search: () => mod.initSearch(),
-      stroop: () => mod.initStroop(),
-      racunanje: () => mod.initRacunanje(),
-      switch: () => mod.initSwitch(),
+      spomin: () => mod.initSpomin?.(),
+      zaporedje: () => mod.initZaporedje?.(),
+      reakcija: () => mod.initReakcija?.('classic'),
+      corsi: () => mod.initCorsi?.(),
+      search: () => mod.initSearch?.(),
+      stroop: () => mod.initStroop?.(),
+      racunanje: () => mod.initRacunanje?.(),
+      switch: () => mod.initSwitch?.(),
     };
     const cleanup = initMap[gameId]?.();
     activeGameId = gameId;

@@ -427,12 +427,6 @@ async function initApp() {
       return;
     }
 
-    const dailyStartButton = e.target.closest('.daily-start-btn');
-    if (dailyStartButton) {
-      navigateTo('game', 'vzorci', { subParam: '1' });
-      return;
-    }
-
     const filterPill = e.target.closest('.filter-pill');
     if (filterPill) {
       document.querySelectorAll('.filter-pill').forEach(b => {
