@@ -1,0 +1,1036 @@
+/* css/layout.css */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--safe-area-inset-top) var(--spacing-md) 0;
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  isolation: isolate;
+}
+
+/* Odprt meni: header ostane NAD overlayjem, da je gumb Meni (hamburger↔X)
+   klikabil na točno isti poziciji za odpiranje IN zapiranje */
+body.menu-open header {
+  z-index: 220;
+}
+
+/* ── Progresivno skrivanje glede na prostor ──
+   Skrivanje velja SAMO na straneh iger (body.game-active) — tam so akcijski gumbi
+   bolj pomembni kot emblem. Na seznamu/statistiki/... je prostora dovolj,
+   zato logo in naslov ostaneja vidna (dostopnost + identiteta). */
+@media (max-width: 560px) {
+  body.game-active .title-text,
+  body.game-active header .brand-link {
+    display: none;
+  }
+}
+@media (max-width: 460px) {
+  body.game-active header #btn-sound-toggle {
+    display: none;
+  }
+}
+
+/* ── Progresivna zastavitev brendu na NE-igralnih straneh (prva stran itd.) ──
+   1. stopnja (≤310px): izgine logo kvadrat, ostane samo besedilo
+   2. stopnja (≤240px): izgine besedilo, ostane SAMO logo
+   (na straneh iger se cel brend skrije zgornji pravil za body.game-active) */
+
+/* 1. stopnja */
+@media (max-width: 310px) {
+  header .brand-link > div:first-child {
+    display: none;
+  }
+}
+/* 2. stopnja (mora biti v datoteki ZA 1. — kaskada pri enaki specifičnosti) */
+@media (max-width: 240px) {
+  header .brand-link > div:first-child {
+    display: flex;
+  }
+  header .brand-link .title-text {
+    display: none;
+  }
+}
+
+/* Brez vodoravnega pomikanja strani; "clip" ne uničuje sticky headerja */
+html {
+  overflow-x: clip;
+}
+
+/* Stranski gumbi so absolutno pozicionirani na levo/desno in ne vplivajo na sredinski naslov */
+.header-left {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: 2;
+}
+
+.header-right {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  z-index: 2;
+}
+
+/* Naslov je matematično natančno na sredini celotne širine glave */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 100%;
+  padding: 0 56px; /* Zavarovanje pred prekrivanjem z gumbi na majhnih telefonih */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* --- GAMIFIKACIJA --- */
+.gamification-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  margin-right: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.streak-badge {
+  background: #fb923c;
+  color: #000;
+  padding: 4px 10px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.level-badge {
+  background: #facc15;
+  color: #000;
+  padding: 4px 10px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+}
+
+/* --- ANIMACIJE --- */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+  border-color: var(--color-danger);
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.flash-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-color: var(--color-success);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.header-right-extras {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header-gamification {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+@media (max-width: 380px) {
+  .header-gamification {
+    display: none !important;
+  }
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  position: static;
+  transform: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: inherit;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition:
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 0 transparent;
+
+  &#btn-menu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &#btn-menu[aria-expanded='true'] {
+    transform: rotate(90deg);
+  }
+  /* Hamburger ↔ X animacija: dve celotni ikoni (symmetry-accurate crossfade + rotate),
+     brez transformov posameznih črt = geometrijsko se vedno odlično pokrije */
+  .menu-icons {
+    display: grid;
+  }
+  .menu-icons svg {
+    grid-area: 1 / 1;
+    transition:
+      opacity 0.25s ease,
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .menu-ico-close {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.6);
+  }
+  &#btn-menu[aria-expanded='true'] .menu-ico-open {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.6);
+  }
+  &#btn-menu[aria-expanded='true'] .menu-ico-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  &:hover {
+    background: var(--color-surface, #fff);
+    color: var(--color-primary);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.sound-muted .sound-wave {
+  opacity: 0.15;
+}
+
+/* ── Full-screen Premium Modal Navigation ── */
+.main-nav {
+  position: fixed;
+  inset: 0;
+  will-change: transform, opacity;
+  width: 100%;
+  max-width: 100%;
+  background: var(--color-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* vsebina izpod sticky headerja (60px), da je "cel zaslon" slike namerna;
+     brez bočnih paddingov — kartica gre ČISTO od leve do desnega roba */
+  padding: calc(60px + var(--safe-area-inset-top)) 0 var(--safe-area-inset-bottom);
+  transform: scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* scrollbar v barvi kartice — trak ne pokaže rumenega roba desno na ozkih zaslonih */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.35) #ffffff;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  &.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Scroll-lock viewporta: ko je meni odprt, se ozadje ne skrola.
+   Overlay skrola sam — in le kadar je to potrebno (beli, tanek track). */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Vsebina menija v sredini – en premium card */
+.main-nav .nav-card-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: var(--color-surface);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main-nav .nav-drawer-header,
+.main-nav .nav-items,
+.main-nav .nav-sound-toggle,
+.main-nav .nav-gamification {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-nav .nav-drawer-header {
+  background: var(--color-surface);
+  border-bottom: 3px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 16px 20px;
+  height: auto;
+}
+
+.main-nav .nav-items {
+  background: var(--color-surface);
+  border: none;
+  padding: 12px 16px;
+  gap: 4px;
+}
+
+.main-nav .nav-gamification {
+  background: var(--color-surface);
+  border: none;
+  border-top: 2px solid var(--color-border);
+  padding: 12px 16px;
+}
+
+.main-nav .nav-sound-toggle {
+  background: var(--color-surface);
+  border: none;
+  border-top: 2px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 12px 16px;
+  margin-top: 0;
+}
+
+/* Drawer glava - enaka višina (60px) in poravnava kot app-header */
+.nav-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.nav-drawer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--custom-heading, var(--color-primary));
+  letter-spacing: -0.01em;
+}
+
+.nav-drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--custom-text, var(--color-text-main));
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Rezerviran prostor na desnem robu glave menija, da je naslov simetričen
+   z gumbom Meni v headerju (ki je edini gumb za zapiranje) */
+.nav-drawer-close-placeholder {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+/* ── Akcije igre v meniju pod 320px ──
+   DOM se premakne (ne kopira) iz #header-game-actions tja, zato se ohranijo poslušalci */
+.nav-game-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px 4px;
+}
+
+#nav-game-actions[hidden] {
+  display: none !important;
+}
+
+.nav-game-actions .header-action-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.nav-drawer-close:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+/* ── Navigacijski elementi v drawer-ju ── */
+.main-nav .nav-items {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  gap: 10px;
+  flex: 1;
+}
+
+/* Neo-bazmen: polni gumbi s črnim robom, trda senca, nič emoji ikon */
+.main-nav .btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 13px 14px;
+  background: #fff;
+  border: 3px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.85);
+  font-family: var(--font-heading, inherit);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--custom-text, var(--color-text-main));
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main-nav .btn-nav:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
+}
+
+.main-nav .btn-nav:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.85);
+}
+
+/* Vsak item pobarvat svoj accent ob hover (enakih barv kot preostali site) */
+.main-nav .btn-nav[data-target='stats']:hover {
+  background: #facc15;
+}
+.main-nav .btn-nav[data-target='achievements']:hover {
+  background: #f472b6;
+}
+.main-nav .btn-nav[data-target='settings']:hover {
+  background: #38bdf8;
+}
+/* Zunanja povezava (Doniraj): povezava brez podčrtanja + oranžni hover accent */
+.main-nav .btn-nav[data-external='donate'] {
+  text-decoration: none;
+}
+.main-nav .btn-nav[data-external='donate']:hover {
+  background: #fb923c;
+}
+
+.main-nav .nav-item-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  background: var(--color-border);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.main-nav .nav-item-label {
+  flex: 1;
+}
+
+.main-nav .nav-item-arrow {
+  font-weight: 900;
+  opacity: 0.35;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.main-nav .btn-nav:hover .nav-item-arrow {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* ── Zvočni preklopnik v drawer-ju ── */
+.nav-sound-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.nav-sound-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--custom-text, var(--color-text-main));
+}
+
+.nav-sound-label svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.nav-sound-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-sound-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  outline-offset: 2px;
+  border-radius: 16px;
+}
+
+.nav-sound-track {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--color-text-main) 20%, transparent);
+  transition: background 0.25s ease;
+}
+
+.nav-sound-track .nav-sound-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Toggle ON stanje */
+.nav-sound-btn[aria-checked='true'] .nav-sound-track {
+  background: var(--color-primary);
+}
+
+.nav-sound-btn[aria-checked='true'] .nav-sound-thumb {
+  transform: translateX(22px);
+}
+
+/* Muted ikona v meniju */
+.nav-sound-toggle.sound-off .nav-sound-label svg {
+  opacity: 0.35;
+}
+
+/* ── Responsivni preklop pri 450px ──
+   Samo na straneh iger (na seznamu/nastavitvah je prostora dovolj — glej zgornji blok) */
+@media (max-width: 450px) {
+  body.game-active #btn-sound-toggle {
+    display: none !important;
+  }
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  min-height: 0;
+}
+
+.header-game-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.header-game-actions .header-action-btn,
+.header-game-actions .icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--custom-text, var(--color-text-main));
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  padding: 0;
+}
+
+.header-game-actions .header-action-btn:hover,
+.header-game-actions .icon-btn:hover {
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.header-game-actions .header-action-btn.active,
+.header-game-actions .icon-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.game-shell-actions {
+  display: none;
+}
+
+/* Skupne nastavitve za zamik in centriranje strani izven iger */
+.page-header,
+.container-grid {
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Home screen header spacing */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-bottom: 0;
+  /* ker ima container-grid svoj zgornji padding ali gap */
+}
+
+/* Home screen grid */
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  justify-content: center;
+  gap: clamp(1.2rem, 2.5vw, 1.75rem);
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Fiksiranje zaslona med igro – vedno en zaslon (100svh fallback + 100dvh), nav znotraj */
+body.game-active {
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Na straneh iger footer skrijemo, da ima igra dovolj prostora */
+body.game-active footer {
+  display: none !important;
+}
+
+/* Glavna igralna lupina: čez celo stran pod navigacijsko vrstico brez belega okvirja */
+body.game-active #header-gamification {
+  display: none !important;
+}
+
+body.game-active .app-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: var(--safe-area-inset-top) var(--spacing-sm) 0;
+  gap: 4px;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body.game-active .header-left {
+  position: static;
+  transform: none;
+  display: flex;
+  align-items: center;
+}
+
+body.game-active .header-center {
+  position: static;
+  padding: 0 4px;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.game-active .header-right {
+  position: static;
+  transform: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+@media (max-width: 540px) {
+  body.game-active .app-header {
+    padding: var(--safe-area-inset-top) 4px 0;
+    gap: 2px;
+  }
+  body.game-active #btn-sound-toggle {
+    display: none !important;
+  }
+  body.game-active .header-right .icon-btn,
+  body.game-active .header-left .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Responsivno vidni elementi na vseh viewportih: .hidden !important v components.css
+   onemogoča Tailwind `hidden md:flex` kombinacije — uporabimo dedicated klase.
+   !important nujno TUDI zato, ker Tailwind CDN vstavi ustvarjeno <style> ŠELE za
+   ta slogovni list (npr. .flex na istem elementu bi preglasil display: none). */
+.only-md-flex,
+.only-md-block,
+.only-lg-block {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .only-md-flex {
+    display: flex !important;
+  }
+  .only-md-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .only-lg-block {
+    display: block !important;
+  }
+}
+
+/* Hide gamification chips ≤400 */
+@media (max-width: 400px) {
+  .streak-badge,
+  .level-badge {
+    display: none !important;
+  }
+}
+
+/* Header ultra-narrow (≤340): gap + krajši brand title */
+@media (max-width: 340px) {
+  header > .max-w-7xl {
+    gap: 4px;
+  }
+  header .brand-link {
+    gap: 4px;
+  }
+  header .brand-link .title-text {
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+  header > .max-w-7xl > div:last-child {
+    gap: 4px;
+  }
+}
+
+body.game-active .app-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.game-active .card.game-card-shell {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  height: calc(100svh - 60px - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  height: calc(100dvh - 60px - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  max-height: calc(100svh - 60px - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  max-height: calc(100dvh - 60px - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.game-shell-body {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'stack';
+  align-items: stretch;
+  justify-items: stretch;
+  overflow: hidden;
+}
+
+.game-stage-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  grid-area: stack;
+  align-self: stretch;
+  justify-self: stretch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  padding: 4px var(--spacing-md);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .game-stage-content {
+    padding: 2px 6px;
+    gap: var(--spacing-xs);
+  }
+}
+
+/* --- GAME PANELS (Navodila & Nastavitve kot čist modalni panel) --- */
+.game-info-modal,
+.game-aux-panel {
+  grid-area: stack;
+  display: block;
+  width: min(92vw, 580px);
+  max-width: 580px;
+  margin: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  overflow-y: auto;
+  max-height: calc(100svh - 90px);
+  z-index: 40;
+  animation: fadeIn 0.18s ease-out;
+  box-sizing: border-box;
+}
+
+.game-info-modal.panel-hidden,
+.game-aux-panel.panel-hidden,
+.game-stage-content.hidden {
+  display: none;
+}
+
+.game-info-modal .modal-content,
+.game-aux-panel .modal-content {
+  position: relative;
+  display: grid;
+  gap: var(--spacing-md);
+  width: 100%;
+  padding: var(--spacing-sm) 0 var(--spacing-lg);
+}
+
+/* Glava modala (brez inline stilov; razmik opravi gap na .modal-content) */
+.game-info-modal .modal-header-row,
+.game-aux-panel .modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.game-info-modal .modal-header-row h3,
+.game-aux-panel .modal-header-row h3 {
+  margin: 0;
+}
+
+.game-info-modal .modal-header-row .icon-btn,
+.game-aux-panel .modal-header-row .icon-btn {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  width: 36px;
+  height: 36px;
+}
+
+/* Opomba v nastavitvenem modalu */
+.game-aux-panel .modal-note {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9em;
+  color: var(--color-text-muted);
+}
+
+/* Panel prilagodljive težavnosti v nastavitvenem modalu */
+.adaptive-block {
+  border-left: 3px solid var(--color-warning);
+}
+
+.adaptive-block h4 {
+  margin: 0 0 var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.adaptive-block .adaptive-note {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.adaptive-block .adaptive-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.adaptive-block .adaptive-actions .btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.game-info-modal .modal-close,
+.game-aux-panel .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.game-info-modal .modal-close:hover,
+.game-aux-panel .modal-close:hover {
+  opacity: 1;
+}
+
+.info-body {
+  line-height: 1.6;
+}
+
+.info-body h4 {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

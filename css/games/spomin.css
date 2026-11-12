@@ -1,0 +1,94 @@
+/* css/games/spomin.css */
+
+/* Karte za igre (spomin) — gnezdene variante */
+.sp-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: clamp(8px, 1.5vw, 16px);
+  background: var(--color-primary);
+  color: var(--custom-primary-text, #fff);
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  user-select: none;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &.sp-card-flipped {
+    background: var(--color-surface) !important;
+    color: var(--color-text-main) !important;
+    border: 2px solid color-mix(in srgb, var(--color-primary) 50%, transparent) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+
+  &.sp-card-matched {
+    opacity: 0.55;
+    cursor: default;
+    filter: grayscale(25%);
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.sp-board-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs) 0;
+}
+
+.sp-game-board {
+  display: grid;
+  gap: clamp(4px, 1.2vw, 14px);
+  aspect-ratio: var(--board-cols, 4) / var(--board-rows, 4);
+  width: min(92vw, 58dvh, 520px);
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100cqh - 55px);
+  grid-template-columns: repeat(var(--board-cols, 4), 1fr);
+  grid-template-rows: repeat(var(--board-rows, 4), 1fr);
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+
+  & .sp-card {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+}
+
+.sp-board-wrapper.victory-active .sp-game-board {
+  /* Rezerviramo prostor za zmagovalni panel spodaj */
+  width: min(92vw, 46dvh, 480px);
+  height: auto;
+}
+
+.sp-victory-panel {
+  animation: settingsFadeIn 0.3s ease;
+  width: min(92vw, 46dvh, 480px);
+  max-width: 480px;
+}

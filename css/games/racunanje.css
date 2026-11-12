@@ -1,0 +1,49 @@
+/* css/games/racunanje.css */
+
+.rc-game-area {
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc-equation {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.rc-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rc-feedback {
+  min-height: 1.5rem;
+  margin-top: var(--spacing-md);
+  font-weight: bold;
+}
+
+.rc-footer-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  width: 100%;
+}
+
+.rc-end {
+  padding: var(--spacing-lg) 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Star modal za končni zaslon odstranjen */

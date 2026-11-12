@@ -1,0 +1,183 @@
+/* css/games/nonogram.css — Nonogram Picross */
+
+.nono-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: var(--spacing-sm);
+  max-height: none;
+  overflow: visible;
+  padding: 2px 0 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+  justify-content: flex-start;
+}
+
+.nono-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.nono-timer {
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+}
+
+.nono-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: visible;
+  max-width: 100%;
+  max-height: none;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.nono-grid-wrap {
+  display: grid;
+  gap: 0;
+  background: var(--color-border);
+  border: 2px solid var(--color-text);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.nono-corner {
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+}
+
+.nono-clue {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text);
+  padding: 2px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.nono-clue.row-clue {
+  justify-content: flex-end;
+  padding-right: 6px;
+  gap: 4px;
+}
+
+.nono-clue.col-clue {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4px;
+  gap: 2px;
+}
+
+.nono-cell {
+  width: var(--nono-cell-size, 30px);
+  height: var(--nono-cell-size, 30px);
+  background: var(--color-surface);
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  transition: background 0.08s;
+}
+
+.nono-cell.filled {
+  background: var(--color-text);
+  color: #fff;
+  border-color: var(--color-text);
+}
+
+.nono-cell.marked {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.nono-cell.correct {
+  outline: 2px solid #16a34a;
+  outline-offset: -2px;
+}
+.nono-cell.wrong {
+  outline: 2px solid #ef4444;
+  outline-offset: -2px;
+  background: #fee2e2 !important;
+}
+
+.nono-cell:hover {
+  background: #e2e8f0;
+}
+.nono-cell.filled:hover {
+  background: #1e293b;
+}
+
+.nono-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nono-mode-btn.active {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+}
+
+.nono-help {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+  max-width: 420px;
+}
+
+@media (max-width: 480px) {
+  .nono-cell {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+  .nono-clue {
+    font-size: 0.62rem;
+  }
+}
+@media (max-height: 700px) {
+  .nono-wrapper {
+    max-height: min(45vh, 45dvh, 420px);
+  }
+  .nono-cell {
+    width: 26px;
+    height: 26px;
+  }
+  .nono-stage-container {
+    gap: 6px;
+  }
+}
+@media (max-height: 600px) {
+  .nono-wrapper {
+    max-height: min(42vh, 42dvh, 360px);
+  }
+  .nono-cell {
+    width: 22px;
+    height: 22px;
+    font-size: 0.68rem;
+  }
+}

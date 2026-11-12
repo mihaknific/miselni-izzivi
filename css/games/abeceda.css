@@ -1,0 +1,136 @@
+/* css/games/abeceda.css */
+
+.abc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.abc-challenge-display {
+  font-size: clamp(2rem, 8vmin, 4rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  letter-spacing: 2px;
+}
+
+.abc-input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+}
+
+.abc-input-group input {
+  flex: 1;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.abc-feedback {
+  min-height: 24px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+.abc-feedback.correct {
+  color: var(--color-success, #16a34a);
+}
+.abc-feedback.incorrect {
+  color: var(--color-danger, #e11d48);
+}
+
+.abc-history-container {
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.abc-history-container h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.abc-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.abc-history-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  display: flex;
+  justify-content: space-between;
+}
+.abc-history-list li:last-child {
+  border-bottom: none;
+}
+
+.hist-q {
+  font-weight: 600;
+  color: var(--custom-text);
+}
+.hist-correct {
+  color: var(--color-success, #16a34a);
+  font-weight: 600;
+}
+.hist-incorrect {
+  color: var(--color-danger, #e11d48);
+  font-weight: 600;
+  text-decoration: line-through;
+}
+.hist-expected {
+  color: var(--color-success, #16a34a);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* Help Layer Styles */
+.abc-help-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+  text-align: center;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.abc-help-item {
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  border-radius: 6px;
+  padding: 8px 4px;
+}
+.abc-help-item dt {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+.abc-help-item dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}

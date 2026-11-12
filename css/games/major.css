@@ -1,0 +1,118 @@
+/* css/games/major.css */
+
+.mj-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mj-challenge-display {
+  font-size: clamp(2.5rem, 10vmin, 5rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  letter-spacing: 2px;
+}
+
+.mj-input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+}
+
+.mj-input-group input {
+  flex: 1;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.mj-feedback {
+  min-height: 24px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+.mj-feedback.correct {
+  color: var(--color-success, #16a34a);
+}
+.mj-feedback.incorrect {
+  color: var(--color-danger, #e11d48);
+}
+
+.mj-history-container {
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mj-history-container h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mj-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.mj-history-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  display: flex;
+  justify-content: space-between;
+}
+.mj-history-list li:last-child {
+  border-bottom: none;
+}
+
+/* Help Layer Styles */
+.mj-help-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.mj-help-item {
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  border-radius: 6px;
+  padding: 8px;
+}
+.mj-help-item dt {
+  font-weight: 800;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.mj-help-item dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--custom-text);
+}

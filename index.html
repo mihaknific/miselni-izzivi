@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="sl" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FACC15" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Miselni izzivi — brezplačni logični izzivi in uganke</title>
+
+  <meta name="description"
+    content="Kognitivne igre za vadbo spomina, hitrosti in pozornosti. Treniraj svoje možgane z interaktivnimi izzivi!" />
+
+  <meta property="og:title" content="Miselni izzivi" />
+  <meta property="og:description" content="Kognitivne igre za vadbo spomina, hitrosti in pozornosti." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mihaknific.github.io/miselni-izzivi/" />
+  <meta property="og:image" content="https://mihaknific.github.io/miselni-izzivi/icons/icon-512.png" />
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.ico?v=1314" sizes="32x32" />
+  <link rel="icon" href="./icons/favicon-32-v2.png?v=1314" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Lexend', 'sans-serif'],
+          },
+          colors: {
+            'brutal-yellow': '#FACC15',
+            'brutal-pink': '#F472B6',
+            'brutal-purple': '#A855F7',
+            'brutal-cyan': '#38BDF8',
+            'brutal-green': '#4ADE80',
+            'brutal-orange': '#FB923C',
+            'brutal-bg': '#FEFCE8',
+            'brutal-black': '#000000',
+          },
+          boxShadow: {
+            'brutal-sm': '3px 3px 0px 0px #000000',
+            'brutal': '5px 5px 0px 0px #000000',
+            'brutal-lg': '8px 8px 0px 0px #000000',
+            'brutal-xl': '12px 12px 0px 0px #000000',
+          },
+          borderWidth: {
+            '3': '3px',
+            '4': '4px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .brutal-border {
+      border: 3px solid #000000;
+    }
+
+    .brutal-border-lg {
+      border: 4px solid #000000;
+    }
+
+    .brutal-btn {
+      transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .brutal-btn:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0px 0px #000;
+    }
+
+    .brutal-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #000;
+    }
+
+    .brutal-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .brutal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 8px 0px 0px #000;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FEFCE8;
+      border-left: 3px solid #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FACC15;
+      border: 3px solid #000;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F472B6;
+    }
+
+    body {
+      background-color: #FEFCE8;
+    }
+  </style>
+
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/layout.css?v=28" />
+  <link rel="stylesheet" href="./css/components.css?v=4" />
+  <link rel="stylesheet" href="./css/form.css" />
+  <link rel="stylesheet" href="./css/games.bundle.css?v=7" />
+</head>
+
+<body class="bg-brutal-bg text-black font-sans antialiased min-h-screen flex flex-col">
+  <a href="#app-container" class="skip-link">Preskoči na vsebino</a>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-brutal-yellow border-b-3 border-black shadow-brutal">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-2 flex items-center justify-between gap-2 sm:gap-3">
+      <div class="flex items-center gap-3">
+        <button
+          class="icon-btn brutal-btn w-9 h-9 bg-white border-3 border-black shadow-brutal-sm flex items-center justify-center"
+          id="btn-back" style="display: none; visibility: hidden" title="Nazaj" aria-label="Nazaj">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <a href="#game-list" class="brand-link flex items-center gap-3 group" data-target="game-list">
+          <div
+            class="w-10 h-10 bg-brutal-pink border-3 border-black flex items-center justify-center shadow-brutal-sm group-hover:rotate-6 transition-transform brain-logo">
+            <img src="./icons/brain-symbol.png" alt="Miselni izzivi" class="h-7 w-7 object-contain" width="28"
+              height="28" />
+          </div>
+          <span class="title-text font-heading font-black text-lg tracking-tight uppercase">
+            MISELNI<span class="bg-black text-brutal-yellow px-1 py-0.5 ml-1">IZZIVI</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="header-center only-md-block" id="header-center"></div>
+      <nav class="hidden md:flex items-center gap-3 text-sm font-bold">
+        <a href="#hero"
+          class="px-3 py-1.5 bg-white border-3 border-black shadow-brutal-sm hover:bg-brutal-cyan transition-colors">DOMOV</a>
+        <a href="#game-list"
+          class="px-3 py-1.5 bg-white border-3 border-black shadow-brutal-sm hover:bg-brutal-green transition-colors">SEZNAM
+          IGER</a>
+        <a href="#dnevni-izziv"
+          class="px-3 py-1.5 bg-white border-3 border-black shadow-brutal-sm hover:bg-brutal-orange transition-colors">DNEVNI
+          IZZIV 🔥</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+
+        <div class="header-game-actions" id="header-game-actions"></div>
+        <button
+          class="icon-btn brutal-btn w-9 h-9 bg-white border-3 border-black shadow-brutal-sm flex items-center justify-center"
+          id="btn-sound-toggle" title="Preklopi zvok" aria-label="Preklop zvoka" role="switch" aria-checked="false">
+          <svg id="sound-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-wave" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+        <button
+          class="icon-btn brutal-btn w-9 h-9 bg-white border-3 border-black shadow-brutal-sm flex items-center justify-center"
+          id="btn-menu" title="Meni" aria-label="Meni" aria-controls="main-nav" aria-expanded="false">
+          <span class="menu-icons" aria-hidden="true">
+            <svg class="menu-ico-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="menu-ico-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav" id="main-nav" role="navigation" aria-label="Glavni meni">
+    <div class="nav-card-wrapper">
+      <div class="nav-drawer-header">
+        <span class="nav-drawer-title">Meni</span>
+        <span class="nav-drawer-close-placeholder" aria-hidden="true"></span>
+      </div>
+      <div class="nav-game-actions" id="nav-game-actions" hidden></div>
+      <div class="nav-items">
+        <button class="btn-nav" data-target="stats">
+          <span class="nav-item-num" aria-hidden="true">01</span>
+          <span class="nav-item-label">Statistika</span>
+          <span class="nav-item-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="btn-nav" data-target="achievements">
+          <span class="nav-item-num" aria-hidden="true">02</span>
+          <span class="nav-item-label">Dosežki</span>
+          <span class="nav-item-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="btn-nav" data-target="settings">
+          <span class="nav-item-num" aria-hidden="true">03</span>
+          <span class="nav-item-label">Nastavitve</span>
+          <span class="nav-item-arrow" aria-hidden="true">→</span>
+        </button>
+        <a href="https://mihaknific.github.io/daruj" target="_blank" rel="noopener noreferrer"
+          class="brutal-btn inline-flex items-center justify-center gap-2 px-6 py-3 bg-brutal-pink text-black font-heading font-black border-3 border-black shadow-brutal hover:bg-brutal-orange w-full"
+          data-external="donate" aria-label="Doniraj — podpri projekt (zunanja povezava)">
+          <i class="fa-solid fa-heart" aria-hidden="true"></i> Doniraj
+        </a>
+      </div>
+      <div class="nav-gamification flex items-center justify-center gap-3 py-3" id="header-gamification"
+        aria-live="polite" aria-atomic="true">
+        <span
+          class="streak-badge px-3 py-1.5 bg-brutal-orange border-2 border-black shadow-brutal-sm font-bold uppercase"
+          title="Serija dni igranja" aria-label="Serija dni igranja">🔥 SERIJA <span id="g-streak">0</span></span>
+        <span
+          class="level-badge px-3 py-1.5 bg-brutal-yellow border-2 border-black shadow-brutal-sm font-bold uppercase"
+          title="Nivo uporabnika" aria-label="Nivo uporabnika">⭐ NIVO <span id="g-level">1</span></span>
+      </div>
+      <div class="nav-sound-toggle" id="nav-sound-row">
+        <div class="nav-sound-label">
+          <span id="nav-sound-text">Zvočni učinki</span>
+        </div>
+        <button class="nav-sound-btn" id="btn-sound-toggle-nav" type="button" role="switch" aria-checked="false"
+          aria-label="Preklop zvoka">
+          <span class="nav-sound-track"><span class="nav-sound-thumb"></span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="app-container" class="app-container max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full">
+    <div class="loading-state">Nalagam vsebino…</div>
+  </main>
+
+  <footer class="bg-brutal-yellow border-t-4 border-black py-10 px-4 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col items-center gap-7">
+      <a href="https://mihaknific.github.io/daruj" target="_blank" rel="noopener noreferrer"
+        class="brutal-btn inline-flex items-center gap-2 px-8 py-4 bg-brutal-pink text-black font-heading font-black text-lg md:text-xl border-4 border-black shadow-brutal hover:bg-brutal-orange hover:-translate-y-1 transition-transform w-full justify-center sm:w-auto">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i> DARUJ <span aria-hidden="true">→</span>
+      </a>
+      <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t-3 border-black">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 bg-brutal-pink text-black font-black flex items-center justify-center shadow-brutal-sm border-3 border-black brain-logo">
+            <img src="./icons/brain-symbol.png" alt="Miselni izzivi" class="h-7 w-7 object-contain" width="28"
+              height="28" />
+          </div>
+          <span class="font-heading font-black text-xl tracking-tight uppercase">MISELNI<span
+              class="bg-black text-brutal-yellow px-1.5 py-0.5 ml-1">IZZIVI</span></span>
+        </div>
+        <p class="text-xs font-bold text-black text-center">© 2026 Miselni Izzivi.</p>
+        <a href="#game-list"
+          class="px-3 py-1.5 bg-white text-black border-3 border-black shadow-brutal-sm font-heading font-black text-xs hover:bg-brutal-cyan transition-colors">NA
+          VRH ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

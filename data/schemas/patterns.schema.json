@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Patterns Data Schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "level",
+      "category",
+      "title",
+      "type",
+      "data",
+      "answer",
+      "hints",
+      "explanation"
+    ],
+    "properties": {
+      "id": { "type": "string", "pattern": "^pat-\\d+$" },
+      "level": { "type": "integer", "minimum": 1 },
+      "category": {
+        "type": "string",
+        "enum": [
+          "algebra",
+          "triangles",
+          "fruit",
+          "counting",
+          "domino",
+          "clocks",
+          "hexagon",
+          "pie",
+          "wheel",
+          "matrix",
+          "pyramid",
+          "operator",
+          "operators",
+          "star"
+        ]
+      },
+      "title": { "type": "string", "minLength": 1 },
+      "type": {
+        "type": "string",
+        "enum": [
+          "system_algebra",
+          "triangle_nodes",
+          "fruit_algebra",
+          "spatial_counting",
+          "domino_tiles",
+          "clock_faces",
+          "hexagon_star",
+          "pie_sectors",
+          "wheel_spokes",
+          "matrix_grid",
+          "pyramid_bricks",
+          "operator_rule"
+        ]
+      },
+      "data": { "type": "object" },
+      "answer": { "type": "string" },
+      "answers": { "type": "array", "items": { "type": "string" } },
+      "hints": { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 3 },
+      "explanation": { "type": "string" },
+      "prompt": { "type": "string" }
+    },
+    "additionalProperties": false
+  }
+}
