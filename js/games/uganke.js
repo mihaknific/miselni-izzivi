@@ -26,11 +26,11 @@ export function renderUganke() {
         <div class="game-stage">
             <div id="uganke-start-screen" class="stage-layer">
                 ${renderStartCard(
-                  'Rešuj uganke iz 5 glavnih kognitivnih kategorij (logika, fizikalni vzroki, besedna izraznost, detektivske šifre in verjetnost).',
-                  'uganke-start-btn',
-                  '▶ Začni z ugankami',
-                  'Ugankarski Kognitivni Izziv'
-                )}
+    'Rešuj uganke iz 5 glavnih kognitivnih kategorij (logika, fizikalni vzroki, besedna izraznost, detektivske šifre in verjetnost).',
+    'uganke-start-btn',
+    '▶ Začni z ugankami',
+    'Ugankarski Kognitivni Izziv'
+  )}
             </div>
 
             <div id="uganke-play-screen" class="stage-layer hidden">

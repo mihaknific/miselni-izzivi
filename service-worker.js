@@ -6,13 +6,14 @@ const OFFLINE_FALLBACK = './index.html';
 const CDN_ORIGINS = [
   'https://fonts.googleapis.com',
   'https://fonts.gstatic.com',
-  'https://cdnjs.cloudflare.com',
 ];
 const PRECACHE_ASSETS = [
   './index.html',
   './favicon.ico',
   './manifest.webmanifest',
   './css/tailwind.min.css?v=1',
+  './css/icons.css',
+  './webfonts/fa-solid-900.woff2',
   './css/main.css',
   './css/layout.css',
   './css/components.css',

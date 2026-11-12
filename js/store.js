@@ -9,7 +9,8 @@ const SETTINGS_PREFIX = 'miselni_settings_';
 function safeJsonParse(value, fallback) {
   try {
     return JSON.parse(value);
-  } catch {
+  } catch (err) {
+    console.debug('safeJsonParse napaka:', err);
     return fallback;
   }
 }
@@ -20,10 +21,12 @@ function safeJsonParse(value, fallback) {
  */
 export function loadJson(key, fallback) {
   try {
+    if (typeof localStorage === 'undefined') return fallback;
     const raw = localStorage.getItem(key);
     if (raw == null) return fallback;
     return JSON.parse(raw);
-  } catch {
+  } catch (err) {
+    console.debug(`loadJson napaka za ključ "${key}":`, err);
     return fallback;
   }
 }
@@ -299,7 +302,8 @@ async function migrateSettings() {
   let db;
   try {
     db = await openDB();
-  } catch {
+  } catch (err) {
+    console.debug('IndexedDB nedostopen, fallback na localStorage:', err);
     return; // IndexedDB nedostopen — fallback na localStorage deluje naprej
   }
   const outcome = await new Promise((resolve, reject) => {
@@ -366,13 +370,15 @@ export const Settings = {
         };
         request.onerror = () => reject(request.error);
       });
-    } catch {
+    } catch (err) {
+      console.debug(`Settings.get("${key}") fallback na localStorage:`, err);
       // Fallback na localStorage
       try {
         const raw = localStorage.getItem(`${SETTINGS_PREFIX}${key}`);
         if (raw == null) return defaultValue;
         return safeJsonParse(raw, defaultValue);
-      } catch {
+      } catch (fallbackErr) {
+        console.debug(`Settings.get("${key}") localStorage napaka:`, fallbackErr);
         return defaultValue;
       }
     }
@@ -407,11 +413,12 @@ export const Settings = {
         request.onsuccess = () => resolve();
         request.onerror = () => reject(request.error);
       });
-    } catch {
+    } catch (err) {
+      console.debug(`Settings.remove("${key}") napaka v IndexedDB:`, err);
       try {
         localStorage.removeItem(`${SETTINGS_PREFIX}${key}`);
-      } catch {
-        /* noop */
+      } catch (storageErr) {
+        console.debug(`Settings.remove("${key}") napaka v localStorage:`, storageErr);
       }
     }
   },
