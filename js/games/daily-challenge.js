@@ -246,6 +246,26 @@ export function initDailyChallenge() {
     const cleanup = initMap[gameId]?.();
     activeGameId = gameId;
 
+    // Samodejno zaženi pod-igro (preskoči vmesni začetni zaslon pod-igre,
+    // saj ima uporabnik že začetni zaslon Dnevnega izziva)
+    const startButtonIds = {
+      spomin: 'sp-start',
+      zaporedje: 'zp-start-btn',
+      reakcija: 'rk-start',
+      corsi: 'corsi-start-btn',
+      search: 'search-start-btn',
+      stroop: 'st-start',
+      racunanje: 'rc-start',
+      switch: 'switch-start-btn',
+    };
+    const subBtnId = startButtonIds[gameId];
+    if (subBtnId) {
+      const subBtn = document.getElementById(subBtnId);
+      if (subBtn) {
+        subBtn.click();
+      }
+    }
+
     // Override back button to return to daily flow
     window.customGameBackHandler = () => {
       if (cleanup) cleanup();

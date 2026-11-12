@@ -93,7 +93,7 @@ export function renderWords() {
                     <div id="words-tiles" class="words-scrambled-box"></div>
                     <div id="words-target-info" class="muted-xs" style="text-align:center;">Najdene veljavne besede: <span id="words-target-stats">...</span></div>
 
-                    <form id="words-form" class="words-input-form" onsubmit="return false;">
+                    <form id="words-form" class="words-input-form">
                         <input id="words-input" type="text" autocomplete="off" class="form-input words-input" placeholder="Vnesi besedo...">
                         <button type="submit" id="words-submit" class="btn">Dodaj</button>
                         <button type="button" id="words-hint-btn" class="btn btn-outline" style="padding: 0.5rem 0.8rem;" title="Namig (razkrij prva črko)">💡 Namig</button>
