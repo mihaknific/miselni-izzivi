@@ -122,13 +122,6 @@ export function renderAbeceda() {
         </div>
     `;
 
-  const statusHtml = `
-        <div class="status-item">Pravilno: <span id="abc-correct">0</span></div>
-        <div class="status-item">Napačno: <span id="abc-incorrect">0</span></div>
-        <div class="status-item" id="abc-time-wrap" class="hidden">Čas: <span id="abc-timer">00:00</span></div>
-        <div class="status-item" id="abc-count-wrap" class="hidden">Naloge: <span id="abc-count">0</span> / <span id="abc-total-count">0</span></div>
-    `;
-
   const infoHtml = `
         <p class="mb-md">Cilj te naloge je popolna avtomatizacija poznavanja vrstnega reda črk v abecedi. Ko zagledaš črko (npr. K), moraš iz glave čim hitreje vedeti, katera številka po vrsti je (12).</p>
         <p style="margin-bottom: 16px;">V načinu "Zaporedja" uriš preslikavo več črk/številk hkrati za izboljšanje delovnega spomina.</p>

@@ -18,11 +18,6 @@ export function renderKvadriranje() {
         </select>
     `;
 
-  const statusHtml = `
-        <div class="status-item">Pravilno: <span id="kv-correct">0</span></div>
-        <div class="status-item">Napačno: <span id="kv-incorrect">0</span></div>
-    `;
-
   const infoHtml = `
         <p class="mb-md">Tehnika kvadriranja dvomestnih in trimestnih števil ti omogoča hitro računanje na pamet in služi kot osnova za bolj napredno matematiko v glavi.</p>
         <h4 style="margin-top: 20px;">Kako deluje?</h4>

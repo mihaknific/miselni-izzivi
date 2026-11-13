@@ -73,11 +73,6 @@ export function renderMajor() {
         </select>
     `;
 
-  const statusHtml = `
-        <div class="status-item">Pravilno: <span id="mj-correct">0</span></div>
-        <div class="status-item">Napačno: <span id="mj-incorrect">0</span></div>
-    `;
-
   const infoHtml = `
         <h3 style="text-align:left; margin-bottom:12px;">Kako deluje Major Sistem?</h3>
         <p class="mb-sm">Vsaki številki (0-9) pripišemo enega ali več sorodnih soglasnikov. Samoglasnike (a,e,i,o,u) in nekatere druge črke popolnoma ignoriramo.</p>
