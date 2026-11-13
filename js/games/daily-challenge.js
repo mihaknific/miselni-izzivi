@@ -340,7 +340,8 @@ export function initDailyChallenge() {
 
   async function startNextGame() {
     if (currentGameIndex >= dailyGames.length) return;
-    const gameId = dailyGames[currentGameIndex];
+    const game = dailyGames[currentGameIndex];
+    const gameId = typeof game === 'string' ? game : game.id;
     showScreen(gameScreen);
     await loadAndRunGame(gameId);
   }

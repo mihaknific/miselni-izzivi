@@ -215,23 +215,23 @@ html {
 }
 
 .icon-btn {
-  background: transparent;
-  border: none;
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  box-sizing: border-box;
   font-size: 1.4rem;
-  color: inherit;
+  color: #000000;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition:
-    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 0 transparent;
+    transform 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
 
   &#btn-menu {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -264,10 +264,16 @@ html {
   }
 
   &:hover {
-    background: var(--color-surface, #fff);
-    color: var(--color-primary);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    background: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    box-shadow: 5px 5px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+  }
+
+  &:active {
+    box-shadow: 1px 1px 0px 0px #000000;
+    transform: translate(2px, 2px);
   }
 }
 
@@ -635,39 +641,53 @@ body.menu-open {
 .header-game-actions {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 0.5rem;
 }
 
 .header-game-actions .header-action-btn,
 .header-game-actions .icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: transparent;
-  border: none;
-  color: var(--custom-text, var(--color-text-main));
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  box-sizing: border-box;
+  color: #000000;
   cursor: pointer;
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
   padding: 0;
 }
 
 .header-game-actions .header-action-btn:hover,
 .header-game-actions .icon-btn:hover {
-  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
-  color: var(--color-primary);
-  transform: translateY(-1px);
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  box-shadow: 5px 5px 0px 0px #000000;
+  transform: translate(-2px, -2px);
+}
+
+.header-game-actions .header-action-btn:active,
+.header-game-actions .icon-btn:active {
+  box-shadow: 1px 1px 0px 0px #000000;
+  transform: translate(2px, 2px);
 }
 
 .header-game-actions .header-action-btn.active,
 .header-game-actions .icon-btn.active {
   background: var(--color-primary);
-  color: #fff;
+  color: #000000;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
 }
 
 .game-shell-actions {
