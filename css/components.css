@@ -18,9 +18,22 @@
   box-shadow: 8px 8px 0px 0px #000;
 }
 
+/* Manjši premik in subtilnejša senca za ikonske gumbe v glavi */
+.icon-btn.brutal-btn:hover,
+.header-game-actions .header-action-btn:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
 .brutal-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px 0px #000;
+}
+
+.icon-btn.brutal-btn:active,
+.header-game-actions .header-action-btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
 }
 
 .brutal-card {

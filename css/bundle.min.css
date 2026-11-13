@@ -543,14 +543,13 @@ html {
   &:hover {
     background: #ffffff;
     color: #000000;
-    border: 3px solid #000000;
-    box-shadow: 5px 5px 0px 0px #000000;
-    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(-1px, -1px);
   }
 
   &:active {
-    box-shadow: 1px 1px 0px 0px #000000;
-    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px #000000;
+    transform: translate(1px, 1px);
   }
 }
 
@@ -948,15 +947,14 @@ body.menu-open {
 .header-game-actions .icon-btn:hover {
   background: #ffffff;
   color: #000000;
-  border: 3px solid #000000;
-  box-shadow: 5px 5px 0px 0px #000000;
-  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px #000000;
+  transform: translate(-1px, -1px);
 }
 
 .header-game-actions .header-action-btn:active,
 .header-game-actions .icon-btn:active {
-  box-shadow: 1px 1px 0px 0px #000000;
-  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+  transform: translate(1px, 1px);
 }
 
 .header-game-actions .header-action-btn.active,
@@ -1352,9 +1350,22 @@ body.game-active .card.game-card-shell {
   box-shadow: 8px 8px 0px 0px #000;
 }
 
+/* Manjši premik in subtilnejša senca za ikonske gumbe v glavi */
+.icon-btn.brutal-btn:hover,
+.header-game-actions .header-action-btn:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
 .brutal-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px 0px #000;
+}
+
+.icon-btn.brutal-btn:active,
+.header-game-actions .header-action-btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
 }
 
 .brutal-card {
