@@ -682,10 +682,10 @@ body.menu-open {
 
 .header-game-actions .header-action-btn.active,
 .header-game-actions .icon-btn.active {
-  background: var(--color-primary);
-  color: #000000;
+  background: #000000;
+  color: #ffffff;
   border: none;
-  box-shadow: 3px 3px 0px 0px #000000;
+  box-shadow: 3px 3px 0px 0px var(--color-primary);
 }
 
 .game-shell-actions {
