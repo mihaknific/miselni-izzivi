@@ -55,10 +55,10 @@ export function renderGameList(tasks) {
       <div class="only-lg-block absolute top-6 right-10 bg-brutal-green text-black border-3 border-black font-heading font-extrabold text-sm px-4 py-2 rotate-6 shadow-brutal z-10 flex items-center gap-1.5 pointer-events-none"><i class="fa-solid fa-bolt" aria-hidden="true"></i> 100% MOŽGANSKA ZABAVA</div>
       <div class="bg-white border-4 border-black p-6 md:p-10 lg:pb-24 shadow-brutal-xl relative flex flex-col gap-12">
         <div class="max-w-3xl mx-auto text-center stack stack--lg">
-          <div class="inline-block self-center bg-brutal-orange text-black font-heading font-black border-3 border-black px-4 py-1 text-sm md:text-base uppercase shadow-brutal">
+          <div class="inline-block self-center bg-brutal-orange text-black font-heading font-black border-3 border-black px-4 py-1.5 uppercase shadow-brutal hero-badge-pill">
             🚀 LOGIKA • SPOMIN • MATEMATIKA • BESEDE
           </div>
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight leading-tight md:leading-none text-black">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tight text-black hero-main-title">
             RAZGIBAJ MOŽGANE Z <br/>
             <span class="bg-brutal-yellow px-3 py-1 inline-block border-3 border-black shadow-brutal transform -rotate-1 mt-3">
               IGRO IN LOGIKO!

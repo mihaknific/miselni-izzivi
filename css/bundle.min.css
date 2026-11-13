@@ -1377,6 +1377,30 @@ body.game-active .card.game-card-shell {
   box-shadow: 8px 8px 0px 0px #000;
 }
 
+/* Hero badge & title tipografija (prepreči stiskanje in zagotovi zračen line-height) */
+.hero-badge-pill {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .hero-badge-pill {
+    font-size: 1.1rem;
+  }
+}
+
+.hero-main-title {
+  line-height: 1.25 !important;
+  word-break: break-word;
+}
+
+.hero-main-title br {
+  display: block;
+  content: "";
+  margin-top: 0.35rem;
+}
+
 /* Dnevni paket banner - na majhnih zaslonih se lepo postavi navpično in raztegne gumb */
 .daily-challenge-banner {
   display: flex;
