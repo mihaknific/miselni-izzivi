@@ -41,6 +41,16 @@ export function renderKvadriranje() {
 
             <div id="kv-play-layer" class="stage-layer hidden">
                 <div class="kv-container">
+                <div class="game-status-bar">
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Pravilno</span>
+                        <strong class="game-status-val" id="kv-correct">0</strong>
+                    </div>
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Napačno</span>
+                        <strong class="game-status-val" id="kv-incorrect">0</strong>
+                    </div>
+                </div>
                 <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 4px;">Izračunaj kvadrat števila:</div>
                 <div id="kv-challenge" class="kv-challenge-display">-</div>
 
@@ -68,7 +78,6 @@ export function renderKvadriranje() {
   return renderGameShell({
     title: 'Hitro kvadriranje',
     subtitle: 'Kvadriranje dvomestnih in trimestnih števil na pamet.',
-    statusHtml,
     settingsHtml,
     infoHtml,
     stageHtml,

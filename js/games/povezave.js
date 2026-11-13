@@ -247,9 +247,9 @@ ${renderAdaptiveSettingsPanel('povezave')}
           </div>
           <div class="pov-topbar">
             <div class="pov-lives" id="pov-lives"><span>Napake:</span><span id="pov-dots"></span><span id="pov-lives-text">4/4</span></div>
-            <div style="display:flex; gap:6px;">
-              <button id="pov-shuffle-btn" class="btn btn-outline btn-sm">🔀 Pomešaj</button>
-              <button id="pov-new-btn" class="btn btn-outline btn-sm">↺ Nova</button>
+            <div class="game-action-row" style="width: auto; gap: 6px;">
+              <button id="pov-shuffle-btn" class="btn btn-outline">🔀 Pomešaj</button>
+              <button id="pov-new-btn" class="btn btn-outline">↺ Nova</button>
             </div>
           </div>
 
@@ -258,9 +258,9 @@ ${renderAdaptiveSettingsPanel('povezave')}
 
           <div id="pov-msg" class="pov-message"></div>
 
-          <div class="pov-actions">
-            <button id="pov-deselect-btn" class="btn btn-outline" style="padding:0.5rem 1rem;">Počisti izbor</button>
-            <button id="pov-submit-btn" class="btn" style="padding:0.5rem 1.2rem;" disabled>Potrdi skupino</button>
+          <div class="pov-actions game-action-row" style="margin-top: var(--spacing-xs);">
+            <button id="pov-deselect-btn" class="btn btn-outline">Počisti izbor</button>
+            <button id="pov-submit-btn" class="btn" disabled>Potrdi skupino</button>
           </div>
 
           <p class="pov-help">Izberi 4 besede in potrdi. Če je skupina napačna, izgubiš življenje. Poišči vse 4 skupine!</p>
@@ -272,11 +272,11 @@ ${renderAdaptiveSettingsPanel('povezave')}
           <h3 id="pov-end-title" class="result-title"></h3>
           <p class="muted-xs mb-sm" id="pov-end-desc"></p>
           <div id="pov-end-groups" style="display:flex; flex-direction:column; gap:6px; margin-bottom:var(--spacing-sm); text-align:left;"></div>
-          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-            <button id="pov-share-btn" class="btn btn-outline btn-sm">📋 Deli rezultat</button>
-            <button id="pov-retry-btn" class="btn btn-sm">Nova uganka</button>
+          <div class="game-action-row">
+            <button id="pov-share-btn" class="btn btn-outline">📋 Deli rezultat</button>
+            <button id="pov-retry-btn" class="btn" data-primary-action="true">Nova uganka</button>
+            <button id="pov-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
           </div>
-          <button id="pov-back-to-list" class="btn btn-outline" data-action="back-to-list" style="margin-top:8px; padding:0.35rem 0.8rem; font-size:0.82rem;">← Seznam iger</button>
         </div>
       </div>
     </div>

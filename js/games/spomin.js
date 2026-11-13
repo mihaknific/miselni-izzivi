@@ -110,12 +110,16 @@ export function renderSpomin() {
                         </div>
                     </div>
                     <div id="sp-board" class="sp-game-board"></div>
-                    <button id="sp-restart" class="btn btn-outline" style="margin-top: var(--spacing-sm); padding: 0.35rem 0.8rem; font-size: 0.85rem;">↺ Ponovno</button>
-                    <div id="sp-victory-panel" class="sp-victory-panel hidden" style="margin-top: var(--spacing-sm); text-align: center; width: 100%; z-index: 10;">
+                    <div class="game-action-row" style="margin-top: var(--spacing-sm);">
+                        <button id="sp-restart" class="btn btn-outline">↺ Ponovno</button>
+                    </div>
+                    <div id="sp-victory-panel" class="sp-victory-panel game-dialog-box hidden" style="margin-top: var(--spacing-sm); z-index: 10;">
                         <h3 class="result-title">🏆 Čestitke!</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 8px; color: var(--custom-text);">Čas: <strong id="sp-final-time"></strong> | Poteze: <strong id="sp-final-moves"></strong></p>
-                        <button id="sp-play-again" class="btn btn-sm" data-primary-action="true">Igraj znova</button>
-                        <button id="sp-back-to-list" class="btn btn-outline btn-sm ml-sm" data-action="back-to-list">← Seznam iger</button>
+                        <p style="font-size: 0.95rem; margin-bottom: 8px; color: var(--custom-text); font-weight: 700;">Čas: <strong id="sp-final-time"></strong> | Poteze: <strong id="sp-final-moves"></strong></p>
+                        <div class="game-action-row">
+                            <button id="sp-play-again" class="btn" data-primary-action="true">Igraj znova</button>
+                            <button id="sp-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+                        </div>
                     </div>
                 </div>
             </div>

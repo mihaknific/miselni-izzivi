@@ -60,17 +60,19 @@ ${renderAdaptiveSettingsPanel('nonogram')}
               <strong class="game-status-val" id="nono-header-size">10×10</strong>
             </div>
           </div>
-          <div class="nono-topbar">
-            <button id="nono-new-btn" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.82rem;">↺ Nova igra</button>
-            <button id="nono-check-btn" class="btn btn-outline btn-sm ml-auto">✓ Preveri</button>
-          </div>
           <div id="nono-wrapper" class="nono-wrapper"></div>
-          <div class="nono-controls">
-            <button id="nono-mode-fill" class="btn nono-mode-btn active btn-sm">⬛ Polni</button>
-            <button id="nono-mode-mark" class="btn nono-mode-btn btn-outline btn-sm">✕ Označi prazno</button>
-            <button id="nono-mode-erase" class="btn nono-mode-btn btn-outline btn-sm">⌫ Briši</button>
-            <button id="nono-hint-btn" class="btn btn-outline btn-sm">💡 Namig</button>
-            <button id="nono-solve-btn" class="btn btn-outline" style="padding:0.35rem 0.7rem; font-size:0.82rem; color:var(--color-text-muted);">Reši</button>
+          <div class="game-controls-stack">
+            <div class="game-segmented-group" role="radiogroup" aria-label="Način risanja">
+              <button id="nono-mode-fill" class="seg-btn nono-mode-btn active" role="radio" aria-checked="true">⬛ Polni</button>
+              <button id="nono-mode-mark" class="seg-btn nono-mode-btn" role="radio" aria-checked="false">✕ Označi</button>
+              <button id="nono-mode-erase" class="seg-btn nono-mode-btn" role="radio" aria-checked="false">⌫ Briši</button>
+            </div>
+            <div class="game-action-row">
+              <button id="nono-hint-btn" class="btn btn-outline">💡 Namig</button>
+              <button id="nono-check-btn" class="btn btn-outline">✓ Preveri</button>
+              <button id="nono-new-btn" class="btn btn-outline">↺ Nova igra</button>
+              <button id="nono-solve-btn" class="btn btn-outline" style="opacity: 0.7;">Reši</button>
+            </div>
           </div>
           <p class="nono-help">Klik/drag po poljih: črno = polno, ✕ = prazno. Preveri označi napačne.</p>
           <div id="nono-message" style="min-height:1.4em; text-align:center; font-weight:700; font-size:0.9rem;"></div>
@@ -81,8 +83,10 @@ ${renderAdaptiveSettingsPanel('nonogram')}
           <h3 class="result-title">Rešeno! 🎉</h3>
           <p class="muted-xs">Čas: <strong id="nono-final-time">00:00</strong> • Velikost: <strong id="nono-final-size"></strong></p>
           <p class="muted-xs mb-sm">Napake: <strong id="nono-final-errors">0</strong></p>
-          <button id="nono-retry-btn" class="btn">Nova</button>
-          <button id="nono-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam</button>
+          <div class="game-action-row">
+            <button id="nono-retry-btn" class="btn" data-primary-action="true">Nova igra</button>
+            <button id="nono-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+          </div>
         </div>
       </div>
     </div>

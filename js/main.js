@@ -445,6 +445,13 @@ async function initApp() {
       return;
     }
 
+    const scrollTopBtn = e.target.closest('#btn-scroll-top');
+    if (scrollTopBtn) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const homeButton = e.target.closest('[data-target="home"]');
     if (homeButton) {
       e.preventDefault();
@@ -480,6 +487,26 @@ async function initApp() {
     if (insightAction) {
       const gameId = insightAction.dataset.game;
       if (gameId) navigateTo('game', gameId);
+      return;
+    }
+
+    const achFilterBtn = e.target.closest('[data-ach-filter]');
+    if (achFilterBtn) {
+      const filter = achFilterBtn.dataset.achFilter;
+      document.querySelectorAll('[data-ach-filter]').forEach(b => {
+        const isActive = b === achFilterBtn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+      document.querySelectorAll('.achievement-card').forEach(card => {
+        if (filter === 'all') {
+          card.style.display = '';
+        } else if (filter === 'unlocked') {
+          card.style.display = card.dataset.status === 'unlocked' ? '' : 'none';
+        } else if (filter === 'locked') {
+          card.style.display = card.dataset.status === 'locked' ? '' : 'none';
+        }
+      });
       return;
     }
 

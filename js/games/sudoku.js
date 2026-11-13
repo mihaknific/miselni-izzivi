@@ -67,9 +67,8 @@ ${renderAdaptiveSettingsPanel('sudoku')}
               <strong class="game-status-val" id="sud-header-diff">Lahko</strong>
             </div>
           </div>
-          <div class="sud-topbar">
-            <span id="sud-errors" style="font-size:0.85rem; font-weight:700; color:var(--color-error);">Napake: 0</span>
-            <button id="sud-new-btn" class="btn btn-outline btn-sm ml-auto">↺ Nova igra</button>
+          <div class="sud-topbar" style="justify-content: center;">
+            <span id="sud-errors" style="font-size:0.85rem; font-weight:800; color:var(--color-error);">Napake: 0</span>
           </div>
           <div id="sud-board" class="sud-board" role="grid" aria-label="Sudoku mreža 9×9"></div>
           <div class="sud-numpad" id="sud-numpad">
@@ -77,10 +76,11 @@ ${renderAdaptiveSettingsPanel('sudoku')}
             <button class="sud-num-btn erase" data-num="0">⌫</button>
             <button class="sud-num-btn note-toggle" id="sud-note-toggle" data-note="0">✏️ Zapiski</button>
           </div>
-          <div class="sud-actions">
-            <button id="sud-hint-btn" class="btn btn-outline" style="padding:0.45rem 0.8rem; font-size:0.85rem;">💡 Namig</button>
-            <button id="sud-check-btn" class="btn btn-outline" style="padding:0.45rem 0.8rem; font-size:0.85rem;">✓ Preveri</button>
-            <button id="sud-solve-btn" class="btn btn-outline" style="padding:0.45rem 0.8rem; font-size:0.82rem; color:var(--color-text-muted);">Reši</button>
+          <div class="game-action-row" style="margin-top: var(--spacing-xs);">
+            <button id="sud-hint-btn" class="btn btn-outline">💡 Namig</button>
+            <button id="sud-check-btn" class="btn btn-outline">✓ Preveri</button>
+            <button id="sud-new-btn" class="btn btn-outline">↺ Nova igra</button>
+            <button id="sud-solve-btn" class="btn btn-outline" style="opacity: 0.7;">Reši</button>
           </div>
           <p class="sud-help">Tapni polje, nato številko. V načinu zapisaki dodaš svinčnikove opombe.</p>
           <div id="sud-message" aria-live="polite" aria-atomic="true" style="min-height:1.4em; text-align:center; font-weight:700; font-size:0.9rem;"></div>
@@ -91,8 +91,10 @@ ${renderAdaptiveSettingsPanel('sudoku')}
           <h3 class="result-title">Sudoku rešen! 🎉</h3>
           <p class="muted-xs">Čas: <strong id="sud-final-time">00:00</strong> • Napake: <strong id="sud-final-errors">0</strong></p>
           <p class="muted-xs mb-sm">Težavnost: <strong id="sud-final-diff"></strong></p>
-          <button id="sud-retry-btn" class="btn">Nova igra</button>
-          <button id="sud-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam</button>
+          <div class="game-action-row">
+            <button id="sud-retry-btn" class="btn" data-primary-action="true">Nova igra</button>
+            <button id="sud-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+          </div>
         </div>
       </div>
     </div>

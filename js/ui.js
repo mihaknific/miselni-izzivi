@@ -251,40 +251,42 @@ export function renderSettings() {
   return `
     <div class="settings-page">
       <section class="settings-panel">
-        <h2 class="title">Nastavitve aplikacije</h2>
-        <p class="subtitle mb-lg">Prilagodi izgled in upravljaj s podatki.</p>
+        <div class="page-header" style="margin-bottom: var(--spacing-md);">
+          <h2 class="title">Nastavitve aplikacije</h2>
+          <p class="subtitle">Prilagodi izgled in upravljaj s podatki ter napredkom.</p>
+        </div>
 
         <div class="stack stack--md">
-          <label class="cluster justify-between">
-            Barva glavnega besedila:
+          <label class="cluster justify-between flex-between">
+            <span>Barva glavnega besedila:</span>
             <input type="color" id="opt-textColor" data-default="#000000">
           </label>
 
-          <label class="cluster justify-between">
-            Barva naslovov:
+          <label class="cluster justify-between flex-between">
+            <span>Barva naslovov:</span>
             <input type="color" id="opt-headingColor" data-default="#000000">
           </label>
 
-          <label class="cluster justify-between">
-            Barva pomožnega besedila:
+          <label class="cluster justify-between flex-between">
+            <span>Barva pomožnega besedila:</span>
             <input type="color" id="opt-mutedColor" data-default="#475569">
           </label>
 
-          <label class="cluster justify-between">
-            Barva primarnega gumba:
+          <label class="cluster justify-between flex-between">
+            <span>Barva primarnega gumba:</span>
             <input type="color" id="opt-primaryColor" data-default="#FACC15">
           </label>
 
-          <label class="cluster justify-between">
-            Barva ozadja:
+          <label class="cluster justify-between flex-between">
+            <span>Barva ozadja:</span>
             <input type="color" id="opt-bgColor" data-default="#FEFCE8">
           </label>
 
           <hr>
 
-          <h3 class="text-md text-primary m-0">Barvne teme (prednastavitve)</h3>
-          <p class="text-sm text-muted mb-sm">Pripravljene teme. Klikni in takoj vidiš učinek.</p>
-          <div class="cluster mb-md">
+          <h3 class="font-heading font-black text-base uppercase text-black m-0">🎨 Barvne teme (prednastavitve)</h3>
+          <p class="text-xs font-semibold text-slate-600 mb-sm">Pripravljene teme. Klikni in takoj vidiš učinek.</p>
+          <div class="flex flex-wrap gap-2 mb-md">
             <button class="btn btn-outline preset-btn" data-preset="default">Privzeta</button>
             <button class="btn btn-outline preset-btn" data-preset="zinc">Čista (Zinc)</button>
             <button class="btn btn-outline preset-btn" data-preset="stone">Topla (Stone)</button>
@@ -297,12 +299,12 @@ export function renderSettings() {
 
           <hr>
 
-          <h3 class="text-md text-primary m-0">Upravljanje podatkov</h3>
-          <p class="text-sm text-muted mb-sm">Izvozi ali uvozi svoj napredek in nastavitve.</p>
+          <h3 class="font-heading font-black text-base uppercase text-black m-0">💾 Upravljanje podatkov</h3>
+          <p class="text-xs font-semibold text-slate-600 mb-sm">Izvozi ali uvozi svoj napredek in nastavitve.</p>
 
-          <div class="cluster">
+          <div class="game-action-row" style="justify-content: flex-start;">
               <button id="btn-export" class="btn btn-outline">📤 Izvozi podatke</button>
-              <label for="btn-import" class="btn btn-outline">
+              <label for="btn-import" class="btn btn-outline cursor-pointer mb-0">
                   📥 Uvozi podatke
                   <input type="file" id="btn-import" class="hidden-input" accept=".json">
               </label>
@@ -310,20 +312,24 @@ export function renderSettings() {
 
           <hr>
 
-          <h3 class="text-md text-primary m-0">Podpri projekt</h3>
-          <p class="text-sm text-muted mb-sm">Aplikacija je brezplačna — podpora je prostovoljna.</p>
-          <a
-            href="https://mihaknific.github.io/podpora"
-            target="_blank"
-            rel="noopener"
-            class="brutal-btn inline-flex items-center gap-2 px-6 py-3 bg-brutal-pink text-black font-heading font-black border-3 border-black shadow-brutal hover:bg-brutal-orange"
-          >
-            <i class="fa-solid fa-heart" aria-hidden="true"></i> Podpri
-          </a>
+          <h3 class="font-heading font-black text-base uppercase text-black m-0">❤️ Podpri projekt</h3>
+          <p class="text-xs font-semibold text-slate-600 mb-sm">Aplikacija je brezplačna — podpora je prostovoljna.</p>
+          <div>
+            <a
+              href="https://mihaknific.github.io/podpora"
+              target="_blank"
+              rel="noopener"
+              class="brutal-btn inline-flex items-center gap-2 px-6 py-3 bg-brutal-pink text-black font-heading font-black border-3 border-black shadow-brutal hover:bg-brutal-orange transition-colors"
+            >
+              <i class="fa-solid fa-heart" aria-hidden="true"></i> Podpri
+            </a>
+          </div>
 
           <hr>
 
-          <button id="btn-reset" class="btn btn-danger">Ponastavi videz na privzeto</button>
+          <div>
+            <button id="btn-reset" class="btn btn-danger">Ponastavi videz na privzeto</button>
+          </div>
         </div>
       </section>
     </div>

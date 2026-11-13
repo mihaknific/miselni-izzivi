@@ -94,6 +94,16 @@ export function renderMajor() {
 
             <div id="mj-play-layer" class="stage-layer hidden">
                 <div class="mj-container">
+                    <div class="game-status-bar">
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Pravilno</span>
+                            <strong class="game-status-val" id="mj-correct">0</strong>
+                        </div>
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Napačno</span>
+                            <strong class="game-status-val" id="mj-incorrect">0</strong>
+                        </div>
+                    </div>
                     <div id="mj-challenge" class="mj-challenge-display">-</div>
 
                     <div class="mj-input-group">
@@ -123,7 +133,6 @@ export function renderMajor() {
   return renderGameShell({
     title: 'Major Sistem',
     subtitle: 'Mnemotehnika s soglasniki',
-    statusHtml,
     settingsHtml,
     infoHtml,
     stageHtml,

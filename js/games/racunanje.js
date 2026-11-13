@@ -112,8 +112,10 @@ export function renderRacunanje() {
                     <h3 class="result-title">Igra končana!</h3>
                     <p class="muted-xs MBXS">Končni rezultat: <strong id="rc-final-score"></strong></p>
                     <p class="muted-xs mb-sm">Pravilno: <span id="rc-correct" style="font-weight: 600; color: var(--color-success);"></span> | Napačno: <span id="rc-wrong" style="font-weight: 600; color: var(--color-error);"></span></p>
-                    <button id="rc-retry" class="btn" data-primary-action="true">Ponovi preizkus</button>
-                    <button id="rc-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam iger</button>
+                    <div class="game-action-row">
+                        <button id="rc-retry" class="btn" data-primary-action="true">Ponovi preizkus</button>
+                        <button id="rc-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1185,7 +1185,9 @@ ${renderAdaptiveSettingsPanel('besedolov')}
               <div class="blov-score-pill"><span class="blov-score-label">Točke</span><span class="blov-score-val" id="blov-score">0</span></div>
               <div class="blov-score-pill"><span class="blov-score-label">Najdeno</span><span class="blov-score-val" id="blov-count">0</span></div>
             </div>
-            <button id="blov-shuffle-btn" class="btn btn-outline btn-sm">🔀 Premešaj</button>
+            <div class="game-action-row" style="width: auto;">
+              <button id="blov-shuffle-btn" class="btn btn-outline">🔀 Premešaj</button>
+            </div>
           </div>
 
           <div class="blov-progress" aria-hidden="true"><div id="blov-progress-fill" class="blov-progress-fill" style="width:0%"></div></div>
@@ -1195,10 +1197,10 @@ ${renderAdaptiveSettingsPanel('besedolov')}
 
           <div id="blov-hive" class="blov-hive"></div>
 
-          <div class="blov-actions">
-            <button id="blov-delete-btn" class="btn btn-outline" style="padding:0.5rem 1rem;">⌫ Izbriši</button>
-            <button id="blov-submit-btn" class="btn" style="padding:0.5rem 1.4rem;">Potrdi</button>
-            <button id="blov-hint-btn" class="btn btn-outline" style="padding:0.5rem 0.9rem;">💡 Namig</button>
+          <div class="blov-actions game-action-row" style="margin-top: var(--spacing-xs);">
+            <button id="blov-delete-btn" class="btn btn-outline">⌫ Izbriši</button>
+            <button id="blov-submit-btn" class="btn">Potrdi</button>
+            <button id="blov-hint-btn" class="btn btn-outline">💡 Namig</button>
           </div>
 
           <div id="blov-message" class="blov-message"></div>
@@ -1215,11 +1217,11 @@ ${renderAdaptiveSettingsPanel('besedolov')}
           <p class="muted-xs MBXS">Najdenih besed: <strong id="blov-final-count">0</strong> / <span id="blov-final-total">0</span></p>
           <p class="muted-xs mb-sm">Točke: <strong id="blov-final-score">0</strong> • Pangrami: <strong id="blov-final-pangram">0</strong></p>
           <div id="blov-missing" style="max-height:120px; overflow-y:auto; font-size:0.82rem; text-align:left; background:var(--color-bg); border:1px solid var(--color-border); border-radius:8px; padding:8px; margin-bottom:var(--spacing-sm);"></div>
-          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+          <div class="game-action-row">
             <button id="blov-share-btn" class="btn btn-outline">📋 Deli</button>
-            <button id="blov-retry-btn" class="btn">Nova igra</button>
+            <button id="blov-retry-btn" class="btn" data-primary-action="true">Nova igra</button>
+            <button id="blov-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
           </div>
-          <button id="blov-back-to-list" class="btn btn-outline" data-action="back-to-list" style="margin-top:8px; padding:0.35rem 0.8rem; font-size:0.82rem;">← Seznam iger</button>
         </div>
       </div>
     </div>
@@ -1240,8 +1242,6 @@ ${renderAdaptiveSettingsPanel('besedolov')}
   return renderGameShell({
     title: 'Besedolov',
     subtitle: 'Sat 7 črk – poišči vse besede!',
-    statusHtml:
-      '<span>Točke: <strong id="blov-header-score">0</strong></span><span>Rang: <strong id="blov-header-rank">-</strong></span>',
     settingsHtml,
     stageHtml,
     infoHtml,

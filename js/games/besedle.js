@@ -221,9 +221,21 @@ ${renderAdaptiveSettingsPanel('besedle')}
 
       <div id="bes-play-screen" class="stage-layer hidden">
         <div class="bes-stage-container">
+          <div class="game-status-bar">
+            <div class="game-status-pill">
+              <span class="game-status-label">Poskus</span>
+              <strong class="game-status-val" id="bes-header-attempt">1/6</strong>
+            </div>
+            <div class="game-status-pill">
+              <span class="game-status-label">Način</span>
+              <strong class="game-status-val" id="bes-header-mode">Dnevno</strong>
+            </div>
+          </div>
           <div class="bes-topbar">
             <div class="bes-stats" id="bes-mini-stats">Odigrano: <strong id="bes-mini-played">0</strong> • Niz: <strong id="bes-mini-streak">0</strong></div>
-            <button id="bes-new-btn" class="btn btn-outline btn-sm">↺ Nova beseda</button>
+            <div class="game-action-row" style="width: auto;">
+              <button id="bes-new-btn" class="btn btn-outline">↺ Nova beseda</button>
+            </div>
           </div>
           <div id="bes-board" class="bes-board"></div>
           <div id="bes-message" class="bes-message"></div>
@@ -233,14 +245,14 @@ ${renderAdaptiveSettingsPanel('besedle')}
 
       <div id="bes-end-screen" class="stage-layer hidden">
         <div class="rc-victory-content game-dialog-box">
-          <h3 id="bes-end-title" class="result-title" style="font-size:1.25rem; margin-bottom:var(--spacing-xs);">Rezultat</h3>
+          <h3 id="bes-end-title" class="result-title">Rezultat</h3>
           <p class="muted-xs MBXS">Rešitev: <strong id="bes-end-word" style="letter-spacing:0.1em; font-size:1.2rem;"></strong></p>
           <p class="muted-xs mb-sm" id="bes-end-desc"></p>
-          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-            <button id="bes-share-btn" class="btn btn-outline btn-sm">📋 Kopiraj rezultat</button>
-            <button id="bes-retry-btn" class="btn btn-sm">Igraj znova</button>
+          <div class="game-action-row">
+            <button id="bes-share-btn" class="btn btn-outline">📋 Kopiraj rezultat</button>
+            <button id="bes-retry-btn" class="btn" data-primary-action="true">Igraj znova</button>
+            <button id="bes-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
           </div>
-          <button id="bes-back-to-list" class="btn btn-outline" data-action="back-to-list" style="margin-top:8px; padding:0.35rem 0.8rem; font-size:0.82rem;">← Seznam iger</button>
         </div>
       </div>
     </div>
@@ -264,8 +276,6 @@ ${renderAdaptiveSettingsPanel('besedle')}
   return renderGameShell({
     title: 'Besedle',
     subtitle: 'Ugani 5-črkovno besedo v 6 poskusih.',
-    statusHtml:
-      '<span>Poskus: <strong id="bes-header-attempt">1/6</strong></span><span id="bes-header-mode">Dnevno</span>',
     settingsHtml,
     stageHtml,
     infoHtml,

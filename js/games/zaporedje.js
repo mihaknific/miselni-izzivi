@@ -61,12 +61,32 @@ export function renderZaporedje() {
             </div>
 
             <div id="zp-show-screen" class="stage-layer hidden">
+                <div class="game-status-bar">
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Raven</span>
+                        <strong class="game-status-val" id="zp-level">1</strong>
+                    </div>
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Najboljše</span>
+                        <strong class="game-status-val" id="zp-best">0</strong>
+                    </div>
+                </div>
                 <div class="st-play-column">
                     <div id="zp-display" class="zp-display"></div>
                 </div>
             </div>
 
             <div id="zp-input-screen" class="stage-layer hidden">
+                <div class="game-status-bar">
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Raven</span>
+                        <strong class="game-status-val" id="zp-level-input">1</strong>
+                    </div>
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Najboljše</span>
+                        <strong class="game-status-val" id="zp-best-input">0</strong>
+                    </div>
+                </div>
                 <div id="zp-user-input" class="zp-user-input"></div>
                 <div class="numpad-grid">
                     ${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button class="btn btn-outline numpad-btn zp-num" data-val="${n}">${n}</button>`).join('')}
@@ -91,8 +111,10 @@ export function renderZaporedje() {
                     <h3 class="result-title result-error">Napačno ✗</h3>
                     <p class="muted-xs MBXS">Prišel/a si do ravni <strong id="zp-final-level"></strong>.</p>
                     <p class="muted-xs mb-sm">Uspešno zapomnjena dolžina: <strong id="zp-final-len"></strong></p>
-                    <button id="zp-retry-btn" class="btn" data-primary-action="true">Igraj znova</button>
-                    <button id="zp-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam iger</button>
+                    <div class="game-action-row">
+                        <button id="zp-retry-btn" class="btn" data-primary-action="true">Igraj znova</button>
+                        <button id="zp-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,8 +129,6 @@ export function renderZaporedje() {
   return renderGameShell({
     title: 'Zaporedje števil',
     subtitle: 'Zapomni si številke in jih vnesi v pravilnem vrstnem redu.',
-    statusHtml:
-      '<span>Raven: <strong id="zp-level">1</strong></span><span>Najboljše: <strong id="zp-best">0</strong></span>',
     settingsHtml,
     infoHtml,
     stageHtml,
@@ -131,7 +151,10 @@ export function initZaporedje() {
     {
       set(target, prop, value) {
         target[prop] = value;
-        if (prop === 'level' && ui.level) ui.level.textContent = value;
+        if (prop === 'level') {
+          if (ui.level) ui.level.textContent = value;
+          if (ui.levelInput) ui.levelInput.textContent = value;
+        }
         return true;
       },
     }
@@ -151,7 +174,9 @@ export function initZaporedje() {
 
   const ui = {
     level: document.getElementById('zp-level'),
+    levelInput: document.getElementById('zp-level-input'),
     best: document.getElementById('zp-best'),
+    bestInput: document.getElementById('zp-best-input'),
     display: document.getElementById('zp-display'),
     userInput: document.getElementById('zp-user-input'),
     resMsg: document.getElementById('zp-result-msg'),
@@ -160,7 +185,8 @@ export function initZaporedje() {
     finLen: document.getElementById('zp-final-len'),
   };
 
-  ui.best.textContent = bestLevel;
+  if (ui.best) ui.best.textContent = bestLevel;
+  if (ui.bestInput) ui.bestInput.textContent = bestLevel;
 
   function applySettingsToGame() {
     // Preveri adaptivno težavnost
@@ -297,7 +323,8 @@ export function initZaporedje() {
 
       if (state.level - 1 > bestLevel) {
         bestLevel = state.level - 1;
-        ui.best.textContent = bestLevel;
+        if (ui.best) ui.best.textContent = bestLevel;
+  if (ui.bestInput) ui.bestInput.textContent = bestLevel;
       }
     } else {
       sounds.playError();

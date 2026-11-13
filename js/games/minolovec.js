@@ -54,14 +54,16 @@ export function renderMinolovec() {
               <strong class="game-status-val" id="mine-header-time">00:00</strong>
             </div>
           </div>
-          <div class="mine-topbar">
-            <button id="mine-face-btn" class="btn btn-outline" style="font-size:1rem; padding:0.35rem 0.9rem; margin:0 auto;" title="Ponastavi igro">🙂 Nova igra</button>
-          </div>
           <div id="mine-board" class="mine-board"></div>
-          <div class="mine-controls">
-            <button id="mine-mode-reveal" class="btn mine-mode-btn active btn-sm">🔍 Odkrij</button>
-            <button id="mine-mode-flag" class="btn mine-mode-btn btn-outline btn-sm">🚩 Zastavica</button>
-            <button id="mine-hint-btn" class="btn btn-outline btn-sm">💡 Namig</button>
+          <div class="game-controls-stack">
+            <div class="game-segmented-group" role="radiogroup" aria-label="Način odkrivanja">
+              <button id="mine-mode-reveal" class="seg-btn mine-mode-btn active" role="radio" aria-checked="true">🔍 Odkrij</button>
+              <button id="mine-mode-flag" class="seg-btn mine-mode-btn" role="radio" aria-checked="false">🚩 Zastavica</button>
+            </div>
+            <div class="game-action-row">
+              <button id="mine-hint-btn" class="btn btn-outline">💡 Namig</button>
+              <button id="mine-face-btn" class="btn btn-outline" title="Ponastavi igro">↺ Nova igra</button>
+            </div>
           </div>
           <p class="mine-help">Levi klik/dotik odkriva, desni klik ali način zastavica postavlja 🚩. Dolgi pritisk na telefonu.</p>
           <div id="mine-message" style="min-height:1.4em; text-align:center; font-weight:700; font-size:0.9rem;"></div>
@@ -72,8 +74,10 @@ export function renderMinolovec() {
           <h3 id="mine-end-title" class="result-title"></h3>
           <p class="muted-xs">Čas: <strong id="mine-final-time">00:00</strong> • Težavnost: <strong id="mine-final-diff"></strong></p>
           <p class="muted-xs mb-sm">Potez: <strong id="mine-final-moves">0</strong></p>
-          <button id="mine-retry-btn" class="btn">Nova igra</button>
-          <button id="mine-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam</button>
+          <div class="game-action-row">
+            <button id="mine-retry-btn" class="btn" data-primary-action="true">Nova igra</button>
+            <button id="mine-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+          </div>
         </div>
       </div>
     </div>

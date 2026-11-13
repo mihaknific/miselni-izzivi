@@ -144,6 +144,24 @@ export function renderAbeceda() {
 
             <div id="abc-play-layer" class="stage-layer hidden">
                 <div class="abc-container">
+                <div class="game-status-bar">
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Pravilno</span>
+                        <strong class="game-status-val" id="abc-correct">0</strong>
+                    </div>
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Napačno</span>
+                        <strong class="game-status-val" id="abc-incorrect">0</strong>
+                    </div>
+                    <div class="game-status-pill" id="abc-time-wrap" style="display:none;">
+                        <span class="game-status-label">Čas</span>
+                        <strong class="game-status-val" id="abc-timer">00:00</strong>
+                    </div>
+                    <div class="game-status-pill" id="abc-count-wrap" style="display:none;">
+                        <span class="game-status-label">Naloge</span>
+                        <strong class="game-status-val"><span id="abc-count">0</span> / <span id="abc-total-count">0</span></strong>
+                    </div>
+                </div>
                 <div id="abc-challenge" class="abc-challenge-display">-</div>
 
                 <div class="abc-input-group">
@@ -168,7 +186,6 @@ export function renderAbeceda() {
   return renderGameShell({
     title: 'Abeceda ↔ Številke',
     subtitle: 'Povezovanje črk in številk',
-    statusHtml,
     settingsHtml,
     infoHtml,
     stageHtml,

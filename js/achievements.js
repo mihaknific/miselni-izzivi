@@ -439,11 +439,12 @@ export function renderAchievementsPanel() {
   const all = getAllAchievements();
   const unlocked = all.filter(a => a.unlocked).length;
   const total = all.length;
+  const pct = total > 0 ? Math.round((unlocked / total) * 100) : 0;
 
   const html = all
     .map(
       a => `
-        <div class="achievement-card ${a.unlocked ? 'unlocked' : 'locked'}">
+        <div class="achievement-card ${a.unlocked ? 'unlocked' : 'locked'}" data-status="${a.unlocked ? 'unlocked' : 'locked'}">
             <div class="achievement-icon" style="font-size: 2rem;">${a.icon}</div>
             <div class="achievement-info">
                 <div class="achievement-name">${a.name}</div>
@@ -460,11 +461,26 @@ export function renderAchievementsPanel() {
 
   return `
         <div class="achievements-panel">
-            <div class="achievements-header">
-                <h3>Dosežki (${unlocked} / ${total})</h3>
-                <div class="achievements-progress">
-                    <div class="achievements-bar" style="--progress: ${(unlocked / total) * 100}%"></div>
+            <div class="page-header" style="margin-bottom: 0;">
+                <h2 class="title">Dosežki in značke</h2>
+                <p class="subtitle">Odkleni dosežke z rednim igranjem, serijami in novimi rekordi.</p>
+            </div>
+            <div class="achievements-header brutal-card">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl" aria-hidden="true">🏆</span>
+                        <h3 class="font-heading font-black text-lg text-black uppercase tracking-tight">Napredek: ${unlocked} od ${total}</h3>
+                    </div>
+                    <span class="px-2.5 py-1 bg-brutal-yellow text-black border-2 border-black font-heading font-black text-xs shadow-brutal-sm">${pct}%</span>
                 </div>
+                <div class="achievements-progress" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="achievements-bar" style="--progress: ${pct}%"></div>
+                </div>
+            </div>
+            <div class="game-segmented-group achievement-filters" role="group" aria-label="Filter dosežkov" style="margin: 0.25rem 0;">
+                <button type="button" class="seg-btn active" data-ach-filter="all">Vsi (${total})</button>
+                <button type="button" class="seg-btn" data-ach-filter="unlocked">Odklenjeni (${unlocked})</button>
+                <button type="button" class="seg-btn" data-ach-filter="locked">Zaklenjeni (${total - unlocked})</button>
             </div>
             <div class="achievements-grid">${html}</div>
         </div>

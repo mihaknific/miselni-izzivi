@@ -136,11 +136,14 @@ export function renderReakcija(initialMode = 'classic') {
             </div>
 
             <div id="rk-end" class="stage-layer hidden">
-                <div class="card rk-summary-card">
+                <div class="rk-summary-card game-dialog-box">
                     <h3 class="result-title">Rezultat</h3>
                     <p id="rk-final-mode" class="muted-xs"></p>
                     <div id="rk-final-metrics" class="rk-summary-list"></div>
-                    <button id="rk-retry" class="btn">Igraj znova</button>
+                    <div class="game-action-row">
+                        <button id="rk-retry" class="btn" data-primary-action="true">Igraj znova</button>
+                        <button class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+                    </div>
                 </div>
             </div>
         </div>

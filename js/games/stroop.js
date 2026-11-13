@@ -83,8 +83,10 @@ ${renderAdaptiveSettingsPanel('stroop')}
                     <p class="muted-xs MBXS">Rezultat: <strong id="st-final-score"></strong> / <strong id="st-final-total"></strong></p>
                     <p id="st-accuracy" class="muted-xs mb-sm"></p>
                     <div id="st-analytics" style="text-align: left; background: var(--color-background); padding: var(--spacing-sm); border-radius: var(--border-radius); margin-bottom: var(--spacing-md); font-size: 0.85rem; line-height: 1.4;"></div>
-                    <button id="st-retry" class="btn" data-primary-action="true">Igraj znova</button>
-                    <button id="st-back-to-list" class="btn btn-outline ml-sm" data-action="back-to-list">← Seznam iger</button>
+                    <div class="game-action-row">
+                        <button id="st-retry" class="btn" data-primary-action="true">Igraj znova</button>
+                        <button id="st-back-to-list" class="btn btn-outline" data-action="back-to-list">← Seznam iger</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1194,7 +1194,7 @@ body.game-active .card.game-card-shell {
   }
 }
 
-/* --- GAME PANELS (Navodila & Nastavitve kot čist modalni panel) --- */
+/* --- GAME PANELS (Navodila & Nastavitve kot čist neo-brutalist modalni panel) --- */
 .game-info-modal,
 .game-aux-panel {
   grid-area: stack;
@@ -1202,11 +1202,11 @@ body.game-active .card.game-card-shell {
   width: min(92vw, 580px);
   max-width: 580px;
   margin: auto;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
   padding: var(--spacing-md) var(--spacing-lg);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: 8px 8px 0 #000000;
   position: relative;
   align-self: center;
   justify-self: center;
@@ -1239,19 +1239,44 @@ body.game-active .card.game-card-shell {
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-sm);
+  border-bottom: 3px solid #000000;
+  padding-bottom: var(--spacing-xs);
 }
 
 .game-info-modal .modal-header-row h3,
 .game-aux-panel .modal-header-row h3 {
   margin: 0;
+  font-family: var(--font-heading, inherit);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  color: #000000;
+  letter-spacing: -0.01em;
 }
 
 .game-info-modal .modal-header-row .icon-btn,
 .game-aux-panel .modal-header-row .icon-btn {
-  font-size: 1.5rem;
-  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  line-height: 1;
   width: 36px;
   height: 36px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  color: #000000;
+  cursor: pointer;
+  opacity: 1;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.game-info-modal .modal-header-row .icon-btn:hover,
+.game-aux-panel .modal-header-row .icon-btn:hover {
+  background: var(--color-primary, #facc15);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000000;
 }
 
 /* Opomba v nastavitvenem modalu */
@@ -1293,20 +1318,30 @@ body.game-active .card.game-card-shell {
 .game-info-modal .modal-close,
 .game-aux-panel .modal-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 900;
   cursor: pointer;
-  color: var(--color-text);
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  color: #000000;
+  opacity: 1;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
 }
 
 .game-info-modal .modal-close:hover,
 .game-aux-panel .modal-close:hover {
-  opacity: 1;
+  background: var(--color-primary, #facc15);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000000;
 }
 
 .info-body {
@@ -1939,6 +1974,23 @@ body.game-active .card.game-card-shell {
   margin-bottom: var(--spacing-xs);
 }
 
+@media (max-height: 520px) {
+  .game-status-bar {
+    margin-bottom: 2px;
+    gap: 4px;
+  }
+  .game-status-pill {
+    padding: 1px 8px;
+    font-size: 0.8rem;
+  }
+  .game-status-label {
+    font-size: 0.65rem;
+  }
+  .game-status-val {
+    font-size: 0.88rem;
+  }
+}
+
 .game-status-pill {
   display: flex;
   align-items: center;
@@ -1964,6 +2016,101 @@ body.game-active .card.game-card-shell {
   font-weight: 900;
   color: #000000;
   font-variant-numeric: tabular-nums;
+}
+
+/* ── Poenoten Neo-Brutalist paket kontrolnikov za igre ── */
+.game-controls-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin-top: var(--spacing-xs);
+}
+
+/* 1. Segmentirana orodna vrstica (načini igranja / orodja) */
+.game-segmented-group {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  border-radius: 9999px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.game-segmented-group .seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000000;
+  background: transparent;
+  border: none;
+  border-right: 2px solid #000000;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.game-segmented-group .seg-btn:last-child {
+  border-right: none;
+}
+
+.game-segmented-group .seg-btn:hover:not(.active) {
+  background: rgba(250, 204, 21, 0.25);
+}
+
+.game-segmented-group .seg-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* 2. Poenotena vrstica sistemskih dejanj (Namig, Preveri, Nova igra) */
+.game-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.game-action-row .btn,
+.game-action-row .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-heading) !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  padding: 0.35rem 0.85rem !important;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease !important;
+}
+
+.game-action-row .btn:hover,
+.game-action-row .btn-outline:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px #000000 !important;
+  background: #facc15 !important;
+}
+
+.game-action-row .btn:active,
+.game-action-row .btn-outline:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px #000000 !important;
 }
 
 .header-status {
@@ -2772,22 +2919,88 @@ hr {
   font-size: 0.85rem;
 }
 
-/* End-screen pogovorno okno v igrah (prej 4 inline variante z max-width 340-420px) */
+/* End-screen pogovorno okno v igrah — neo-brutalism enotni stil */
 .game-dialog-box {
-  --dialog-max-w: 380px;
+  --dialog-max-w: 420px;
   text-align: center;
-  width: 90%;
+  width: 92%;
   max-width: var(--dialog-max-w);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin: var(--spacing-md) auto;
+  background: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 6px 6px 0 #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  box-sizing: border-box;
 }
 
 .game-dialog-box .result-title {
-  margin-bottom: var(--spacing-xs);
-  font-size: 1.25rem;
+  margin: 0;
+  font-family: var(--font-heading, inherit);
+  font-weight: 900;
+  font-size: 1.45rem;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.game-dialog-box .game-action-row {
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.game-dialog-box button,
+.game-dialog-box .btn,
+.game-dialog-box .brutal-btn {
+  font-family: var(--font-heading, inherit);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.game-dialog-box button:hover,
+.game-dialog-box .btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.game-dialog-box button:active,
+.game-dialog-box .btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.game-dialog-box .btn:not(.btn-outline),
+.game-dialog-box .btn[data-primary-action="true"] {
+  background: var(--color-primary, #facc15);
+  color: #000000;
+}
+
+.game-dialog-box .btn:not(.btn-outline):hover {
+  background: #fde047;
+}
+
+.game-dialog-box .btn.btn-outline,
+.game-dialog-box [data-action="back-to-list"] {
+  background: #ffffff;
+  color: #000000;
+}
+
+.game-dialog-box .btn.btn-outline:hover,
+.game-dialog-box [data-action="back-to-list"]:hover {
+  background: #f1f5f9;
 }
 
 /* Seznam navodil pod naslovom (prej 14x inline) */
