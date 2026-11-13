@@ -45,6 +45,32 @@
   box-shadow: 8px 8px 0px 0px #000;
 }
 
+/* Dnevni paket banner - na majhnih zaslonih se lepo postavi navpično in raztegne gumb */
+.daily-challenge-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .daily-challenge-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.daily-challenge-btn {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .daily-challenge-btn {
+    width: auto;
+  }
+}
+
 /* ── Globalni drsniki ── */
 ::-webkit-scrollbar {
   width: 12px;
@@ -233,10 +259,6 @@
     }
 
     & .gc-desc {
-      color: var(--custom-muted, var(--color-text-muted));
-      font-size: 0.9rem;
-      margin: 0;
-      line-height: 1.55;
       flex: 1;
     }
   }
@@ -257,27 +279,6 @@
   width: 100%;
 }
 
-.catalog-search-input {
-  width: 100%;
-  padding: 10px 14px 10px 38px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-  box-sizing: border-box;
-}
-
-.catalog-search-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
-  outline: none;
-}
-
 .catalog-search-icon {
   position: absolute;
   left: 12px;
@@ -293,30 +294,6 @@
   gap: 6px;
   flex-wrap: wrap;
   align-items: center;
-}
-
-.filter-pill {
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text-muted);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.filter-pill:hover {
-  background: var(--color-surface-hover);
-  color: var(--color-text);
-}
-
-.filter-pill.active {
-  background: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.25);
 }
 
 .badge {

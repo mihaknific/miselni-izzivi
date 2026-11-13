@@ -112,7 +112,7 @@ export function renderGameList(tasks) {
 
     <!-- DNEVNI IZZIV SPOTLIGHT -->
     <section id="dnevni-izziv" class="px-0 max-w-7xl mx-auto w-full stack stack--lg">
-      <div class="bg-brutal-orange border-4 border-black p-6 md:p-8 shadow-brutal-lg cluster items-center justify-between gap-6">
+      <div class="daily-challenge-banner bg-brutal-orange border-4 border-black p-6 md:p-8 shadow-brutal-lg">
         <div class="text-center md:text-left stack">
           <span class="px-3 py-1 bg-black text-white font-heading font-black text-xs uppercase shadow-brutal-sm inline-block">
             🔥 DNEVNI IZZIV (${new Date().toLocaleDateString('sl-SI', { day: 'numeric', month: 'long' }).toUpperCase()})
@@ -124,7 +124,7 @@ export function renderGameList(tasks) {
             Sklop 3–4 iger za celovito kognitivno vadbo današnjega dne. Reši celoten paket, zbiraj točke in ohrani svoj dnevni niz (streak)!
           </p>
         </div>
-        <a href="#game/daily" class="brutal-btn px-5 py-3 sm:px-8 sm:py-4 bg-white text-black font-heading font-black text-base sm:text-lg border-3 border-black shadow-brutal md:whitespace-nowrap flex items-center justify-center gap-2">
+        <a href="#game/daily" class="daily-challenge-btn brutal-btn px-5 py-3 sm:px-8 sm:py-4 bg-white text-black font-heading font-black text-base sm:text-lg border-3 border-black shadow-brutal md:whitespace-nowrap flex items-center justify-center gap-2">
           REŠUJ DNEVNI PAKET →
         </a>
       </div>

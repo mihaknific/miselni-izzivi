@@ -21,7 +21,7 @@
   --color-warning: #f59e0b;
 
   /* Uporabniške nastavitve (dinamične) */
-  --custom-font-size: 14px;
+  --custom-font-size: 16px;
   --custom-bg: var(--color-bg);
   --custom-text: var(--color-text-main);
   --custom-heading: var(--color-text-main);
