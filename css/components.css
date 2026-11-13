@@ -629,10 +629,10 @@
   align-items: center;
   gap: 6px;
   background: #ffffff;
-  border: 2px solid #000000;
+  border: none;
   box-shadow: 2px 2px 0px 0px #000000;
-  padding: 3px 10px;
-  border-radius: 9999px;
+  padding: 4px 10px;
+  border-radius: 0;
   font-family: var(--font-heading);
 }
 
@@ -651,7 +651,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ── Poenoten Neo-Brutalist paket kontrolnikov za igre ── */
+/* ── Poenoten Neo-Brutalist paket kontrolnikov za igre (ostri, brez obrobe, s trdo senco kot header) ── */
 .game-controls-stack {
   display: flex;
   flex-direction: column;
@@ -661,16 +661,18 @@
   margin-top: var(--spacing-xs);
 }
 
-/* 1. Segmentirana orodna vrstica (načini igranja / orodja) */
+/* 1. Segmentirana orodna vrstica (načini igranja / orodja) - odprta skupina brez togega zunanjega okvira */
 .game-segmented-group {
   display: inline-flex;
   align-items: center;
-  background: #ffffff;
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0px 0px #000000;
-  border-radius: 9999px;
-  overflow: hidden;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
   max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .game-segmented-group .seg-btn {
@@ -683,11 +685,12 @@
   font-size: 0.85rem;
   font-weight: 800;
   color: #000000;
-  background: transparent;
+  background: #ffffff;
   border: none;
-  border-right: 2px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  border-radius: 0;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, color 0.12s ease;
   white-space: nowrap;
 }
 
@@ -696,20 +699,29 @@
 }
 
 .game-segmented-group .seg-btn:hover:not(.active) {
-  background: rgba(250, 204, 21, 0.25);
+  background: #facc15;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.game-segmented-group .seg-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px #000000;
 }
 
 .game-segmented-group .seg-btn.active {
   background: #000000;
   color: #ffffff;
+  border: none;
+  box-shadow: 3px 3px 0px 0px var(--color-primary, #facc15);
 }
 
-/* 2. Poenotena vrstica sistemskih dejanj (Namig, Preveri, Nova igra) */
+/* 2. Poenotena vrstica sistemskih dejanj (Namig, Preveri, Nova igra) - ostri gumbi brez obrobe z jasnim shadow */
 .game-action-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
+  gap: 8px;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -722,13 +734,13 @@
   gap: 5px;
   background: #ffffff !important;
   color: #000000 !important;
-  border: 2px solid #000000 !important;
-  box-shadow: 2px 2px 0px 0px #000000 !important;
-  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 3px 3px 0px 0px #000000 !important;
+  border-radius: 0 !important;
   font-family: var(--font-heading) !important;
   font-size: 0.82rem !important;
   font-weight: 800 !important;
-  padding: 0.35rem 0.85rem !important;
+  padding: 0.42rem 0.95rem !important;
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease !important;
 }
@@ -736,7 +748,7 @@
 .game-action-row .btn:hover,
 .game-action-row .btn-outline:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px 0px #000000 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
   background: #facc15 !important;
 }
 
