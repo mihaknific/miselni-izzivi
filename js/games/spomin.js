@@ -99,6 +99,16 @@ export function renderSpomin() {
 
             <div id="sp-play-layer" class="stage-layer hidden">
                 <div class="sp-board-wrapper">
+                    <div class="game-status-bar">
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Poteze</span>
+                            <strong class="game-status-val" id="sp-moves">0</strong>
+                        </div>
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Čas</span>
+                            <strong class="game-status-val" id="sp-time">00:00</strong>
+                        </div>
+                    </div>
                     <div id="sp-board" class="sp-game-board"></div>
                     <button id="sp-restart" class="btn btn-outline" style="margin-top: var(--spacing-sm); padding: 0.35rem 0.8rem; font-size: 0.85rem;">↺ Ponovno</button>
                     <div id="sp-victory-panel" class="sp-victory-panel hidden" style="margin-top: var(--spacing-sm); text-align: center; width: 100%; z-index: 10;">
@@ -121,8 +131,6 @@ export function renderSpomin() {
   return renderGameShell({
     title: 'Spomin',
     subtitle: 'Išči pare enakih ikon',
-    statusHtml:
-      '<span>Poteze: <strong id="sp-moves">0</strong></span><span>Čas: <strong id="sp-time">00:00</strong></span>',
     settingsHtml,
     infoHtml,
     stageHtml,

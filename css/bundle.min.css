@@ -1879,7 +1879,42 @@ body.game-active .card.game-card-shell {
        tu ohranimo centriranje, a preprečimo rezanje vrha z safe */
 }
 
-/* .game-header odstranjen â€” teleportiran v app-header */
+/* .game-header odstranjen — teleportiran v app-header */
+
+.game-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.game-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px 0px #000000;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+}
+
+.game-status-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+}
+
+.game-status-val {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #000000;
+  font-variant-numeric: tabular-nums;
+}
 
 .header-status {
   display: flex;
