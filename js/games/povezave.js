@@ -235,6 +235,16 @@ ${renderAdaptiveSettingsPanel('povezave')}
 
       <div id="pov-play-screen" class="stage-layer hidden">
         <div class="pov-stage-container">
+          <div class="game-status-bar">
+            <div class="game-status-pill">
+              <span class="game-status-label">Rešeno</span>
+              <strong class="game-status-val" id="pov-header-solved">0/4</strong>
+            </div>
+            <div class="game-status-pill">
+              <span class="game-status-label">Življenja</span>
+              <strong class="game-status-val" id="pov-header-lives">●●●●</strong>
+            </div>
+          </div>
           <div class="pov-topbar">
             <div class="pov-lives" id="pov-lives"><span>Napake:</span><span id="pov-dots"></span><span id="pov-lives-text">4/4</span></div>
             <div style="display:flex; gap:6px;">
@@ -290,8 +300,6 @@ ${renderAdaptiveSettingsPanel('povezave')}
   return renderGameShell({
     title: 'Povezave',
     subtitle: 'Razvrsti 16 besed v 4 skupine.',
-    statusHtml:
-      '<span>Rešeno: <strong id="pov-header-solved">0/4</strong></span><span>Življenja: <strong id="pov-header-lives">●●●●</strong></span>',
     settingsHtml,
     stageHtml,
     infoHtml,

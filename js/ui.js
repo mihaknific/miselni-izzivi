@@ -113,7 +113,7 @@ export function renderGameList(tasks) {
     <!-- DNEVNI IZZIV SPOTLIGHT -->
     <section id="dnevni-izziv" class="px-0 max-w-7xl mx-auto w-full stack stack--lg">
       <div class="daily-challenge-banner bg-brutal-orange border-4 border-black p-6 md:p-8 shadow-brutal-lg">
-        <div class="text-center md:text-left stack">
+        <div class="text-left stack items-start">
           <span class="px-3 py-1 bg-black text-white font-heading font-black text-xs uppercase shadow-brutal-sm inline-block">
             🔥 DNEVNI IZZIV (${new Date().toLocaleDateString('sl-SI', { day: 'numeric', month: 'long' }).toUpperCase()})
           </span>

@@ -61,6 +61,16 @@ ${renderAdaptiveSettingsPanel('stroop')}
 
             <div id="st-play-layer" class="stage-layer hidden">
                 <div class="st-play-column">
+                    <div class="game-status-bar">
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Runda</span>
+                            <strong class="game-status-val"><span id="st-round">0</span> / <span id="st-total">20</span></strong>
+                        </div>
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Točke</span>
+                            <strong class="game-status-val" id="st-score">0</strong>
+                        </div>
+                    </div>
                     <div id="st-word" class="st-word">Pritisni Začni</div>
                     <div id="st-buttons" class="st-buttons"></div>
                     <p id="st-feedback" class="st-feedback" aria-live="polite" aria-atomic="true"></p>
@@ -92,8 +102,6 @@ ${renderAdaptiveSettingsPanel('stroop')}
   return renderGameShell({
     title: 'Stroopov test',
     subtitle: 'Določi barvo pisave, ne preberi napisane besede.',
-    statusHtml:
-      '<span>Runda: <strong id="st-round">0</strong> / <strong id="st-total">20</strong></span><span>Točke: <strong id="st-score">0</strong></span>',
     settingsHtml,
     infoHtml,
     stageHtml,

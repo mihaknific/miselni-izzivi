@@ -50,6 +50,16 @@ ${renderAdaptiveSettingsPanel('nonogram')}
       </div>
       <div id="nono-play-screen" class="stage-layer hidden">
         <div class="nono-stage-container">
+          <div class="game-status-bar">
+            <div class="game-status-pill">
+              <span class="game-status-label">Čas</span>
+              <strong class="game-status-val" id="nono-header-time">00:00</strong>
+            </div>
+            <div class="game-status-pill">
+              <span class="game-status-label">Velikost</span>
+              <strong class="game-status-val" id="nono-header-size">10×10</strong>
+            </div>
+          </div>
           <div class="nono-topbar">
             <button id="nono-new-btn" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.82rem;">↺ Nova igra</button>
             <button id="nono-check-btn" class="btn btn-outline btn-sm ml-auto">✓ Preveri</button>
@@ -92,8 +102,6 @@ ${renderAdaptiveSettingsPanel('nonogram')}
   return renderGameShell({
     title: 'Nonogram',
     subtitle: 'Japonska križanka – logika slik.',
-    statusHtml:
-      '<span>Čas: <strong id="nono-header-time">00:00</strong></span><span id="nono-header-size">10×10</span>',
     settingsHtml,
     stageHtml,
     infoHtml,

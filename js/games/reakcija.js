@@ -112,6 +112,16 @@ export function renderReakcija(initialMode = 'classic') {
 
             <div id="rk-play-layer" class="stage-layer hidden">
                 <div class="rk-play-shell">
+                    <div class="game-status-bar">
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Poskus</span>
+                            <strong class="game-status-val"><span id="rk-trial">0</span> / <span id="rk-total">30</span></strong>
+                        </div>
+                        <div class="game-status-pill">
+                            <span class="game-status-label">Pravilni</span>
+                            <strong class="game-status-val" id="rk-score">0</strong>
+                        </div>
+                    </div>
                     <div class="rk-topline">
                         <span id="rk-mode-label" class="history-muted">Način: ${gameTitle}</span>
                         <span id="rk-trial-count" class="history-muted">Poskus 0 / 30</span>
@@ -145,8 +155,6 @@ export function renderReakcija(initialMode = 'classic') {
   return renderGameShell({
     title: gameTitle,
     subtitle: gameSubtitle,
-    statusHtml:
-      '<span>Poskus: <strong id="rk-trial">0</strong> / <strong id="rk-total">30</strong></span><span>Pravilni odzivi: <strong id="rk-score">0</strong></span>',
     settingsHtml,
     infoHtml,
     stageHtml,
