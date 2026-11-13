@@ -256,16 +256,6 @@ export function renderSettings() {
 
         <div class="stack stack--md">
           <label class="cluster justify-between">
-            Velikost pisave:
-            <select id="opt-fontSize" class="form-select" data-default="16px">
-              <option value="14px">Majhna</option>
-              <option value="16px">Srednja (privzeta)</option>
-              <option value="20px">Velika</option>
-              <option value="24px">Zelo velika</option>
-            </select>
-          </label>
-
-          <label class="cluster justify-between">
             Barva glavnega besedila:
             <input type="color" id="opt-textColor" data-default="#000000">
           </label>

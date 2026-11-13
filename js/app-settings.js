@@ -8,7 +8,7 @@ import { DEFAULT_SETTINGS, THEME_PRESETS, applyCustomSettings } from './theme.js
  * @param {Function} [onNavigate] funkcija za navigacijo (privzeto window.navigateTo)
  */
 export async function bindSettingsEvents(onNavigate = window.navigateTo) {
-  const ids = ['fontSize', 'bgColor', 'textColor', 'headingColor', 'mutedColor', 'primaryColor'];
+  const ids = ['bgColor', 'textColor', 'headingColor', 'mutedColor', 'primaryColor'];
   for (const id of ids) {
     const el = document.getElementById(`opt-${id}`);
     if (!el) continue;
@@ -21,7 +21,6 @@ export async function bindSettingsEvents(onNavigate = window.navigateTo) {
 
   const btnReset = document.getElementById('btn-reset');
   btnReset?.addEventListener('click', async () => {
-    await Settings.set('fontSize', DEFAULT_SETTINGS.fontSize);
     await Settings.set('bgColor', DEFAULT_SETTINGS.bgColor);
     await Settings.set('surfaceColor', DEFAULT_SETTINGS.surfaceColor);
     await Settings.set('borderColor', DEFAULT_SETTINGS.borderColor);

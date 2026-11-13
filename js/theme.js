@@ -141,7 +141,6 @@ export async function applyCustomSettings() {
   const root = document.documentElement;
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const [
-    fontSize,
     bgColor,
     surfaceColor,
     borderColor,
@@ -151,7 +150,6 @@ export async function applyCustomSettings() {
     primaryColor,
     primaryText,
   ] = await Promise.all([
-    Settings.get('fontSize', DEFAULT_SETTINGS.fontSize),
     Settings.get('bgColor', DEFAULT_SETTINGS.bgColor),
     Settings.get('surfaceColor', DEFAULT_SETTINGS.surfaceColor),
     Settings.get('borderColor', DEFAULT_SETTINGS.borderColor),
@@ -162,7 +160,6 @@ export async function applyCustomSettings() {
     Settings.get('primaryText', DEFAULT_SETTINGS.primaryText),
   ]);
 
-  root.style.setProperty('--custom-font-size', fontSize);
   root.style.setProperty('--custom-bg', bgColor);
   root.style.setProperty('--color-bg', bgColor);
   root.style.setProperty('--color-bg-rgb', hexToRgb(bgColor));
