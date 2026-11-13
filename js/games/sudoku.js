@@ -57,6 +57,16 @@ ${renderAdaptiveSettingsPanel('sudoku')}
       </div>
       <div id="sud-play-screen" class="stage-layer hidden">
         <div class="sud-stage-container">
+          <div class="game-status-bar">
+            <div class="game-status-pill">
+              <span class="game-status-label">Čas</span>
+              <strong class="game-status-val" id="sud-header-time">00:00</strong>
+            </div>
+            <div class="game-status-pill">
+              <span class="game-status-label">Nivo</span>
+              <strong class="game-status-val" id="sud-header-diff">Lahko</strong>
+            </div>
+          </div>
           <div class="sud-topbar">
             <span id="sud-errors" style="font-size:0.85rem; font-weight:700; color:var(--color-error);">Napake: 0</span>
             <button id="sud-new-btn" class="btn btn-outline btn-sm ml-auto">↺ Nova igra</button>
@@ -99,8 +109,6 @@ ${renderAdaptiveSettingsPanel('sudoku')}
   return renderGameShell({
     title: 'Sudoku',
     subtitle: 'Klasični 9×9 – logika števil.',
-    statusHtml:
-      '<span>Čas: <strong id="sud-header-time">00:00</strong></span><span id="sud-header-diff">Lahko</span>',
     settingsHtml,
     stageHtml,
     infoHtml,

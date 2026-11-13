@@ -67,11 +67,11 @@ export function renderGameList(tasks) {
           <p class="text-base md:text-lg font-medium text-slate-900 leading-relaxed max-w-2xl mx-auto">
             Brez dolgočasne teorije. Samo hitri in vizualno zabavni miselni izzivi za vsakodnevni mentalni trening.
           </p>
-          <div class="cluster justify-center pt-2">
-            <a href="#game-list" class="brutal-btn px-6 py-3 bg-brutal-pink text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
+          <div class="hero-cta-cluster pt-2">
+            <a href="#game-list" class="brutal-btn hero-cta-btn px-6 py-3 bg-brutal-pink text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
               <i class="fa-solid fa-play"></i> SKOČI NA IGRE
             </a>
-            <a href="#dnevni-izziv" class="brutal-btn px-6 py-3 bg-brutal-cyan text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
+            <a href="#dnevni-izziv" class="brutal-btn hero-cta-btn px-6 py-3 bg-brutal-cyan text-black font-heading font-black text-base border-3 border-black shadow-brutal flex items-center gap-2">
               <i class="fa-solid fa-bolt"></i> DNEVNI IZZIV
             </a>
           </div>

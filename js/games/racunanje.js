@@ -90,6 +90,16 @@ export function renderRacunanje() {
             </div>
 
             <div id="rc-play-layer" class="stage-layer hidden">
+                <div class="game-status-bar">
+                    <div class="game-status-pill">
+                        <span class="game-status-label" id="rc-progress-label">Čas</span>
+                        <strong class="game-status-val" id="rc-progress-val">60</strong>
+                    </div>
+                    <div class="game-status-pill">
+                        <span class="game-status-label">Točke</span>
+                        <strong class="game-status-val" id="rc-score">0</strong>
+                    </div>
+                </div>
                 <div id="rc-game-area" class="rc-game-area">
                     <div id="rc-equation" class="rc-equation">3 + 5 = ?</div>
                     <div id="rc-options" class="rc-options"></div>
@@ -118,8 +128,6 @@ export function renderRacunanje() {
   return renderGameShell({
     title: 'Hitro računanje',
     subtitle: 'Reši izračune hitro in pravilno.',
-    statusHtml:
-      '<span id="rc-progress-label">Čas: <strong id="rc-progress-val">60</strong></span><span>Točke: <strong id="rc-score">0</strong></span>',
     settingsHtml,
     infoHtml,
     stageHtml,

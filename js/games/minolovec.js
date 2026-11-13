@@ -44,6 +44,16 @@ export function renderMinolovec() {
       </div>
       <div id="mine-play-screen" class="stage-layer hidden">
         <div class="mine-stage-container">
+          <div class="game-status-bar">
+            <div class="game-status-pill">
+              <span class="game-status-label">Mine</span>
+              <strong class="game-status-val" id="mine-header-mines">💣 10</strong>
+            </div>
+            <div class="game-status-pill">
+              <span class="game-status-label">Čas</span>
+              <strong class="game-status-val" id="mine-header-time">00:00</strong>
+            </div>
+          </div>
           <div class="mine-topbar">
             <button id="mine-face-btn" class="btn btn-outline" style="font-size:1rem; padding:0.35rem 0.9rem; margin:0 auto;" title="Ponastavi igro">🙂 Nova igra</button>
           </div>
@@ -81,7 +91,6 @@ export function renderMinolovec() {
   return renderGameShell({
     title: 'Minolovec',
     subtitle: 'Klasični iskalec min.',
-    statusHtml: '<span id="mine-header-mines">💣 10</span><span id="mine-header-time">00:00</span>',
     settingsHtml,
     stageHtml,
     infoHtml,

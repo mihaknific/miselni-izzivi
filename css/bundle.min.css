@@ -1401,6 +1401,32 @@ body.game-active .card.game-card-shell {
   margin-top: 0.35rem;
 }
 
+/* Hero CTA gumbi - na telefonih polna širina in stolpec, na večjih zaslonih lepo vodoravno */
+.hero-cta-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: stretch;
+  width: 100%;
+}
+
+.hero-cta-btn {
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 480px) {
+  .hero-cta-cluster {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+  .hero-cta-btn {
+    width: auto;
+  }
+}
+
 /* Dnevni paket banner - na majhnih zaslonih se lepo postavi navpično in raztegne gumb */
 .daily-challenge-banner {
   display: flex;
